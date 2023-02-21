@@ -30,13 +30,25 @@
 		
 		<table border="0px" class="salary_table" width="400px">
 			<td> 
-				연봉
+				<tr>연봉</tr>
 				<input type="radio" name="salary" value="third">3천이상
 				<input type="radio" name="salary" value="forth">5천이상 
 				<input type="radio" name="salary" value="sixth">8천이상 
 				<input type="radio" name="salary" value="tenth">1억이상
 			</td>
 		</table>
+		<table>
+		 <td align="right">연봉</td>
+             <td>
+             	<select name="salary">
+             	<option value="">연봉</option>
+             	<option value="third">3천이상</option>
+             	<option value="forth">5천이상</option>
+             	<option value="sixth">8천이상</option>
+             	<option value="tenth">1억이상</option>
+             </select>
+             </td>
+        </table>
 		
 		<li><input name="f_num" type="text" placeholder="세대원 수를 입력하세요"></li>
 		<li><input name="nick" type="text" placeholder="닉네임을 입력하세요"></li>
