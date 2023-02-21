@@ -24,7 +24,17 @@
 	<a>회원가입</a>
 	<form action="joinService" method="post">
 		<li><input name="id" type="text" placeholder="아이디을 입력하세요"></li>
-		<li><input name="pw" type="password" placeholder="비밀번호를 입력하세요"></li>
+		<li><input id = "pw" name="pw" type="password" onchange="check_pw()" placeholder="비밀번호를 입력하세요"></li>
+		<li><input id = "pw2"name="pw2" type="password" onchange="check_pw()" placeholder="비밀번호 확인">&nbsp;<span id="check"></span></li>
+					<script> 
+					if(document.getElementById('pw').value==document.getElementById('pw2').value){
+						document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+			        	document.getElementById('check').style.color='blue';
+					}else{
+						document.getElementById('check').innerHTML='비밀번호가 일치하지않습니다.'
+				    	document.getElementById('check').style.color='red';
+					}
+					</script>
 		<li><input name="name" type="text" placeholder="이름를 입력하세요"></li>
 		<li><input name="age" type="text" placeholder="나이를 입력하세요"></li>
 		
