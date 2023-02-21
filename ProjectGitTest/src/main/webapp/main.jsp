@@ -29,17 +29,8 @@
 		<li><input name="age" type="text" placeholder="나이를 입력하세요"></li>
 		
 		<table border="0px" class="salary_table" width="400px">
-			<td> 
-				<tr>연봉</tr>
-				<input type="radio" name="salary" value="third">3천이상
-				<input type="radio" name="salary" value="forth">5천이상 
-				<input type="radio" name="salary" value="sixth">8천이상 
-				<input type="radio" name="salary" value="tenth">1억이상
-			</td>
-		</table>
-		<table>
-		 <td align="right">연봉</td>
-             <td>
+		 	<td>연봉</td>
+             <td align="left">
              	<select name="salary">
              	<option value="">연봉</option>
              	<option value="third">3천이상</option>
