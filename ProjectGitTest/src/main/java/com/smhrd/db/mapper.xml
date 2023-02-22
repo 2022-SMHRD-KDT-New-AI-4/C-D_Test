@@ -16,7 +16,5 @@
  <select id="login" resultType ="MemberVO" parameterType="MemberVO">
  	select * from tb_user where user_id = #{id} and pw = #{pw}
  </select>
- <select id="login" resultType ="MemberVO" parameterType="MemberVO">
- 	select * from tb_user where user_id = #{id} and pw = #{pw}
- </select>
+
 </mapper>
