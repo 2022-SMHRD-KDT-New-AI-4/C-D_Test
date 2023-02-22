@@ -19,7 +19,7 @@ public class SqlSessionManager {
 			SqlSessionFactory =
 					new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
-		
+			e.printStackTrace();
 		}
 	}
 	

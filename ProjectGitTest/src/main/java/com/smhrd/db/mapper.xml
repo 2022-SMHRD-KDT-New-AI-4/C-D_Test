@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- sql 문장입력하는 파일 -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -10,35 +9,12 @@
 
 <!-- 회원가입(insert)  -->
 <insert id="join" parameterType="MemberVO">
-	insert into member values(#{email},#{pw},#{tel},#{addr})
+	insert into tb_user values(#{id},#{pw},#{name},#{age},#{salary},#{f_num},#{nick},sysdate)
 </insert>
   
-  <!-- 로그인(select) -->
-  <!--select 할 때  resultType ="" 필요  
-  : 읽어온 결과를 어떤 타입으로 묶어서 돌려줄것인지 지정-->
+  <!-- 로그인(select) --> 
  <select id="login" resultType ="MemberVO" parameterType="MemberVO">
- 	select * from member where email = #{email} and pw = #{pw}
+ 	select * from tb_user where user_id = #{id} and pw = #{pw}
  </select>
- 
- <!-- 회원정보 수정(Update) -->
- <update id="mbupdate" parameterType="MemberVO">
- 	update member set pw = #{pw}, tel = #{tel}, addr = #{addr} 
- 	where email = #{email}
- </update>
- 
- <!-- 전체 회원 정보 불러오기 -->
- <!-- 읽어온 값이 여러개인 경우에는 기본적으로 List<객체의 타입(resultType)>로 반환 -->
- <select id="selectAll" resultType ="MemberVO">
- 	select * from member
- </select>
- 
- <!-- 회원삭제(delete) -->
- <!-- parameterType 이 기본타입 한개면 생략가능  -->
- <!-- #{} 넘어오는 값이 한개면 비워두거나 아무거나 작성 가능-->
-  <delete id="delete" parameterType="String">
-  	delete from member where email =  #{email}
-  </delete>
-  
-  
 
 </mapper>
