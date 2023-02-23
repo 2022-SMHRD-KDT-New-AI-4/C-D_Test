@@ -58,49 +58,51 @@
 
 
 		<!-- Sign In Start -->
-		<div class="container-fluid">
-			<div class="row h-100 align-items-center justify-content-center"
-				style="min-height: 100vh;">
-				<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-					<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-						<div
-							class="d-flex align-items-center justify-content-between mb-3">
-							<a href="#"><<</a> <span class="text-primary" align="center">YY년
-								MM월 DD일</span> <a href="#">>></a>
-						</div>
-						<div class="bg-secondary rounded">
-							<select class="form-select mb-3"
-								aria-label="Default select example" name="ITEM_TYPE">
-								<option selected>수입/지출</option>
-								<option value="수입">수입</option>
-								<option value="지출">지출</option>
-							</select>
-						</div>
-						<div class="bg-secondary rounded">
-							<select class="form-select mb-3"
-								aria-label="Default select example" name="ITEM_TAG">
-								<option selected>소비항목</option>
-								<option value="저축/보험">저축/보험</option>
-								<option value="식비">식비</option>
-								<option value="공과금">공과금</option>
-								<option value="생필품">생필품</option>
-								<option value="품위유지비">품위유지비</option>
-								<option value="교통비">교통비</option>
-								<option value="기타">기타</option>
-							</select>
-						</div>
-						<div class="form-floating mb-3">
-							<input type="email" class="form-control" id="floatingInput">
-							<label for="floatingInput">상세내용</label>
-						</div>
-						<div align="center">
-							<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
-							<button type="button" class="btn btn-warning rounded-pill m-2">Submit</button>
+		<form action="#" method="post">
+			<div class="container-fluid">
+				<div class="row h-100 align-items-center justify-content-center"
+					style="min-height: 100vh;">
+					<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+						<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+							<div
+								class="d-flex align-items-center justify-content-between mb-3">
+								<a href="#"><<</a> <span class="text-primary" align="center">YY년
+									MM월 DD일</span> <a href="#">>></a>
+							</div>
+							<div class="bg-secondary rounded">
+								<select class="form-select mb-3"
+									aria-label="Default select example" name="ITEM_TYPE">
+									<option selected>수입/지출</option>
+									<option value="수입">수입</option>
+									<option value="지출">지출</option>
+								</select>
+							</div>
+							<div class="bg-secondary rounded">
+								<select class="form-select mb-3"
+									aria-label="Default select example" name="ITEM_TAG">
+									<option selected>소비항목</option>
+									<option value="저축/보험">저축/보험</option>
+									<option value="식비">식비</option>
+									<option value="공과금">공과금</option>
+									<option value="생필품">생필품</option>
+									<option value="품위유지비">품위유지비</option>
+									<option value="교통비">교통비</option>
+									<option value="기타">기타</option>
+								</select>
+							</div>
+							<div class="form-floating mb-3">
+								<input type="email" class="form-control" id="floatingInput">
+								<label for="floatingInput">상세내용</label>
+							</div>
+							<div align="center">
+								<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
+								<button type="button" class="btn btn-warning rounded-pill m-2">Submit</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 		<!-- Sign In End -->
 	</div>
 
