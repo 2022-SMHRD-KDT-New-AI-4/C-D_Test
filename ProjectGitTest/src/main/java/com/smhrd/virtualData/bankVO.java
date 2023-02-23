@@ -1,6 +1,6 @@
 package com.smhrd.virtualData;
 
-public class BankVO {		
+public class bankVO {		
 		private int bk_Idx; // 순번
 		private String bk_Member; // 고객
 		private String bk_Date; // 날짜
@@ -18,7 +18,7 @@ public class BankVO {
 		}
 
 
-		public BankVO(int bk_Idx, String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
+		public bankVO(int bk_Idx, String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
 				String bk_Deposit_Withdrawal, long bk_AccountAmount) {
 			super();
 			this.bk_Idx = bk_Idx;
@@ -31,7 +31,7 @@ public class BankVO {
 		}
 
 
-		public BankVO(String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
+		public bankVO(String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
 				String bk_Deposit_Withdrawal, long bk_AccountAmount) {
 			super();
 			this.bk_Member = bk_Member;
@@ -43,7 +43,7 @@ public class BankVO {
 		}
 
 
-		public BankVO() {
+		public bankVO() {
 			super();
 		}
 

@@ -4,8 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com/smhrd/db/vbdmapper.xml" >
 
+<!-- 은행 가상데이터 insert  -->
+<insert id="vdInsert" parameterType="com.smhrd.virtualData.bankVO">
+ insert into virtualBank values (mbseq.NEXTVAL,#{bk_Member},#{bk_Date},#{bk_BankName},
+ 								#{bk_Detail},#{bk_Deposit_Withdrawal},#{bk_AccountAmount})
+</insert>
+
+<!-- tb_user 테이블에서 회원명 select  -->
+<select id="userNameSelect" resultType="String">
+	select USER_NAME FROM tb_user;
+</select>
 
 
+<!-- tb_target 테이블에서 목표명 select -->
+<select id="targetNameSelect"  parameterType="String" resultType="String">
+	SELECT TARGET_NAME from tb_target where user_name = #{String}
+</select>
 
 
 </mapper>
