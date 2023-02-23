@@ -25,6 +25,7 @@
 
 	<mappers>
 		<mapper resource="com/smhrd/db/mapper.xml" />
+		<mapper resource="com/smhrd/db/vbdmapper.xml" />
 	</mappers>
 	
 	
