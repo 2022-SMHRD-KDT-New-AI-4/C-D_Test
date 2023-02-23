@@ -13,7 +13,7 @@
 <meta content="" name="keywords">
 <meta content="" name="description">
 <!-- Favicon -->
-<link href="img/favicon.ico" rel="icon">
+<link href="assets/darkpan-1.0.0/img/favicon.ico" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,9 +31,11 @@
 	rel="stylesheet">
 
 <!-- Libraries Stylesheet -->
-<link href="lib/owlcarousel/assets/owl.carousel.min.css"
+<link
+	href="assets/darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
-<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+<link
+	href="assets/darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
 	rel="stylesheet" />
 
 <!-- Customized Bootstrap Stylesheet -->
@@ -45,7 +47,9 @@
 </head>
 
 <body>
+<form action="#" method="post">
 	<div class="container-fluid position-relative d-flex p-0">
+
 		<!-- Spinner Start -->
 		<div id="spinner"
 			class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -56,20 +60,19 @@
 		</div>
 		<!-- Spinner End -->
 
-
 		<!-- Sign In Start -->
-		<form action="#" method="post">
+		
+			
 			<div class="container-fluid">
-				<div class="row h-100 align-items-center justify-content-center"
-					style="min-height: 100vh;">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
 					<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
 						<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-							<div
+							 <div
 								class="d-flex align-items-center justify-content-between mb-3">
-								<a href="#"><<</a> <span class="text-primary" align="center">YY년
-									MM월 DD일</span> <a href="#">>></a>
+								<a href="#"> << </a> <span class="text-primary" align="center">
+									YY년 MM월 DD일</span> <a href="#"> >> </a>
 							</div>
-							<div class="bg-secondary rounded">
+ 							<div class="bg-secondary rounded">
 								<select class="form-select mb-3"
 									aria-label="Default select example" name="ITEM_TYPE">
 									<option selected>수입/지출</option>
@@ -80,13 +83,14 @@
 							<div class="bg-secondary rounded">
 								<select class="form-select mb-3"
 									aria-label="Default select example" name="ITEM_TAG">
-									<option selected>소비항목</option>
+									<option selected>항목</option>
 									<option value="저축/보험">저축/보험</option>
 									<option value="식비">식비</option>
 									<option value="공과금">공과금</option>
 									<option value="생필품">생필품</option>
 									<option value="품위유지비">품위유지비</option>
 									<option value="교통비">교통비</option>
+									<option value="기타">월급</option>
 									<option value="기타">기타</option>
 								</select>
 							</div>
@@ -97,27 +101,29 @@
 							<div align="center">
 								<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
 								<button type="button" class="btn btn-warning rounded-pill m-2">Submit</button>
-							</div>
+							</div>  
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
+		
 		<!-- Sign In End -->
 	</div>
 
-
+</form>
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/chart/chart.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-	<script src="lib/tempusdominus/js/moment.min.js"></script>
-	<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-	<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+	<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
+	<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
+	<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
+	<script
+		src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
+	<script
+		src="assets/darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 	<!-- Template Javascript -->
 	<script src="assets/darkpan-1.0.0/js/main.js"></script>
