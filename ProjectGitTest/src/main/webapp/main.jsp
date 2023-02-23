@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/darkpan-1.0.0/js/main.js" />
 <style type="text/css">
 	.salary_table{
 		text-align : center;
@@ -14,6 +15,7 @@
 </style>
 </head>
 <body>
+<script src="assets/darkpan-1.0.0/js/main.js" type="text/javascript"></script>
 	<a>로그인</a>
 	<form action="loginservice" method="post">
 		<li><input name="id" type="text" placeholder="아이디을 입력하세요"></li>
