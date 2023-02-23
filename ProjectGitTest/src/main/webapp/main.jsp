@@ -65,6 +65,6 @@
 			<input type="submit" value="뒤로가기" class="back_button"></li>
 	</form>
 
-<% %>
+
 </body>
 </html>
