@@ -9,7 +9,7 @@
 
 <!-- 회원가입(insert)  -->
 <insert id="join" parameterType="MemberVO">
-	insert into tb_user values(#{id},#{pw},#{name},#{age},#{salary},#{f_num},#{nick},sysdate)
+	insert into tb_user values(#{id},#{pw},#{name},#{age},#{salary},#{f_num},#{nick},sysdate,1)
 </insert>
   
   <!-- 로그인(select) --> 
