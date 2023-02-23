@@ -64,7 +64,6 @@
 		<li><input type="submit" value="회원가입" class="success_button">
 			<input type="submit" value="뒤로가기" class="back_button"></li>
 	</form>
-<% %>
 
 </body>
 </html>
