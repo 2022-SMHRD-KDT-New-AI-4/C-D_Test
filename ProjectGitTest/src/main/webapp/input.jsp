@@ -1,3 +1,5 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.MemberVO"%>
 <%@page import="java.util.Random"%>
@@ -61,7 +63,10 @@
 		<!-- Spinner End -->
 
 		<!-- Sign In Start -->
-		
+		<%
+		String date = request.getParameter("date");
+		String [] arr = date.split("/");
+		%>
 			
 			<div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
@@ -70,7 +75,8 @@
 							 <div
 								class="d-flex align-items-center justify-content-between mb-3">
 								<a href="#"> << </a> <span class="text-primary" align="center">
-									YY년 MM월 DD일</span> <a href="#"> >> </a>
+									<%= arr[0]+"년 "+arr[1]+"월 "+arr[2]+"일" %>
+									</span> <a href="#"> >> </a>
 							</div>
  							<div class="bg-secondary rounded">
 								<select class="form-select mb-3"
@@ -99,7 +105,9 @@
 								<label for="floatingInput">상세내용</label>
 							</div>
 							<div align="center">
+								<a href="calendar1.jsp">
 								<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
+								</a>
 								<button type="button" class="btn btn-warning rounded-pill m-2">Submit</button>
 							</div>  
 						</div>
