@@ -192,9 +192,15 @@
 						<div
 							class="d-flex align-items-center justify-content-between mb-4">
 
-
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4">회원정보
-								수정</button>
+							
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="modify();">회원정보수정</button> &nbsp; &nbsp; &nbsp;
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4">뒤로가기</button>
+								
+								<script>
+									function modify(){
+										alert("회원정보가 수정되었습니다.");
+									}
+								</script>
 						</div>
 						<div>
 							<br>

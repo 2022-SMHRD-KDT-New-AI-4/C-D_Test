@@ -96,7 +96,9 @@
 						</div>
 						<div><br></div>
 						<div><br></div>
-						<button type="button" class="btn btn-danger rounded-pill m-2">회원정보 수정하기</button>
+						<button type="button" class="btn btn-danger rounded-pill m-2" >회원정보 수정하기</button>
+						
+						
 
 
 
