@@ -47,7 +47,7 @@
 <div class="row g-4">
 	<div class="col-sm-12 col-xl-6">
 		<div class="bg-secondary rounded h-100 p-4">
-			<h6 class="mb-4">Doughnut Chart</h6>
+			<h6 class="mb-4">여기 도넛 그래프 자리인데 도넛이 안떠용 슬퍼욥</h6>
 			<canvas id="doughnut-chart"></canvas>
 		</div>
 	</div>

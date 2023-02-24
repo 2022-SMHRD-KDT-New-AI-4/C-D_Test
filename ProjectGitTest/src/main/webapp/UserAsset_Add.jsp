@@ -53,9 +53,8 @@
 					<div class="form-check">
 						<input class="form-check-input" type="radio"
 							name="flexRadioDefault" id="flexRadioDefault1" checked> <label
-							class="form-check-label" for="flexRadioDefault1">현금성 자산</label>
-						<select class="form-select mb-3"
-							aria-label="Default select example">
+							class="form-check-label" for="flexRadioDefault1"><h6>현금성 자산</h6></label> <select
+							class="form-select mb-3" aria-label="Default select example">
 							<option selected>은행 선택</option>
 							<option value="1">NH농협</option>
 							<option value="2">KB국민은행</option>
@@ -65,50 +64,108 @@
 							<label for="inputEmail3" class="col-sm-2 col-form-label">잔액
 								작성</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="inputEmail3">
+								<input type="NUMBER" class="form-control" id="inputEmail3">
 							</div>
 						</div>
 					</div>
+					<br>
+					<br>
 					<div class="form-check">
 						<input class="form-check-input" type="radio"
 							name="flexRadioDefault" id="flexRadioDefault2"> <label
-							class="form-check-label" for="flexRadioDefault2">부채</label>
+							class="form-check-label" for="flexRadioDefault2"><h6>부채</h6></label>
 						<div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio"
 									name="inlineRadioOptions" id="inlineRadio1" value="option1">
 								<label class="form-check-label" for="inlineRadio1">신용카드</label>
 							</div>
-							 <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">대출</label>
-                            </div>
 
 							<div class="row mb-3">
-								<label for="inputEmail3" class="col-sm-2 col-form-label">사용액</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputEmail3">
-								</div>
-							</div>
-							
-								<div class="row mb-3">
-								<label for="inputEmail3" class="col-sm-2 col-form-label">사용 내역</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputEmail3">
-								</div>
+								<label for="inputEmail3" class="col-sm-2 col-form-label">카드명</label>
+								<select class="form-select mb-3"
+									aria-label="Default select example">
+									<option selected>카드 선택</option>
+									<option value="1">BC카드</option>
+									<option value="2">KB국민카드</option>
+									<option value="3">신한카드</option>
+								</select>
 							</div>
 						</div>
 
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-2 col-form-label">사용
+								액</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-2 col-form-label">사용
+								내역</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio"
+								name="inlineRadioOptions" id="inlineRadio2" value="option2">
+							<label class="form-check-label" for="inlineRadio2">대출</label>
+						</div>
+						<div>
+
+							<select class="form-select mb-3"
+								aria-label="Default select example">
+								<option selected>은행 선택</option>
+								<option value="1">NH농협</option>
+								<option value="2">KB국민은행</option>
+								<option value="3">신한은행</option>
+							</select>
+						</div>
 					</div>
-					<hr>
-					<div style="text-align: center;">
-					<button type="button" class="btn btn-success m-2">자산 추가</button>
+
+
+				<div class="row mb-3">
+					<label for="inputEmail3" class="col-sm-2 col-form-label">사용액</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputEmail3">
 					</div>
 				</div>
-			</div>
 
+				<div class="row mb-3">
+					<label for="inputEmail3" class="col-sm-2 col-form-label">사용내역</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputEmail3">
+					</div>
+				</div>
+
+	<hr>
+	<div style="text-align: center;">
+		<button type="button" class="btn btn-success m-2"
+			onclick="Asset_Add()">자산 추가</button>
+
+		<script type="text/javascript">
+			function Asset_Add() {
+				let returnValue = confirm('자산을 추가하시겠습니까?');
+				if (returnValue === true) { // 확인 버튼을 눌렀을 경우
+					returnValue = '자산추가함';
+				} else { // 취소 버튼을 눌렀을 경우
+					returnValue = '자산추가 ';
+				}
+				alert(returnValue);
+
+			}
+		</script>
 		</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+	</div>
 	</div>
 
 

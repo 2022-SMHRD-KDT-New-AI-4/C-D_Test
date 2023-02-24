@@ -117,7 +117,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;"> 
-                            <span class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
+                            <span class="d-none d-lg-inline-flex">로그인한 닉네임이 보여지는공간</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">마이페이지</a>
