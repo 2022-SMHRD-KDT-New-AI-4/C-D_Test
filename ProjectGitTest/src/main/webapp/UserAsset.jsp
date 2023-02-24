@@ -44,13 +44,16 @@
 </head>
 <body>
 
-
+<div class="row g-4">
 	<div class="col-sm-12 col-xl-6">
 		<div class="bg-secondary rounded h-100 p-4">
 			<h6 class="mb-4">Doughnut Chart</h6>
 			<canvas id="doughnut-chart"></canvas>
 		</div>
 	</div>
+	</div>
+	
+	<div class="row g-4">
 	<div class="col-sm-12 col-xl-6">
 		<div class="bg-secondary rounded h-100 p-4">
 			<div class="border rounded p-4 pb-0 mb-4">
@@ -60,12 +63,14 @@
 						<br>
 						<h3>100,000 원 입니다.</h3>
 					</blockquote>
-					<div style="text-align: center;"><br>
-					<button type="button" class="btn btn-success m-2">자산 추가하기</button>
+					<div style="text-align: center;">
+						<br>
+						<button type="button" class="btn btn-success m-2">자산 추가하기</button>
 					</div>
 				</figure>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<div class="row g-4">
@@ -102,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-sm-12 col-xl-6">
 			<div class="bg-secondary rounded h-100 p-4">
 				<div class="bg-secondary rounded h-100 p-4">
@@ -141,8 +146,8 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<div class="col-sm-12 col-xl-6">
 			<div class="bg-secondary rounded h-100 p-4">
 				<div class="bg-secondary rounded h-100 p-4">
