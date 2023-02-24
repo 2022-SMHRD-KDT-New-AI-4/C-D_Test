@@ -55,7 +55,7 @@
 							name="flexRadioDefault" id="flexRadioDefault1" checked> <label
 							class="form-check-label" for="flexRadioDefault1"><h6>현금성 자산</h6></label> <select
 							class="form-select mb-3" aria-label="Default select example">
-							<option selected>은행 선택</option>
+							<option selected>은행선택</option>
 							<option value="1">NH농협</option>
 							<option value="2">KB국민은행</option>
 							<option value="3">신한은행</option>
