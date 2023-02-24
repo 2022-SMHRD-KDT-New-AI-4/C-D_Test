@@ -77,7 +77,7 @@
 								placeholder="아이디"> <label for="floatingInput">아이디</label>
 						</div>
 
-<<<<<<< HEAD
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -109,8 +109,7 @@
 
 								if (document.getElementById('floatingPassword').value != ''
 										&& document.getElementById('floatingPassword2').value != '') {
-									if (document.getElementById('floatingPassword2').value == document
-											.getElementById('floatingPassword2').value) {
+									if (document.getElementById('floatingPassword').value == document.getElementById('floatingPassword2').value){ 
 										document.getElementById('check_check').innerHTML = '비밀번호가 일치합니다.'
 										document.getElementById('check_check').style.color = 'blue';
 									} else {
@@ -138,6 +137,20 @@
 								placeholder="닉네임"> <label
 								for="floatingInput">닉네임</label>
 						</div>
+						
+							<div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">세대원 수</h6>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>세대원 수 </option>
+                                <option value="user_f_num1">1명</option>
+                                <option value="user_f_num2">2명</option>
+                                <option value="user_f_num3">3명</option>
+                                <option value="user_f_num4">4명</option>
+                                <option value="user_f_num5">그 이상</option>
+                            </select>
+						</div>
+						
+							
 						
 					<div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">연봉</h6>
