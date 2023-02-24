@@ -151,7 +151,6 @@
 		<div class="col-sm-12 col-xl-6">
 			<div class="bg-secondary rounded h-100 p-4">
 				<div class="bg-secondary rounded h-100 p-4">
-					<h5 class="mb-4" style="text-align: center;">부채</h5>
 					<h6 class="mb-4" style="text-align: center;">대출</h6>
 					<table class="table">
 						<thead>
