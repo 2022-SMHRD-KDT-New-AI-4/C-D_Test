@@ -53,7 +53,7 @@
 					<div class="form-check">
 						<input class="form-check-input" type="radio"
 							name="flexRadioDefault" id="flexRadioDefault1" checked> <label
-							class="form-check-label" for="flexRadioDefault1">현금성 자산 </label>
+							class="form-check-label" for="flexRadioDefault1">현금성 자산</label>
 						<select class="form-select mb-3"
 							aria-label="Default select example">
 							<option selected>은행 선택</option>
