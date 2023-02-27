@@ -48,6 +48,7 @@
 
 <body>
 	<div class="container-fluid position-relative d-flex p-0">
+	
 		<!-- Spinner Start -->
 		<div id="spinner"
 			class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -142,77 +143,79 @@
 			<!-- Navbar End -->
 
 
-			<!-- 본문 Start -->
-			<div class="container-fluid pt-4 px-4">
-				<div
-					class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+			<!-- 항목별 지출 순위 (월 누적 데이터)  Start-->
+             <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
 
-					<!-- 항목별 지출 순위 (월 누적 데이터)  Start-->
-					<div class="container-fluid pt-4 px-4">
-						<div class="bg-secondary text-center rounded p-4">
-
-							<h3 class="mb-4">항목별 지출 순위</h3>
-
-							<!-- Chart Start -->
-							<div class="col-md-6 text-center">
-								<canvas id="pie-chart"></canvas>
-							</div>
-							<!-- Chart End -->
-
-							<!-- 막대 Start -->
-							<div class="col-sm-12 col-xl-6">
-
-								<div class="pg-bar mb-3">
-									<h6>1억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped"
-											role="progressbar" aria-valuenow="10" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-
-								<div class="pg-bar mb-3">
-									<h6>5억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-success"
-											role="progressbar" aria-valuenow="25" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-3">
-									<h6>100억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-info"
-											role="progressbar" aria-valuenow="50" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-3">
-									<h6>1000억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-warning"
-											role="progressbar" aria-valuenow="75" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-0">
-									<h6>1조 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-danger"
-											role="progressbar" aria-valuenow="10" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-
-							</div>
-
-							<!-- 막대 End -->
-						</div>
+					<!-- Chart Start -->
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h3>항목별 지출 순위</h3>
+                                <a href="">Show All</a>
+                            </div>
+                            <!--  @type {CanvasRenderingContext2D}   -->
+						    <canvas id="pie-chart"></canvas>
+                        </div>
 					</div>
-					
+					<!-- Chart End -->
+
+					<!-- 막대 Start -->
+					<div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-6">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h3>항목별 지출 순위</h3>
+                                <a href="">Show All</a>
+                            </div>
+                            <div class="pg-bar mb-3">
+                                <h6>1억 모으기</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped"
+                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+
+                            <div class="pg-bar mb-3">
+                                <h6>5억 모으기</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success"
+                                        role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="pg-bar mb-3">
+                                <h6>100억 모으기</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-info"
+                                        role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="pg-bar mb-3">
+                                <h6>1000억 모으기</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-warning"
+                                        role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="pg-bar mb-0">
+                                <h6>1조 모으기</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-danger"
+                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+					<!-- 막대 End -->
 				</div>
 			</div>
-			<!-- 본문 End -->
+
+
 
 
 		</div>
