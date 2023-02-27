@@ -141,6 +141,9 @@
 				</div>
 			</nav>
 			<!-- Navbar End -->
+			<!-- Navbar End -->
+			<!-- Navbar End -->
+			<!-- Navbar End -->
 
 
 			<!-- 항목별 지출 순위 (월 누적 데이터)  Start-->
@@ -148,7 +151,7 @@
                 <div class="row g-4">
 
 					<!-- Chart Start -->
-                    <div class="col-sm-12 col-xl-6">
+                    <div class="col-sm-12 col-xl-8">
                         <div class="bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h3>항목별 지출 순위</h3>
@@ -161,7 +164,7 @@
 					<!-- Chart End -->
 
 					<!-- 막대 Start -->
-					<div class="col-sm-12 col-xl-6">
+					<div class="col-sm-12 col-xl-8">
                         <div class="bg-secondary text-center rounded p-6">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h3>항목별 지출 순위</h3>
