@@ -210,38 +210,34 @@
 			<!-- Navbar End -->
 
 
-			<!-- TargetList Start -->
+			<!-- 목표리스트 Start -->
 
-			<div class="container-fluid pt-4 px-4" style="text-align: center;">
+			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<br>
 							<h3 class="mb-4">목표 리스트</h3>
-							<ol class="list-unstyled mb-0">
-								<ol>
-									<li>100만원 모으기</li>
-									<li>1000만원 모으기</li>
+							<ul ul class="list-unstyled mb-0">
 									<li>1억 모으기</li>
-								</ol>
-							</ol>
+									<li>5억 모으기</li>
+									<li>100000억 모으기</li>
+								</ul>
+							
 							<br>
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='targetadd.jsp'">목표추가</button>
-							
-								
 						</div>
-					</div>
-				</div>
-			</div>
-			<!-- TargetList End -->
+						</div>
+				
+			
+			<!-- 목표리스트 End -->
 
 
-			<!--  Target start -->
-
-			<div class="container-fluid pt-4 px-4" style="text-align: center;">
-				<div class="col-sm-12 col-xl-6">
-					<div class="bg-secondary rounded h-100 p-4">
-						<h3 class="mb-4">1억  모으기</h3>
+			<!--  목표 상세 시작 -->
+					<div class="col-sm-12 col-xl-6">
+						<div class="bg-secondary rounded h-100 p-4">
+							<div class="border rounded p-4 pb-0 mb-4">
+						<h3 class="mb-4">1억 모으기</h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="55"
@@ -256,13 +252,9 @@
 								</ul>
 							</ul>
 						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container-fluid pt-4 px-4" style="text-align: center;">
-				<div class="col-sm-12 col-xl-6">
-					<div class="bg-secondary rounded h-100 p-4">
+				
+				
+			
 						<h3 class="mb-4">10억 모으기</h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
@@ -272,19 +264,15 @@
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : 500만원 모으기</li>
+									<li>목표 : 10억 모으기</li>
 									<li>기간 : 2022.01.01~2023.03.04</li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
-						</div>
-					</div>
+					
 				</div>
-			</div>
-
-			<div class="container-fluid pt-4 px-4" style="text-align: center;">
-				<div class="col-sm-12 col-xl-6">
-					<div class="bg-secondary rounded h-100 p-4">
+			
+			
 						<h3 class="mb-4">100억 모으기</h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
@@ -294,17 +282,26 @@
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : 500만원 모으기</li>
+									<li>목표 : 100억 모으기</li>
 									<li>기간 : 2022.01.01~2023.03.04</li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
 						</div>
-					</div>
 				</div>
-			</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				
+				
+				
+		
+			
+			<!-- 타겟리스트 End -->
 
-			<!--  Target end -->
+
+
 			
 			<!-- Footer Start -->
 			<div class="container-fluid pt-4 px-4">
@@ -324,12 +321,11 @@
 			<!-- Footer End -->
 		</div>
 		<!-- Content End -->
-
+</div></div>
 
 		<!-- Back to Top -->
 		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 			class="bi bi-arrow-up"></i></a>
-	</div>
 
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

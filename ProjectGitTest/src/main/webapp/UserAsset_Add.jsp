@@ -143,8 +143,8 @@
 
 	<hr>
 	<div style="text-align: center;">
-		<button type="button" class="btn btn-success m-2"
-			onclick="Asset_Add()">자산 추가</button>
+		<button type="button" class="btn btn-success m-2" onclick="Asset_Add()">자산 추가</button>
+		<button type="button" class="btn btn-warning m-2" onclick="location.href='UserAsset.jsp'">뒤로가기</button>
 
 		<script type="text/javascript">
 			function Asset_Add() {
@@ -155,8 +155,8 @@
 					returnValue = '자산추가 ';
 				}
 				alert(returnValue);
-
 			}
+		
 		</script>
 		</div>
 			</div>
