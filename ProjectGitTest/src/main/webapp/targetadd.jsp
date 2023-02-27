@@ -177,7 +177,7 @@
             <!-- Navbar End -->
 
 
-            <!-- Blank Start -->
+            <!-- TargetAdd Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
                     <div class="container-fluid">
@@ -200,14 +200,14 @@
                                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                                         <label for="floatingPassword">목표금액</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">목표추가</button>
+                                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='TargetList.jsp'">목표추가</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Blank End -->
+            <!-- TargetAdd End -->
 
 
             <!-- Footer Start -->
