@@ -102,7 +102,12 @@
 			</nav>
 		</div>
 		<!-- Sidebar End -->
+		
+		
+		
 		<!-- Content Start -->
+		
+		
 		<div class="content">
 			<!-- Navbar Start -->
 			<nav
@@ -135,14 +140,138 @@
 				</div>
 			</nav>
 			<!-- Navbar End -->
-
+			
+			
+			
+			
+<div class="container-fluid pt-4 px-4">
 			<div class="row g-4">
 				<div class="col-sm-12 col-xl-6">
 					<div class="bg-secondary rounded h-100 p-4">
 						<h6 class="mb-4">여기 도넛 그래프 자리인데 도넛이 안떠용 슬퍼욥</h6>
 						<canvas id="doughnut-chart"></canvas>
+						<br>
+					<figure>
+								<blockquote class="blockquote" style="text-align: center;">
+									<h3>이철민 님의 총 자산은</h3>
+									<br>
+									<h3>100,000 원 입니다.</h3>
+								</blockquote>
+								<div style="text-align: center;">
+									<br>
+									<button type="button" class="btn btn-success m-2">자산
+										추가하기</button>
+								</div>
+							</figure>
 					</div>
+					
 				</div>
+				<div class="col-sm-12 col-xl-6">
+			<div class="bg-secondary rounded h-100 p-4">
+						<div class="border rounded p-4 pb-0 mb-4">
+							
+							<div class="bg-secondary rounded h-100 p-4">
+							<h5 class="mb-4" style="text-align: center;">현금성 자산</h5>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">은행명</th>
+										<th scope="col">잔액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>NH농협</td>
+										<td>100,000원</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>신한은행</td>
+										<td>1,000,000원</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>기업은행</td>
+										<td>10,000,000원</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="bg-secondary rounded h-100 p-4">
+							<h5 class="mb-4" style="text-align: center;">부채</h5>
+							<h6 class="mb-4" style="text-align: center;">카드</h6>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">카드명</th>
+										<th scope="col">사용금액</th>
+										<th scope="col">사용내역</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>BC카드</td>
+										<td>100,000원</td>
+										<td>과자 사먹기</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>삼성카드</td>
+										<td>1,000,000원</td>
+										<td>술값</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>NH농협</td>
+										<td>10,000,000원</td>
+										<td>카드론 이자</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="bg-secondary rounded h-100 p-4">
+							<h6 class="mb-4" style="text-align: center;">대출</h6>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">은행명</th>
+										<th scope="col">대출금액</th>
+										<th scope="col">사용 내역</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>NH농협</td>
+										<td>100,000원</td>
+										<td>식비</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>국민은행</td>
+										<td>1,000,000원</td>
+										<td>월세</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>기업은행</td>
+										<td>10,000,000,000원</td>
+										<td>전세대출</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+							
+						</div>
+					</div>
+			
 			</div>
 
 			<div class="row g-4">
