@@ -105,8 +105,10 @@
 			</nav>
 		</div>
 		<!-- Sidebar End -->
+
 		<!-- Content Start -->
 		<div class="content">
+
 			<!-- Navbar Start -->
 			<nav
 				class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
@@ -142,23 +144,24 @@
 
 			<!-- 본문 Start -->
 			<div class="container-fluid pt-4 px-4">
-				<div class="row g-4">
+				<div
+					class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
 
-					<!-- 항목별 지출 순위 (월 누적 데이터) -->
+					<!-- 항목별 지출 순위 (월 누적 데이터)  Start-->
 					<div class="container-fluid pt-4 px-4">
 						<div class="bg-secondary text-center rounded p-4">
-								<h3 class="mb-4">항목별 지출 순위</h6>
+
+							<h3 class="mb-4">항목별 지출 순위</h3>
 
 							<!-- Chart Start -->
-							<div class="col-sm-12 col-xl-6">
+							<div class="col-md-6 text-center">
 								<canvas id="pie-chart"></canvas>
 							</div>
 							<!-- Chart End -->
 
 							<!-- 막대 Start -->
 							<div class="col-sm-12 col-xl-6">
-								<h6 class="mb-4">Pie Chart</h6>
-								
+
 								<div class="pg-bar mb-3">
 									<h6>1억 모으기</h6>
 									<div class="progress">
@@ -167,6 +170,7 @@
 											aria-valuemax="100"></div>
 									</div>
 								</div>
+
 								<div class="pg-bar mb-3">
 									<h6>5억 모으기</h6>
 									<div class="progress">
@@ -199,22 +203,28 @@
 											aria-valuemax="100"></div>
 									</div>
 								</div>
-								
+
 							</div>
+
 							<!-- 막대 End -->
 						</div>
 					</div>
-
+					
 				</div>
 			</div>
-
 			<!-- 본문 End -->
 
 
 		</div>
+		<!-- Content End -->
+
+
+		<!-- Back to Top -->
+		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"></i></a>
 	</div>
-	
-	
+
+
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
@@ -246,9 +256,9 @@
 					data : [ 55, 49, 44, 24, 15 ]
 				} ]
 			},
-			 options : {
+			options : {
 				responsive : true
-			} 
+			}
 		});
 	</script>
 </body>

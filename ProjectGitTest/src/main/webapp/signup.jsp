@@ -225,7 +225,7 @@
 						<div>
 							<br><br>
 							<p class="text-center mb-0">
-								이미 대시앤캐시의 회원입니까? <a href="">로그인!</a>
+								이미 대시앤캐시의 회원입니까? <a href="signin.jsp">로그인!</a>
 							</p>
 							<script>
 						    	function creat_id() {
