@@ -60,7 +60,7 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.html" class="navbar-brand mx-4 mb-3">
+				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
 					<h3 class="text-primary">DASH&CASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
@@ -80,7 +80,7 @@
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.html" class="dropdown-item">메인</a> 
+							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="#" class="dropdown-item">캘린더</a>
 						</div>
 						<a href="#" class="nav-link dropdown-toggle"
@@ -104,7 +104,7 @@
 		<div class="content">
 			<!-- Navbar Start -->
 			<nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-				<a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+				<a href="index.jsp" class="navbar-brand d-flex d-lg-none me-4">
 					<h2 class="text-primary mb-0">
 						<i class="fa fa-user-edit"></i>
 					</h2>
