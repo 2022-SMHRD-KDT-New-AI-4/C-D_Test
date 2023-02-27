@@ -68,7 +68,7 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <h6 class="ms-3">로그인이 필요합니다</h6>
-                       <!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                       <!--  <img class="rounded-circle" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="index.html" class="dropdown-item">메인</a>
                             <a href="#" class="dropdown-item">캘린더</a>
@@ -120,8 +120,8 @@
                             <span class="d-none d-lg-inline-flex">로그인한 닉네임이 보여지는공간</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">마이페이지</a>
-                            <a href="#" class="dropdown-item">마이페이지 수정</a>
+                            <a href="Mypage.jsp" class="dropdown-item">마이페이지</a>
+                            <a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a>
                             <a href="index.html" class="dropdown-item">로그아웃</a>
                         </div>
 
@@ -140,35 +140,35 @@
 						<div class="d-flex align-items-center justify-content-between mb-3">
 							<h4>회원정보 수정</h4>
 						</div>
-						<div class="form-floating mb-3">
+						
 							<dl>
 								<h6 class="mb-4">아이디</h6>
 								<dd class="col-sm-8">zidari</dd>
 							</dl>
-						</div>
 						
-						<div class="form-floating mb-3">
+						
+						
 							<dl>
 								<h6 class="mb-4">닉네임</h6>
 								<dd class="col-sm-8">자냥미</dd>
 							</dl>
-						</div>
 						
-							<div class="form-floating mb-3">
+						
+							
 							<dl>
 								<h6 class="mb-4">나이</h6>
 								<dd class="col-sm-8">234667 세</dd>
 							</dl>
-						</div>
+						
 
-						<div class="form-floating mb-3">
+						
 						<h6 class="mb-4">닉네임</h6>
 							<input type="text" class="form-control" id="floatingInput"
 								placeholder="변경할 닉네임을 적어주세요."> <label
 								for="floatingInput"></label>
-						</div>
+						
 
-						<div class="bg-secondary rounded h-100 p-4">
+						
 						<h6 class="mb-4">세대원 수</h6>
 							<select class="form-select form-select-lg mb-3"
 								aria-label=".form-select-lg example">
@@ -179,11 +179,11 @@
 								<option value="user_f_num4">4명</option>
 								<option value="user_f_num5">그 이상</option>
 							</select>
-						</div>
+					
 
 
 
-						<div class="bg-secondary rounded h-100 p-4">
+						
 						<h6 class="mb-4">연봉</h6>
 							<select class="form-select form-select-lg mb-3"
 								aria-label=".form-select-lg example">
@@ -194,7 +194,7 @@
 								<option value="salary4">5000~6000만원</option>
 								<option value="salary5">6000만원이상</option>
 							</select>
-						</div>
+						
 						<div class="form-floating mb-4">
 						<h6 class="mb-4">비밀번호</h6>
 							<input type="password" class="form-control" id="floatingPassword"
@@ -237,12 +237,14 @@
 
 							
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="modify();">회원정보수정</button> &nbsp; &nbsp; &nbsp;
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4">뒤로가기</button>
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4"  onclick="location.href='Mypage.jsp'">뒤로가기</button>
 								
 								<script>
 									function modify(){
 										alert("회원정보가 수정되었습니다.");
+										location.href="Mypage.jsp";
 									}
+									
 								</script>
 						</div>
 						<div>
