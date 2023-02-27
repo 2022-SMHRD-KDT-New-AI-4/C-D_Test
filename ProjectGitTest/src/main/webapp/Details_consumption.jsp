@@ -147,10 +147,10 @@
 					<!-- 항목별 지출 순위 (월 누적 데이터) -->
 					<div class="container-fluid pt-4 px-4">
 						<div class="bg-secondary text-center rounded p-4">
+								<h3 class="mb-4">항목별 지출 순위</h6>
 
 							<!-- Chart Start -->
 							<div class="col-sm-12 col-xl-6">
-								<h6 class="mb-4">Pie Chart</h6>
 								<canvas id="pie-chart"></canvas>
 							</div>
 							<!-- Chart End -->
@@ -166,7 +166,6 @@
 											role="progressbar" aria-valuenow="10" aria-valuemin="0"
 											aria-valuemax="100"></div>
 									</div>
-									<a href="#" align="right"><h6>상세보기</h6></a>
 								</div>
 								<div class="pg-bar mb-3">
 									<h6>5억 모으기</h6>
@@ -200,6 +199,7 @@
 											aria-valuemax="100"></div>
 									</div>
 								</div>
+								
 							</div>
 							<!-- 막대 End -->
 						</div>
@@ -246,9 +246,9 @@
 					data : [ 55, 49, 44, 24, 15 ]
 				} ]
 			},
-			options : {
+			 options : {
 				responsive : true
-			}
+			} 
 		});
 	</script>
 </body>
