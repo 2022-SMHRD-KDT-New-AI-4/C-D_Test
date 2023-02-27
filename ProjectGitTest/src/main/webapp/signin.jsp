@@ -130,136 +130,36 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-        
+            <!-- Sign In Start -->
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <a href="index.html" class="">
+                                <h3 class="text-primary">Dash&Cash</h3>
+                            </a>
+                            <h3>로그인</h3>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">아이디</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">비밀번호</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">로그인</button>
+                        <p class="text-center mb-0">대시앤캐시 회원이 아니십니까? <a href="signup.jsp">회원가입</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sign In End -->
+    </div>
+            
 
-		<!-- 마이페이지 수정 Start -->
-		<div class="container-fluid">
-			<div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-				<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-					<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-						<div class="d-flex align-items-center justify-content-between mb-3">
-							<h4>회원정보 수정</h4>
-						</div>
-						
-							<dl>
-								<h6 class="mb-4">아이디</h6>
-								<dd class="col-sm-8">zidari</dd>
-							</dl>
-						
-						
-						
-							<dl>
-								<h6 class="mb-4">닉네임</h6>
-								<dd class="col-sm-8">자냥미</dd>
-							</dl>
-						
-						
-							
-							<dl>
-								<h6 class="mb-4">나이</h6>
-								<dd class="col-sm-8">234667 세</dd>
-							</dl>
-						
-
-						
-						<h6 class="mb-4">닉네임</h6>
-							<input type="text" class="form-control" id="floatingInput"
-								placeholder="변경할 닉네임을 적어주세요."> <label
-								for="floatingInput"></label>
-						
-
-						
-						<h6 class="mb-4">세대원 수</h6>
-							<select class="form-select form-select-lg mb-3"
-								aria-label=".form-select-lg example">
-								<option selected>세대원 수</option>
-								<option value="user_f_num1">1명</option>
-								<option value="user_f_num2">2명</option>
-								<option value="user_f_num3">3명</option>
-								<option value="user_f_num4">4명</option>
-								<option value="user_f_num5">그 이상</option>
-							</select>
-					
-
-
-
-						
-						<h6 class="mb-4">연봉</h6>
-							<select class="form-select form-select-lg mb-3"
-								aria-label=".form-select-lg example">
-								<option selected>연봉 선택</option>
-								<option value="salary1">3000만원 이하</option>
-								<option value="salary2">3000~4000만원</option>
-								<option value="salary3">4000~5000만원</option>
-								<option value="salary4">5000~6000만원</option>
-								<option value="salary5">6000만원이상</option>
-							</select>
-						
-						<div class="form-floating mb-4">
-						<h6 class="mb-4">비밀번호</h6>
-							<input type="password" class="form-control" id="floatingPassword"
-								onchange="check_pw()" placeholder="비밀번호 변경"> <label
-								for="floatingPassword"></label>
-						</div>
-
-
-						<div class="form-floating mb-4">
-						<h6 class="mb-4">비밀번호 확인</h6>
-							<input type="password" class="form-control"
-								id="floatingPassword2" onchange="check_pw()"
-								placeholder="비밀번호 확인"> <label for="floatingPassword2">
-								</label>&nbsp;<span id="check_check"></span>
-						</div>
-						<script>
-							function check_pw() {
-								var pw = document
-										.getElementById('floatingPassword').value;
-
-								if (document.getElementById('floatingPassword').value != ''
-										&& document
-												.getElementById('floatingPassword2').value != '') {
-									if (document
-											.getElementById('floatingPassword').value == document
-											.getElementById('floatingPassword2').value) {
-										document.getElementById('check_check').innerHTML = '비밀번호가 일치합니다.'
-										document.getElementById('check_check').style.color = 'blue';
-									} else {
-										document.getElementById('check_check').innerHTML = '비밀번호가 일치하지 않습니다.';
-										document.getElementById('check_check').style.color = 'red';
-									}
-								}
-							}
-						</script>
-						
-						</table>
-						<div
-							class="d-flex align-items-center justify-content-between mb-4">
-
-							
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="modify();">회원정보수정</button> &nbsp; &nbsp; &nbsp;
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4"  onclick="location.href='Mypage.jsp'">뒤로가기</button>
-								
-								<script>
-									function modify(){
-										alert("회원정보가 수정되었습니다.");
-										location.href="Mypage.jsp";
-									}
-									
-								</script>
-						</div>
-						<div>
-							<br>
-							<br>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 마이페이지 수정 End -->
-		</div>
-
-		<!--  -->
-		<!-- JavaScript Libraries -->
+<!-- JavaScript Libraries -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
