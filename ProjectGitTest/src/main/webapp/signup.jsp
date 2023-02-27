@@ -230,7 +230,7 @@
 							<script>
 						    	function creat_id() {
 						    		alert("회원가입되셨습니다.")
-                                    location.href="signin.html";
+                                    location.href="signin.jsp";
 						    	}
 							</script>
 						</div>
