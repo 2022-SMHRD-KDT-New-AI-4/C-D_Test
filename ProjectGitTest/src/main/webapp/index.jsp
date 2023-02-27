@@ -60,7 +60,7 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.html" class="navbar-brand mx-4 mb-3">
+				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
 					<h3 class="text-primary">DASH&CASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
