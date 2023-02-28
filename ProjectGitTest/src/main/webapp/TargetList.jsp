@@ -149,10 +149,10 @@
 							 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1억 모으기</h3></label><br>
                              
-                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                             <input type="checkbox" class="form-check-input" id="exampleCheck2">
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ5억 모으기</h3></label><br>
                              
-                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                             <input type="checkbox" class="form-check-input" id="exampleCheck3">
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ100억 모으기</h3></label><br>
 								
 							<br>
