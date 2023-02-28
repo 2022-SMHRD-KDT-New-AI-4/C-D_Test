@@ -36,6 +36,8 @@
 
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -215,19 +217,38 @@
 			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
-						<div class="bg-secondary rounded h-100 p-4">
+						<div class="bg-secondary rounded h-100 p-4" style="display : flex; justify-content: center; align-items : center;">
 							<br>
-							<h3 class="mb-4">목표 리스트</h3>
-							<ul ul class="list-unstyled mb-0">
-									<li>1억 모으기</li>
-									<li>5억 모으기</li>
-									<li>100000억 모으기</li>
-								</ul>
+							<div>
+							<h1 class="mb-4">목표 리스트</h1><br><br>
+							 <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1억 모으기</h3></label><br>
+                             
+                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ5억 모으기</h3></label><br>
+                             
+                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ100억 모으기</h3></label><br>
+								
+							<br>
+							<button type="submit" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
+							<button type="submit" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
+							</div>
 							
-							<br>
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='targetadd.jsp'">목표추가</button>
 						</div>
 						</div>
+						
+						<script type="text/javascript">
+							function Target() {
+								let returnValue = confirm('해당 목표를 삭제하시겠습니까?');
+								if (returnValue === true) { // 확인 버튼을 눌렀을 경우
+									returnValue = '목표가 삭제되었습니다.';
+								} else { // 취소 버튼을 눌렀을 경우
+									returnValue = '취소되었습니다.';
+								}
+								alert(returnValue);
+							}
+						</script>
 				
 			
 			<!-- 목표리스트 End -->
