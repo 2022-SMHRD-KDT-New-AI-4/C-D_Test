@@ -158,8 +158,9 @@
 								</blockquote>
 								<div style="text-align: center;">
 									<br>
-									<button type="button" class="btn btn-success m-2">자산
+									<button type="button" class="btn btn-success m-2" onclick="location.href='UserAsset_Add.jsp'">자산
 										추가하기</button>
+										
 								</div>
 							</figure>
 						</div>
