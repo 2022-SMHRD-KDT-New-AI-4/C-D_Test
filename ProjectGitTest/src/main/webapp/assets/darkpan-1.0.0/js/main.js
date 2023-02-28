@@ -91,6 +91,88 @@
             responsive: true
         }
     });
+    
+         // Worldwide Sales Chart
+     var ctx7 = $("#worldwide-sales2").get(0).getContext("2d");
+     var myChart7 = new Chart(ctx7, {
+         type: "bar",
+         data: {
+             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+             datasets: [{
+                     label: "USA",
+                     data: [15, 30, 55, 65, 60, 80, 95],
+                     backgroundColor: "#00cec9"
+                 },
+                 {
+                     label: "UK",
+                     data: [8, 35, 40, 60, 70, 55, 75],
+                     backgroundColor: "#55efc4"
+                 },
+                 {
+                     label: "AU",
+                     data: [12, 25, 45, 55, 65, 70, 60],
+                     backgroundColor: "#81ecec"
+                 }
+             ]
+             },
+         options: {
+             responsive: true
+         }
+     });
+      // Worldwide Sales Chart
+    var ctx8 = $("#worldwide-sales3").get(0).getContext("2d");
+    var myChart8 = new Chart(ctx8, {
+        type: "bar",
+        data: {
+            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            datasets: [{
+                    label: "USA",
+                    data: [15, 30, 55, 65, 60, 80, 95],
+                    backgroundColor: "#00cec9"
+                },
+                {
+                    label: "UK",
+                    data: [8, 35, 40, 60, 70, 55, 75],
+                    backgroundColor: "#55efc4"
+                },
+                {
+                    label: "AU",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "#81ecec"
+                }
+            ]
+            },
+        options: {
+            responsive: true
+        }
+    });
+     // Worldwide Sales Chart
+     var ctx9 = $("#worldwide-sales4").get(0).getContext("2d");
+     var myChart9 = new Chart(ctx9, {
+         type: "bar",
+         data: {
+             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+             datasets: [{
+                     label: "USA",
+                     data: [15, 30, 55, 65, 60, 80, 95],
+                     backgroundColor: "#00cec9"
+                 },
+                 {
+                     label: "UK",
+                     data: [8, 35, 40, 60, 70, 55, 75],
+                     backgroundColor: "#55efc4"
+                 },
+                 {
+                     label: "AU",
+                     data: [12, 25, 45, 55, 65, 70, 60],
+                     backgroundColor: "#81ecec"
+                 }
+             ]
+             },
+         options: {
+             responsive: true
+         }
+     });
 
 
     // Salse & Revenue Chart

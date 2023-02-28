@@ -47,8 +47,28 @@
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
 
+
+<!-- JavaScript Libraries -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+		<!-- Template Javascript -->
+		<script src="assets/darkpan-1.0.0/js/main.js"></script>
+		<script src="assets/darkpan-1.0.0/js/main.js"></script>
+
 </head>
+
 <body>
+
+
+
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -232,25 +252,25 @@
                         </div>
           </div>
  
-		
-		
-		
-		
 		<!-- Report End -->
-		</div>
+		
+		<!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="#">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end"> 
+                            <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
+                            <br>
+                            <a style="color:#EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Footer End -->
+        </div>
+        <!-- Content End -->
 
-<!-- JavaScript Libraries -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-		<!-- Template Javascript -->
-		<script src="assets/darkpan-1.0.0/js/main.js"></script>
 </body>
 </html>
