@@ -153,7 +153,7 @@
 
 
 						
-							<h3 style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: block;">항목별 지출 순위</h3>
+							<h3 style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별 지출 순위</h3>
 							<a href="" class="align-items-center" style="text-align: right;">Show All</a>
 						
 

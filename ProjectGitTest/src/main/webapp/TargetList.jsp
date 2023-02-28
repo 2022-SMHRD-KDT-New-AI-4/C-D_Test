@@ -146,17 +146,17 @@
 							<br>
 							<div>
 							<h1 class="mb-4">목표 리스트</h1><br><br>
-							 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1억 모으기</h3></label><br>
+							 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
+                             <label class="form-check-label" for="exampleCheck1" ><h3>ㆍ1억 모으기</h3></label><br>
                              
-                             <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                             <input type="checkbox" class="form-check-input" id="exampleCheck2" name="check_t" value="Check2">
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ5억 모으기</h3></label><br>
                              
-                             <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                             <input type="checkbox" class="form-check-input" id="exampleCheck3" name="check_t" value="Check3">
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1000억 모으기</h3></label><br>
 								
 							<br>
-							<button type="submit" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
+							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
 							<button type="submit" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
 							</div>
 							
@@ -168,11 +168,13 @@
 								let returnValue = confirm('해당 목표를 삭제하시겠습니까?');
 								if (returnValue === true) { // 확인 버튼을 눌렀을 경우
 									returnValue = '목표가 삭제되었습니다.';
+
 								} else { // 취소 버튼을 눌렀을 경우
 									returnValue = '취소되었습니다.';
 								}
 								alert(returnValue);
 							}
+							
 						</script>
 				
 			
