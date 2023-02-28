@@ -39,24 +39,25 @@
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
 
 <style type="text/css">
-#all{
-display:inline;
-
-
-
+#all {
+	display: inline;
 }
-#in{
-display:inline;
-position:relative;
-left: 600px;}
-#out{
-display:inline;
-position:relative;
-left: 1300px;
+
+#in {
+	display: inline;
+	position: relative;
+	left: 600px;
 }
-.col-sm-12 .col-xl-12{
-height:300px;
-width :300px;
+
+#out {
+	display: inline;
+	position: relative;
+	left: 1300px;
+}
+
+.col-sm-12 .col-xl-12 {
+	height: 300px;
+	width: 300px;
 }
 </style>
 
@@ -164,9 +165,9 @@ width :300px;
 					<canvas id="pie-chart"></canvas>
 				</div>
 			</div>
-				<div id="all">전체 : 잔액</div>
-				<div id="in">수입 :</div>
-				<div id="out">지출 :</div>
+			<div id="all">전체 : 잔액</div>
+			<div id="in">수입 :</div>
+			<div id="out">지출 :</div>
 			<!--  chart end  -->
 
 			<!-- Table Start -->
@@ -200,6 +201,25 @@ width :300px;
 
 							</tbody>
 						</table>
+						<div class="col-sm-12 col-xl-6">
+							<div class="bg-secondary rounded h-100 p-4">
+
+								<div class="btn-toolbar" role="toolbar"
+									style=" margin-left:600px;">
+									<div class="btn-group me-2" role="group"
+										aria-label="First group">
+										<button type="button" class="btn btn-primary">1</button>
+										<button type="button" class="btn btn-secondary">2</button>
+										<button type="button" class="btn btn-secondary">3</button>
+										<button type="button" class="btn btn-secondary">4</button>
+										<button type="button" class="btn btn-secondary">5</button>
+										<button type="button" class="btn btn-secondary">6</button>
+										<button type="button" class="btn btn-secondary">7</button>
+										<button type="button" class="btn btn-secondary">8</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
