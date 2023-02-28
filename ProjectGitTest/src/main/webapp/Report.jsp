@@ -215,12 +215,13 @@
 				<div class="col-sm-12 col-xl-6">
 					<div class="bg-secondary rounded h-100 p-4">
 						<h6 class="mb-4">나의 총자산</h6>
-						<canvas id="doughnut-chart"></canvas>
+						<canvas id="pie-chart2"></canvas>
 						<br>
 						<div style="text-align: right;">
 						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
 						</div>
-			</div>
+					</div>
+		
          </div>
          <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-30 p-4">
@@ -281,6 +282,31 @@
 
 		<!-- Template Javascript -->
 		<script src="assets/darkpan-1.0.0/js/main.js"></script>
+		<script>
+		
+		// Pie Chart
+	    var ctx10 = $("#pie-chart2").get(0).getContext("2d");
+	    var myChart10 = new Chart(ctx10, {
+	        type: "pie",
+	        data: {
+	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+	            datasets: [{
+	                backgroundColor: [
+	                    "rgba(235, 22, 22, .7)",
+	                    "rgba(235, 22, 22, .6)",
+	                    "rgba(235, 22, 22, .5)",
+	                    "rgba(235, 22, 22, .4)",
+	                    "rgba(235, 22, 22, .3)"
+	                ],
+	                data: [55, 49, 44, 24, 15]
+	            }]
+	        },
+	        options: {
+	            responsive: true
+	        }
+	    });
+	    
+		</script>
 
 </body>
 </html>

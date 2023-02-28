@@ -69,19 +69,19 @@
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
             datasets: [{
-                    label: "USA",
+                    label: "식비",
                     data: [15, 30, 55, 65, 60, 80, 95],
                     backgroundColor: "rgba(235, 22, 22, .7)"
                 },
                 {
-                    label: "UK",
+                    label: "공과금",
                     data: [8, 35, 40, 60, 70, 55, 75],
                     backgroundColor: "rgba(235, 22, 22, .5)"
                 },
                 {
-                    label: "AU",
+                    label: "기타",
                     data: [12, 25, 45, 55, 65, 70, 60],
                     backgroundColor: "rgba(235, 22, 22, .3)"
                 }
@@ -97,23 +97,23 @@
      var myChart7 = new Chart(ctx7, {
          type: "bar",
          data: {
-             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-             datasets: [{
-                     label: "USA",
-                     data: [15, 30, 55, 65, 60, 80, 95],
-                     backgroundColor: "rgba(235, 22, 22, .7)"
-                 },
-                 {
-                     label: "UK",
-                     data: [8, 35, 40, 60, 70, 55, 75],
-                     backgroundColor: "rgba(235, 22, 22, .5)"
-                 },
-                 {
-                     label: "AU",
-                     data: [12, 25, 45, 55, 65, 70, 60],
-                     backgroundColor: "rgba(235, 22, 22, .3)"
-                 }
-             ]
+            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
+            datasets: [{
+                    label: "20대",
+                    data: [15, 30, 55, 65, 60, 80, 95],
+                    backgroundColor: "rgba(235, 22, 22, .7)"
+                },
+                {
+                    label: "40대",
+                    data: [8, 35, 40, 60, 70, 55, 75],
+                    backgroundColor: "rgba(235, 22, 22, .5)"
+                },
+                {
+                    label: "60대",
+                    data: [12, 25, 45, 55, 65, 70, 60],
+                    backgroundColor: "rgba(235, 22, 22, .3)"
+                }
+            ]
              },
          options: {
              responsive: true
@@ -124,19 +124,19 @@
     var myChart8 = new Chart(ctx8, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
             datasets: [{
-                    label: "USA",
+                    label: "3천이상",
                     data: [15, 30, 55, 65, 60, 80, 95],
                     backgroundColor: "rgba(235, 22, 22, .7)"
                 },
                 {
-                    label: "UK",
+                    label: "6천이상",
                     data: [8, 35, 40, 60, 70, 55, 75],
                     backgroundColor: "rgba(235, 22, 22, .5)"
                 },
                 {
-                    label: "AU",
+                    label: "1억이상",
                     data: [12, 25, 45, 55, 65, 70, 60],
                     backgroundColor: "rgba(235, 22, 22, .3)"
                 }
@@ -266,6 +266,28 @@
         }
     });
 
+// Pie Chart
+    var ctx10 = $("#pie-chart2").get(0).getContext("2d");
+    var myChart10 = new Chart(ctx10, {
+        type: "pie",
+        data: {
+            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+            datasets: [{
+                backgroundColor: [
+                    "rgba(235, 22, 22, .7)",
+                    "rgba(235, 22, 22, .6)",
+                    "rgba(235, 22, 22, .5)",
+                    "rgba(235, 22, 22, .4)",
+                    "rgba(235, 22, 22, .3)"
+                ],
+                data: [55, 49, 44, 24, 15]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+    
 
     // Doughnut Chart
     var ctx6 = $("#doughnut-chart").get(0).getContext("2d");
