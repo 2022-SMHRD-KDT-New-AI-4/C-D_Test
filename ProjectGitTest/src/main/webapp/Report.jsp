@@ -47,22 +47,6 @@
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
 
-
-<!-- JavaScript Libraries -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
-		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-		<!-- Template Javascript -->
-		<script src="assets/darkpan-1.0.0/js/main.js"></script>
-		<script src="assets/darkpan-1.0.0/js/main.js"></script>
-
 </head>
 
 <body>
@@ -271,6 +255,41 @@
         </div>
         <!-- Content End -->
 
+<!-- JavaScript Libraries -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
+		<script src="assets/darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
+		<!-- Template Javascript -->
+		<script src="assets/darkpan-1.0.0/js/main.js"></script>
+		<script>
+		// Doughnut Chart
+	    var ctx6 = $("#doughnut-chart").get(0).getContext("2d");
+	    var myChart6 = new Chart(ctx6, {
+	        type: "doughnut",
+	        data: {
+	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+	            datasets: [{
+	                backgroundColor: [
+	                    "rgba(235, 22, 22, .7)",
+	                    "rgba(235, 22, 22, .6)",
+	                    "rgba(235, 22, 22, .5)",
+	                    "rgba(235, 22, 22, .4)",
+	                    "rgba(235, 22, 22, .3)"
+	                ],
+	                data: [55, 49, 44, 24, 15]
+	            }]
+	        },
+	        options: {
+	            responsive: true
+	        }
+	    });
+		</script>
 </body>
 </html>

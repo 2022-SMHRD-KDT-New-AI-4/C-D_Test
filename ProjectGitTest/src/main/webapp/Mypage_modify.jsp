@@ -166,24 +166,7 @@
 							<input type="text" class="form-control" id="floatingInput"
 								placeholder="변경할 닉네임을 적어주세요."> <label
 								for="floatingInput"></label>
-						
 
-						
-						<h6 class="mb-4">세대원 수</h6>
-							<select class="form-select form-select-lg mb-3"
-								aria-label=".form-select-lg example">
-								<option selected>세대원 수</option>
-								<option value="user_f_num1">1명</option>
-								<option value="user_f_num2">2명</option>
-								<option value="user_f_num3">3명</option>
-								<option value="user_f_num4">4명</option>
-								<option value="user_f_num5">그 이상</option>
-							</select>
-					
-
-
-
-						
 						<h6 class="mb-4">연봉</h6>
 							<select class="form-select form-select-lg mb-3"
 								aria-label=".form-select-lg example">
@@ -256,8 +239,23 @@
 				</div>
 			</div>
 			<!-- 마이페이지 수정 End -->
-		</div>
-
+			
+		<!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="#">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end"> 
+                            <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
+                            <br>
+                            <a style="color:#EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
 		<!--  -->
 		<!-- JavaScript Libraries -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
