@@ -41,6 +41,8 @@
 <style type="text/css">
 #all {
 	display: inline;
+	position:relative;
+	left:20px;
 }
 
 #in {
@@ -171,7 +173,7 @@
 			<!--  chart end  -->
 
 			<!-- Table Start -->
-			<div class="col-12">
+			<div class="col-sm-12 col-xl-12" style="padding-left:20px;padding-right:20px;">
 				<div class="bg-secondary rounded h-100 p-4">
 					<h6 class="mb-4">입지출 현황</h6>
 					<div class="table-responsive">
@@ -201,7 +203,7 @@
 
 							</tbody>
 						</table>
-						<div class="col-sm-12 col-xl-6">
+						<div class="col-sm-12 col-xl-5">
 							<div class="bg-secondary rounded h-100 p-4">
 
 								<div class="btn-toolbar" role="toolbar"
