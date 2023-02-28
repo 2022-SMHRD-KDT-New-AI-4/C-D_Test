@@ -232,12 +232,24 @@
                         </div>
           </div>
  
-		
-		
-		
-		
 		<!-- Report End -->
-		</div>
+		
+		<!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="#">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end"> 
+                            <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
+                            <br>
+                            <a style="color:#EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Footer End -->
+        </div>
+        <!-- Content End -->
 
 <!-- JavaScript Libraries -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
