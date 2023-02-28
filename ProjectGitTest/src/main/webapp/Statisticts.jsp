@@ -87,15 +87,15 @@
 						</div>
 						<a href="inout.jsp" class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>입/지출</a>
-						<a href="UserAsset.jsp" class="nav-item nav-link active"><i
+						<a href="UserAsset.jsp" class="nav-item nav-link "><i
 							class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle"
-								data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+							<a href="#" class="nav-link dropdown-toggle active"
+								data-bs-toggle="dropdown" ><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
 								<a href="Report.jsp" class="dropdown-item">보고서</a> <a href="#"
 									class="dropdown-item">소비현황</a> <a href="#"
-									class="dropdown-item">통계</a>
+									class="dropdown-item active">통계</a>
 							</div>
 						</div>
 						<a href="TargetList.jsp" class="nav-item nav-link"><i
