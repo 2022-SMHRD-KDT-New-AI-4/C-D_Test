@@ -165,6 +165,7 @@
 						</div>
 
 					</div>
+					
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<div class="border rounded p-4 pb-0 mb-4">

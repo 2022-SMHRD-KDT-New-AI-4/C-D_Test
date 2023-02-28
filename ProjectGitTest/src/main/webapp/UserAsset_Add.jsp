@@ -126,9 +126,14 @@
 							class="form-check-label" for="flexRadioDefault1"><h6>현금성 자산</h6></label> 
 							<select class="form-select mb-3" aria-label="Default select example">
 								<option selected>은행선택</option>
-								<option value="1">NH농협</option>
-								<option value="2">KB국민은행</option>
-								<option value="3">신한은행</option>
+								<option value="0">NH농협</option>
+								<option value="1">KB국민은행</option>
+								<option value="2">신한은행</option>
+								<option value="3">KEB하나은행</option>
+								<option value="4">SC제일은행</option>
+								<option value="5">우리은행</option>
+								<option value="6">기업은행</option>
+								<option value="7">한국씨티은행</option>
 							</select>
 						<div class="row mb-3">
 							<label for="inputEmail3" class="col-sm-2 col-form-label">잔액
@@ -155,10 +160,17 @@
 								<label for="inputEmail3" class="col-sm-2 col-form-label">카드명</label>
 								<select class="form-select mb-3"
 									aria-label="Default select example">
-									<option selected>카드 선택</option>
-									<option value="1">BC카드</option>
-									<option value="2">KB국민카드</option>
-									<option value="3">신한카드</option>
+									<option selected>카드선택</option>
+									<option value="0">BC카드</option>
+									<option value="1">KB국민카드</option>
+									<option value="2">신한카드</option>
+									<option value="3">삼성카드</option>
+									<option value="4">롯데카드</option>
+									<option value="5">우리카드</option>
+									<option value="6">하나카드</option>
+									<option value="7">NH농협카드</option>
+									<option value="8">IBK기업은행카드</option>
+									<option value="9">현대카드</option>
 								</select>
 							</div>
 						</div>
@@ -189,9 +201,14 @@
 							<select class="form-select mb-3"
 								aria-label="Default select example">
 								<option selected>은행 선택</option>
-								<option value="1">NH농협</option>
-								<option value="2">KB국민은행</option>
-								<option value="3">신한은행</option>
+								<option value="0">NH농협</option>
+								<option value="1">KB국민은행</option>
+								<option value="2">신한은행</option>
+								<option value="3">KEB하나은행</option>
+								<option value="4">SC제일은행</option>
+								<option value="5">우리은행</option>
+								<option value="6">기업은행</option>
+								<option value="7">한국씨티은행</option>
 							</select>
 						</div>
 					</div>
