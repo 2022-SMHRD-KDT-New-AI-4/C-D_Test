@@ -47,6 +47,7 @@
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
 
+
 </head>
 
 <body>
@@ -223,16 +224,28 @@
          </div>
          <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-30 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
+                            <h6 class="mb-4">소비 현황</h6>
                             <canvas id="worldwide-sales"></canvas>
+                            <br>
+						<div style="text-align: right;">
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						</div>  
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
+                            <h6 class="mb-4">연령별 통계</h6>
                             <canvas id="worldwide-sales2"></canvas>
+                            <br>
+						<div style="text-align: right;">
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						</div>
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
+                            <h6 class="mb-4">연봉별 통계</h6>
                             <canvas id="worldwide-sales3"></canvas>
+                            <br>
+						<div style="text-align: right;">
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						</div>
                         </div>
           </div>
  
@@ -268,28 +281,6 @@
 
 		<!-- Template Javascript -->
 		<script src="assets/darkpan-1.0.0/js/main.js"></script>
-		<script>
-		// Doughnut Chart
-	    var ctx6 = $("#doughnut-chart").get(0).getContext("2d");
-	    var myChart6 = new Chart(ctx6, {
-	        type: "doughnut",
-	        data: {
-	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
-	            datasets: [{
-	                backgroundColor: [
-	                    "rgba(235, 22, 22, .7)",
-	                    "rgba(235, 22, 22, .6)",
-	                    "rgba(235, 22, 22, .5)",
-	                    "rgba(235, 22, 22, .4)",
-	                    "rgba(235, 22, 22, .3)"
-	                ],
-	                data: [55, 49, 44, 24, 15]
-	            }]
-	        },
-	        options: {
-	            responsive: true
-	        }
-	    });
-		</script>
+
 </body>
 </html>

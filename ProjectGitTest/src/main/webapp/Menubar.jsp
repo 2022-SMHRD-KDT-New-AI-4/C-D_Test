@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>cash&dash</title>
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
 
