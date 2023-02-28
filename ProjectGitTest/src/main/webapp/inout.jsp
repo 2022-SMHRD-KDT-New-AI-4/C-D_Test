@@ -158,7 +158,7 @@ width :300px;
 
 			<!--chart start  -->
 
-			<div class="col-sm-12 col-xl-12">
+			<div class="col-sm-12 col-xl-8" style="padding-left: 500px">
 				<div class="bg-secondary rounded h-100 p-4">
 					<h6 class="mb-4" style="text-align: center;">입/지출 상세내역</h6>
 					<canvas id="pie-chart"></canvas>
