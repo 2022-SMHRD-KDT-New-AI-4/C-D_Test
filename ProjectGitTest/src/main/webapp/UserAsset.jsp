@@ -154,7 +154,7 @@
 								<blockquote class="blockquote" style="text-align: center;">
 									<h3>이철민 님의 총 자산은</h3>
 									<br>
-									<h3>100,000 원 입니다.</h3>
+									<h3>100,000 원입니다.</h3>
 								</blockquote>
 								<div style="text-align: center;">
 									<br>
