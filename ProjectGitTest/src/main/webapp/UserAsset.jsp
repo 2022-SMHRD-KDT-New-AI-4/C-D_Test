@@ -147,9 +147,9 @@
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h3 class="mb-4" style="text-align: center;">내 자산</h3>
+							<h2 class="mb-4" style="text-align: center;">내 자산</h2>
 							<canvas id="doughnut-chart"></canvas>
-							<br>
+							<br><br>
 							<figure>
 								<blockquote class="blockquote" style="text-align: center;">
 									<h3>이철민 님의 총 자산은</h3>
@@ -158,8 +158,7 @@
 								</blockquote>
 								<div style="text-align: center;">
 									<br>
-									<button type="button" class="btn btn-success m-2" onclick="location.href='UserAsset_Add.jsp'">자산
-										추가하기</button>
+									<button type="button" class="btn btn-primary w-100 m-2" onclick="location.href='UserAsset_Add.jsp'">자산추가하기</button>
 										
 								</div>
 							</figure>
@@ -308,15 +307,13 @@
 				var myChart6 = new Chart(ctx6, {
 					type : "doughnut",
 					data : {
-						labels : [ "Italy", "France", "Spain", "USA",
-								"Argentina" ],
+						labels : [ "현금성자산", "신용카드", "대출",
+								],
 						datasets : [ {
 							backgroundColor : [ "rgba(235, 22, 22, .7)",
-									"rgba(235, 22, 22, .6)",
-									"rgba(235, 22, 22, .5)",
 									"rgba(235, 22, 22, .4)",
 									"rgba(235, 22, 22, .3)" ],
-							data : [ 55, 49, 44, 24, 15 ]
+							data : [ 50, 30, 20 ]
 						} ]
 					},
 					options : {

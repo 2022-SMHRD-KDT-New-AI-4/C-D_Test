@@ -156,6 +156,7 @@
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1000억 모으기</h3></label><br>
 								
 							<br>
+							
 							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
 							<button type="submit" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
 							</div>
