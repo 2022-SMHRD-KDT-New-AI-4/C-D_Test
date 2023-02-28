@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>cash&dash</title>
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
 
@@ -60,74 +60,68 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
-					<h3 class="text-primary">DASH&CASH</h3>
+				<a href="#" class="navbar-brand mx-4 mb-3">
+					<h3 class="text-primary">CASH&DASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
 					<div class="position-relative">
-						<a href="signin.jsp"><h6 class="ms-3">·Î±×ÀÎÀÌ ÇÊ¿äÇÕ´Ï´Ù</h6></a>
+						<a href="signin.jsp"><h6 class="ms-3"> ë¡œê·¸ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤</h6></a>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">·Î±×ÀÎÇÑ ¾ÆÀÌµð°¡ º¸¿©Áö´Â °ø°£</h6>
-                        <span>ÀÏ¹ÝÈ¸¿ø</span> -->
+                        <h6 class="mb-0">ë¡œê·¸ì¸í•œ ì•„ì´ë””ê°€ ë³´ì—¬ì§€ëŠ” ê³µê°„</h6>
+                        <span>ì¼ë°˜íšŒì›</span> -->
 					</div>
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active"
-							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>¸ÞÀÎ</a>
+						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>ë©”ì¸</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.jsp" class="dropdown-item">¸ÞÀÎ</a> <a href="#"
-								class="dropdown-item">Ä¶¸°´õ</a>
+							<a href="#" class="dropdown-item active">ë©”ì¸</a> 
+							<a href="calendar1.jsp" class="dropdown-item">ìº˜ë¦°ë”</a>
 						</div>
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>ÀÔ/ÁöÃâ</a>
-						<a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>³»ÀÚ»ê</a>
-						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle"
-								data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>º¸°í¼­</a>
+						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>ìž…/ì§€ì¶œ</a>
+						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>ë‚´ ìžì‚°</a>
+						<div class="nav-item dropdown"> 
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>ë³´ê³ ì„œ</a>
 							<div class="dropdown-menu bg-transparent border-0">
-								<a href="#" class="dropdown-item">º¸°í¼­</a> <a href="#"
-									class="dropdown-item">¼ÒºñÇöÈ²</a> <a href="#"
-									class="dropdown-item">Åë°è</a>
+								<a href="Report.jsp" class="dropdown-item">ë³´ê³ ì„œ</a> 
+								<a href="Details_consumption.jsp"class="dropdown-item">ì†Œë¹„í˜„í™©</a> 
+								<a href="Statisticts.jsp"class="dropdown-item">í†µê³„</a>
 							</div>
 						</div>
-						<a href="#" class="nav-item nav-link"><i
-							class="fa fa-table me-2"></i>¸ñÇ¥</a>
+						<a href="TargetList.jsp" class="nav-item nav-link"><i class="fa fa-table me-2"></i>ëª©í‘œ</a>
 					</div>
 				</div>
 			</nav>
 		</div>
 		<!-- Sidebar End -->
+		
 		<!-- Content Start -->
 		<div class="content">
+		
 			<!-- Navbar Start -->
-			<nav
-				class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-				<a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+			<nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+				<a href="index.jsp" class="navbar-brand d-flex d-lg-none me-4">
 					<h2 class="text-primary mb-0">
 						<i class="fa fa-user-edit"></i>
 					</h2>
-				</a> <a href="#" class="sidebar-toggler flex-shrink-0"> <iclass="fafa-bars">
-					</i></a>
+				</a> 
+				<a href="#" class="sidebar-toggler flex-shrink-0"> <i class="fa fa-bars"></i></a>
 				<div class="navbar-nav align-items-center ms-auto">
 					<div class="nav-item dropdown">
-						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">·Î±×ÀÎ</a></button> -->
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown"> <img
-							class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-							style="width: 40px; height: 40px;"> <span
-							class="d-none d-lg-inline-flex">·Î±×ÀÎÇÑ ¾ÆÀÌµð°¡ º¸¿©Áö´Â°ø°£</span>
+						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">ë¡œê·¸ì¸</a></button> -->
+						<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
+							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<span class="d-none d-lg-inline-flex">ë¡œê·¸ì¸í•œ ì•„ì´ë””ê°€ ë³´ì—¬ì§€ëŠ”ê³µê°„</span>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-							<a href="Mypage.jsp" class="dropdown-item">¸¶ÀÌÆäÀÌÁö</a> <a
-								href="Mypage_modify.jsp" class="dropdown-item">¸¶ÀÌÆäÀÌÁö ¼öÁ¤</a> <a
-								href="signin.jsp" class="dropdown-item">·Î±×¾Æ¿ô</a>
+						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+							<a href="Mypage.jsp" class="dropdown-item">ë§ˆì´íŽ˜ì´ì§€</a> 
+							<a href="Mypage_modify.jsp" class="dropdown-item">ë§ˆì´íŽ˜ì´ì§€ ìˆ˜ì •</a> 
+							<a href="signin.jsp" class="dropdown-item">ë¡œê·¸ì•„ì›ƒ</a>
 						</div>
 
 
@@ -135,7 +129,9 @@
 				</div>
 			</nav>
 			<!-- Navbar End -->
-			<!-- º»¹® Start -->
+			
+			
+			<!-- ë³¸ë¬¸ Start -->
 
 			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
@@ -167,21 +163,21 @@
 				<div
 					class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
 
-					<!-- Ç×¸ñº° ÁöÃâ ¼øÀ§ (¿ù ´©Àû µ¥ÀÌÅÍ)  Start-->
+					<!-- í•­ëª©ë³„ ì§€ì¶œ ìˆœìœ„ (ì›” ëˆ„ì  ë°ì´í„°)  Start-->
 					<div class="container-fluid pt-4 px-4">
 						<div class="bg-secondary text-center rounded p-4">
 
-							<h3 class="mb-4">Ç×¸ñº° ÁöÃâ ¼øÀ§</h3>
+							<h3 class="mb-4">í•­ëª©ë³„ ì§€ì¶œ ìˆœìœ„</h3>
 
 							<!-- Chart Start -->
 
 							<!-- Chart End -->
 
-							<!-- ¸·´ë Start -->
+							<!-- ë§‰ëŒ€ Start -->
 							<div class="col-sm-12 col-xl-6">
 
 								<div class="pg-bar mb-3">
-									<h6>1¾ï ¸ðÀ¸±â</h6>
+									<h6>1ì–µ ëª¨ìœ¼ê¸°</h6>
 									<div class="progress">
 										<div class="progress-bar progress-bar-striped"
 											role="progressbar" aria-valuenow="10" aria-valuemin="0"
@@ -190,7 +186,7 @@
 								</div>
 
 								<div class="pg-bar mb-3">
-									<h6>5¾ï ¸ðÀ¸±â</h6>
+									<h6>5ì–µ ëª¨ìœ¼ê¸°</h6>
 									<div class="progress">
 										<div class="progress-bar progress-bar-striped bg-success"
 											role="progressbar" aria-valuenow="25" aria-valuemin="0"
@@ -198,7 +194,7 @@
 									</div>
 								</div>
 								<div class="pg-bar mb-3">
-									<h6>100¾ï ¸ðÀ¸±â</h6>
+									<h6>100ì–µ ëª¨ìœ¼ê¸°</h6>
 									<div class="progress">
 										<div class="progress-bar progress-bar-striped bg-info"
 											role="progressbar" aria-valuenow="50" aria-valuemin="0"
@@ -206,7 +202,7 @@
 									</div>
 								</div>
 								<div class="pg-bar mb-3">
-									<h6>1000¾ï ¸ðÀ¸±â</h6>
+									<h6>1000ì–µ ëª¨ìœ¼ê¸°</h6>
 									<div class="progress">
 										<div class="progress-bar progress-bar-striped bg-warning"
 											role="progressbar" aria-valuenow="75" aria-valuemin="0"
@@ -214,7 +210,7 @@
 									</div>
 								</div>
 								<div class="pg-bar mb-0">
-									<h6>1Á¶ ¸ðÀ¸±â</h6>
+									<h6>1ì¡° ëª¨ìœ¼ê¸°</h6>
 									<div class="progress">
 										<div class="progress-bar progress-bar-striped bg-danger"
 											role="progressbar" aria-valuenow="10" aria-valuemin="0"
@@ -224,21 +220,32 @@
 
 							</div>
 
-							<!-- ¸·´ë End -->
+							<!-- ë§‰ëŒ€ End -->
 						</div>
 					</div>
 
 				</div>
 			</div>
-			<!-- º»¹® End -->
-		</div>
-		<!-- Content End -->
-
-
-		<!-- Back to Top -->
-		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-			class="bi bi-arrow-up"></i></a>
-	</div>
+			<!-- ë³¸ë¬¸ End -->
+			
+			
+<!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="#">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end"> 
+                            <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
+                            <br>
+                            <a style="color:#EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+            
 
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
