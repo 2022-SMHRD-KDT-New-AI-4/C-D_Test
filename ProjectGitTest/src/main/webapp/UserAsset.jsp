@@ -58,7 +58,7 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.html" class="navbar-brand mx-4 mb-3">
+				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
 					<h3 class="text-primary">DASH&CASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
@@ -79,7 +79,7 @@
 						<a href="#" class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.html" class="dropdown-item">메인</a> <a href="#"
+							<a href="index.jsp" class="dropdown-item">메인</a> <a href="#"
 								class="dropdown-item">캘린더</a>
 						</div>
 						<a href="#" class="nav-link dropdown-toggle"
@@ -102,17 +102,28 @@
 			</nav>
 		</div>
 		<!-- Sidebar End -->
+<<<<<<< HEAD
 
 
 
+=======
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 		<!-- Content Start -->
+<<<<<<< HEAD
 
 
+=======
+		
+		
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 		<div class="content">
 			<!-- Navbar Start -->
 			<nav
 				class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-				<a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+				<a href="index.jsp" class="navbar-brand d-flex d-lg-none me-4">
 					<h2 class="text-primary mb-0">
 						<i class="fa fa-user-edit"></i>
 					</h2>
@@ -131,7 +142,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="#" class="dropdown-item">마이페이지</a> <a href="#"
-								class="dropdown-item">마이페이지 수정</a> <a href="index.html"
+								class="dropdown-item">마이페이지 수정</a> <a href="index.jsp"
 								class="dropdown-item">로그아웃</a>
 						</div>
 
@@ -140,7 +151,143 @@
 				</div>
 			</nav>
 			<!-- Navbar End -->
+<<<<<<< HEAD
 
+=======
+			
+			
+			
+			
+<div class="container-fluid pt-4 px-4">
+			<div class="row g-4">
+				<div class="col-sm-12 col-xl-6">
+					<div class="bg-secondary rounded h-100 p-4">
+						<h6 class="mb-4">여기 도넛 그래프 자리인데 도넛이 안떠용 슬퍼욥</h6>
+						<canvas id="doughnut-chart"></canvas>
+						<br>
+					<figure>
+								<blockquote class="blockquote" style="text-align: center;">
+									<h3>이철민 님의 총 자산은</h3>
+									<br>
+									<h3>100,000 원 입니다.</h3>
+								</blockquote>
+								<div style="text-align: center;">
+									<br>
+									<button type="button" class="btn btn-success m-2">자산
+										추가하기</button>
+								</div>
+							</figure>
+					</div>
+					
+				</div>
+				<div class="col-sm-12 col-xl-6">
+			<div class="bg-secondary rounded h-100 p-4">
+						<div class="border rounded p-4 pb-0 mb-4">
+							
+							<div class="bg-secondary rounded h-100 p-4">
+							<h5 class="mb-4" style="text-align: center;">현금성 자산</h5>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">은행명</th>
+										<th scope="col">잔액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>NH농협</td>
+										<td>100,000원</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>신한은행</td>
+										<td>1,000,000원</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>기업은행</td>
+										<td>10,000,000원</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="bg-secondary rounded h-100 p-4">
+							<h5 class="mb-4" style="text-align: center;">부채</h5>
+							<h6 class="mb-4" style="text-align: center;">카드</h6>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">카드명</th>
+										<th scope="col">사용금액</th>
+										<th scope="col">사용내역</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>BC카드</td>
+										<td>100,000원</td>
+										<td>과자 사먹기</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>삼성카드</td>
+										<td>1,000,000원</td>
+										<td>술값</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>NH농협</td>
+										<td>10,000,000원</td>
+										<td>카드론 이자</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="bg-secondary rounded h-100 p-4">
+							<h6 class="mb-4" style="text-align: center;">대출</h6>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">No</th>
+										<th scope="col">은행명</th>
+										<th scope="col">대출금액</th>
+										<th scope="col">사용 내역</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>NH농협</td>
+										<td>100,000원</td>
+										<td>식비</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>국민은행</td>
+										<td>1,000,000원</td>
+										<td>월세</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>기업은행</td>
+										<td>10,000,000,000원</td>
+										<td>전세대출</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+							
+						</div>
+					</div>
+			
+			</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 
 
 <!-- 내 자산 그래프 추가  -->
