@@ -4,4 +4,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.mapperL">
 <!-- 이철민 -->
+<!-- 
+		┌───────────────────────┐
+ 		│	쳐다보지 마시오 			│
+		│				-주인백	│
+		└───────────────────────┘
+-->
+
 </mapper>
