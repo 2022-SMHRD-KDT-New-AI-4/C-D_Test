@@ -153,7 +153,7 @@
                              <label class="form-check-label" for="exampleCheck1"><h3>ㆍ5억 모으기</h3></label><br>
                              
                              <input type="checkbox" class="form-check-input" id="exampleCheck3">
-                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ100억 모으기</h3></label><br>
+                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1000억 모으기</h3></label><br>
 								
 							<br>
 							<button type="submit" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
