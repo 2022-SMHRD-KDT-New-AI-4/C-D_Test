@@ -193,16 +193,7 @@
 								placeholder="닉네임"> <label
 								for="floatingInput">닉네임</label>
 						</div>
-						
-                            <h6 class="mb-4">세대원 수</h6>
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>세대원 수 </option>
-                                <option value="user_f_num1">1명</option>
-                                <option value="user_f_num2">2명</option>
-                                <option value="user_f_num3">3명</option>
-                                <option value="user_f_num4">4명</option>
-                                <option value="user_f_num5">그 이상</option>
-                            </select>
+					
 						
 							
 					
