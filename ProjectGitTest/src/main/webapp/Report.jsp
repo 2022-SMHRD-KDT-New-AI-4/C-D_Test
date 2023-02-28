@@ -59,8 +59,6 @@
 			</div>
 		</div>
 		<!-- Spinner End -->
-
-<<<<<<< HEAD
  <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
@@ -70,8 +68,7 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
-                       <!--  <img class="rounded-circle" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-=======
+                       <!--  <img class="rounded-circle" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"-->
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
@@ -82,7 +79,6 @@
 					<div class="position-relative">
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
@@ -90,8 +86,7 @@
                     <div class="ms-3">
                         <h6 class="mb-0">로그인한 아이디가 보여지는 공간</h6>
                         <span>일반회원</span> -->
-<<<<<<< HEAD
-=======
+
 					</div>
 				</div>
 				<div class="navbar-nav w-100">
@@ -118,6 +113,7 @@
 			</nav>
 		</div>
 		<!-- Sidebar End -->
+		
 		<!-- Content Start -->
 		<div class="content">
 			<!-- Navbar Start -->
@@ -127,7 +123,7 @@
 						<i class="fa fa-user-edit"></i>
 					</h2>
 				</a> 
-				<a href="#" class="sidebar-toggler flex-shrink-0"> <iclass="fa fa-bars"></i></a>
+				<a href="#" class="sidebar-toggler flex-shrink-0"> <i class="fa fa-bars"></i></a>
 				<div class="navbar-nav align-items-center ms-auto">
 					<div class="nav-item dropdown">
 						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">로그인</a></button> -->
@@ -151,7 +147,7 @@
                             <h6 class="mb-4">Doughnut Chart</h6>
                             <canvas id="doughnut-chart"></canvas>
                         </div>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
+
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -222,9 +218,17 @@
 			</div>
          </div>
          <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
+                        <div class="bg-secondary rounded h-30 p-4">
                             <h6 class="mb-4">Multiple Bar Chart</h6>
                             <canvas id="worldwide-sales"></canvas>
+                        </div>
+						<div class="bg-secondary rounded h-30 p-4">
+                            <h6 class="mb-4">Multiple Bar Chart</h6>
+                            <canvas id="worldwide-sales2"></canvas>
+                        </div>
+						<div class="bg-secondary rounded h-30 p-4">
+                            <h6 class="mb-4">Multiple Bar Chart</h6>
+                            <canvas id="worldwide-sales3"></canvas>
                         </div>
           </div>
  
@@ -237,8 +241,7 @@
 
 <!-- JavaScript Libraries -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="assets/darkpan-1.0.0/lib/chart/chart.min.js"></script>
 		<script src="assets/darkpan-1.0.0/lib/easing/easing.min.js"></script>
 		<script src="assets/darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
