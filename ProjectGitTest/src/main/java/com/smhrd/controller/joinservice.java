@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.model.MemberDAO;
-import com.smhrd.model.MemberVO;
+import com.smhrd.model.userVO;
 
 @WebServlet("/joinservice")
 public class joinservice extends HttpServlet {
@@ -29,7 +29,7 @@ public class joinservice extends HttpServlet {
 		String f_num = request.getParameter("f_num");
 		String nick = request.getParameter("nick");
 
-		MemberVO vo = new MemberVO(id, pw, name, age, salary, f_num, nick);
+		userVO vo = new userVO(id, pw, name, age, salary, nick);
 
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(vo);
