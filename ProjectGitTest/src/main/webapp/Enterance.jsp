@@ -57,7 +57,7 @@
    color: white;
    font-family: '나눔 손글씨 붓','Nanum Brush Script';
    line-height: 100%;
-   margin-top: 15%;
+   margin-top: 18%;
    border-top: 0px;
    padding-top: 0px;
    margin-bottom: 0px;
