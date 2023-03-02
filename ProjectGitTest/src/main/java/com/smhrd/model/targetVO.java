@@ -12,6 +12,15 @@ public class targetVO {
 	
 	
 	
+	public targetVO(String target_name, int target_amount, String user_id, String target_start, String target_end) {
+		super();
+		this.target_name = target_name;
+		this.target_amount = target_amount;
+		this.user_id = user_id;
+		this.target_start = target_start;
+		this.target_end = target_end;
+	}
+
 	@Override
 	public String toString() {
 		return "targetVO [target_seq=" + target_seq + ", target_name=" + target_name + ", target_amount="
