@@ -13,7 +13,7 @@
 
 <insert id = "tagertadd" parameterType="com.smhrd.model.targetVO">
 	insert into tb_target 
-	values(#{target_name},#{target_amount},#{target_start},#{target_end})
+	values(1,#{target_name},#{target_amount},#{target_start},#{target_end})
 </insert>
 
 
