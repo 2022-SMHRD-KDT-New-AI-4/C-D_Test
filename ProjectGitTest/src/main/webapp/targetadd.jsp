@@ -140,18 +140,22 @@
                                 <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
                                        
-                                            <h3 class="text-primary">목표추가</h3>
+                                    <h3 class="text-primary">목표추가</h3>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
                                         <label for="floatingText">목표명</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                        <label for="floatingInput">목표기간</label>
+                                        <input type="date" class="form-control" id="floatingInput" min="2000-01-01" max="2099-12-31">
+                                        <label for="floatingInput">목표시작일</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="date" class="form-control" id="floatingInput" min="2000-01-01" max="2099-12-31">
+                                        <label for="floatingInput">목표종료일</label>
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
                                         <label for="floatingPassword">목표금액</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='TargetList.jsp'">목표추가</button>
