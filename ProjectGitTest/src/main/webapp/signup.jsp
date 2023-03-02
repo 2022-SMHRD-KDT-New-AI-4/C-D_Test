@@ -46,6 +46,8 @@
 </head>
 
 <body>
+
+
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -132,6 +134,7 @@
 
 
 		<!-- Sign Up Start -->
+		
 		<div class="container-fluid">
 			<div class="row h-100 align-items-center justify-content-center"
 				style="min-height: 100vh;">
@@ -141,16 +144,14 @@
 							class="d-flex align-items-center justify-content-between mb-3">
 							<h4>회원가입</h4>
 						</div>
-						<div class="form-floating mb-3">
 						<form action = "joinservice" method="post">
-							<input type="text" class="form-control" id="floatingInput"
-								placeholder="아이디"> <label for="floatingInput">아이디</label>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="floatingInput" placeholder="아이디" name="user_id"> <label for="floatingInput">아이디</label>
 						</div>
-
 
 						<div class="form-floating mb-4">
 							<input type="password" class="form-control" id="floatingPassword" onchange="check_pw()"
-								placeholder="비밀번호"> <label for="floatingPassword">비밀 번호</label>
+								placeholder="비밀번호" name="user_pw"> <label for="floatingPassword">비밀 번호</label>
 						</div>
 
 
@@ -176,33 +177,33 @@
 							}
 						</script>
 						
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="floatingText"
+			<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="floatingText" name="user_name"
 								placeholder="이름"> <label for="floatingText">이름</label>
 						</div>
 
 
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="floatingInput"
+							<input type="text" class="form-control" id="floatingInput" name="user_age"
 								placeholder="나이"> <label
 								for="floatingInput">나이</label>
 						</div>
 						
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="floatingInput"
+							<input type="text" class="form-control" id="floatingInput" name="user_nick"
 								placeholder="닉네임"> <label
 								for="floatingInput">닉네임</label>
 						</div>
 										
 					
                             <h6 class="mb-4">연봉</h6>
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="user_salary">
                                 <option selected>연봉 선택</option>
-                                <option value="salary1">3000만원 이하</option>
-                                <option value="salary2">3000~4000만원</option>
-                                <option value="salary3">4000~5000만원</option>
-                                <option value="salary4">5000~6000만원</option>
-                                <option value="salary5">6000만원이상</option>
+                                <option value="2">3000만원 이하</option>
+                                <option value="3">3000~4000만원</option>
+                                <option value="4">4000~5000만원</option>
+                                <option value="5">5000~6000만원</option>
+                                <option value="6">6000만원이상</option>
                             </select>
 						<a></a>
 						<div
@@ -212,7 +213,8 @@
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="creat_id();">회원가입</button>
 						</div>
 						<div>
-							</form>
+						</form>
+							
 							<br><br>
 							<p class="text-center mb-0">
 								이미 캐시앤대시의 회원입니까? <a href="signin.jsp">로그인</a>
@@ -227,6 +229,8 @@
 					</div>
 				</div>
 			</div>
+			
+			
 			<!-- 회원가입 End -->
 			
 		<!-- Footer Start -->

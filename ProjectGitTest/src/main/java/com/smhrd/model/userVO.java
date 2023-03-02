@@ -6,7 +6,7 @@ public class userVO {
 	private String user_name;
 	private String user_age;
 	private String user_nick;
-	private String user_salary;
+	private int user_salary;
 	
 	
 	
@@ -28,7 +28,7 @@ public class userVO {
 
 
 	public userVO(String user_id, String user_pw, String user_name, String user_age, String user_nick,
-			String user_salary) {
+			int user_salary) {
 		super();
 		this.user_id = user_id;
 		this.user_pw = user_pw;
@@ -100,13 +100,13 @@ public class userVO {
 
 
 
-	public String getUser_salary() {
+	public int getUser_salary() {
 		return user_salary;
 	}
 
 
 
-	public void setUser_salary(String user_salary) {
+	public void setUser_salary(int user_salary) {
 		this.user_salary = user_salary;
 	}
 	
