@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -142,17 +143,41 @@
                             </a>
                             <h3>로그인</h3>
                         </div>
-                        <form action="loginservice" method="post">
+                      <form action="loginservice" method="post">  
                         <div class="form-floating mb-3">
-                            <input name="user_id" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input name="user_id" id="user_id" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                             
                         </div>
                         <div class="form-floating mb-4">
-                            <input name="user_pw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input name="user_pw" id="user_pw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">비밀번호</label>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='index.jsp'">로그인</button>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="signin();">로그인</button>
                         </form>
+                       <script>
+                       function signin(){
+                    	   var user_id=$("#user_id").val();
+                    	   var user_pw=$("#user_pw").val();
+                    	   $.ajax({
+                               url : "loginservice",
+                               method : "post",                             
+                               data : {"user_id":user_id,"user_pw":user_pw},
+                               success : function(data){ 
+                            	   if(data!=-1){
+                            	     alert("로그인 성공");
+                            	     location.href = "index.jsp";
+                            	   }else{
+                            		 alert("로그인 실패");
+                            		 location.href ="signin.jsp";
+                            	   }                               
+                               },
+                               error : function(err) {
+                                  alert("로그인 실패 ㅠ");
+                               }
+                            });
+
+                       }
+                       </script>
                         <p class="text-center mb-0">캐시앤대시 회원이 아니십니까? <a href="signup.jsp">회원가입</a></p>
                     </div>
                 </div>
