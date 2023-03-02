@@ -1,7 +1,7 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.smhrd.model.MemberVO"%>
+
 <%@page import="java.util.Random"%>
 <%@page import="com.smhrd.virtualData.bankDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
