@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.model.DAO_Z;
-import com.smhrd.model.MemberDAO;
 import com.smhrd.model.userVO;
 
 @WebServlet("/joinservice")
@@ -35,15 +34,28 @@ public class joinservice extends HttpServlet {
 		
 		
 		int cnt = dao.join(vo);
-
-		if (cnt > 0) {
+		
+		if(cnt>0) {
 			System.out.println("회원가입 성공");
-			RequestDispatcher rd = request.getRequestDispatcher("loginservice.jsp");
+			//join_success.jsp 이동 (사용자가 작성한 이메일 화면에 출력)
+			// response.sendRedirect("join_success.jsp");
+			// ㄴ 이 방법 사용하지 않을 것임 : email값을 공유받아야하는데 request가 두번 일어나기때문에 공유 x -> forwarding 방식 사용
+			RequestDispatcher rd =  request.getRequestDispatcher("signin.jsp"); 
 			rd.forward(request, response);
-		} else {
-			System.out.println("회원가입 실패");
-//			response.sendRedirect(".jsp");
 		}
-	}
+		else {
+			System.out.println("회원가입 실패");
+			//main.jsp 로 이동
+			// response.sendRedirect("main.jsp");
+		}
+		
+		
 
-}
+	}
+	}
+		
+		
+
+	
+
+

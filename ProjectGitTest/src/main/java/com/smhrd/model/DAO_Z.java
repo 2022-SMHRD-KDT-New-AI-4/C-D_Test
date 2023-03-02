@@ -18,5 +18,14 @@ public class DAO_Z {
 		return cnt;
 	}
 	
+//id 중복확인
+	public String checkIdz(String user_id) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		String idCheck = session.selectOne("checkIdz", user_id);
+		session.close();
+		return idCheck;
+		
+	}
+	
 	
 }
