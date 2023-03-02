@@ -8,8 +8,12 @@
 <insert id = "joinz" parameterType="com.smhrd.model.userVO">
 	insert into tb_user 
 	values(#{user_id},#{user_pw},#{user_name},#{user_age},
-	#{user_salary},#{user_nick},sysdate)
+	#{user_salary},#{user_nick}, sysdate)
 </insert>
+
+<select id="checkIdz" resultType="String" parameterType="String">
+	select * from tb_user where user_id = #{user_id}
+</select>
 
 
 
