@@ -26,7 +26,6 @@ public class joinservice extends HttpServlet {
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
 		String salary = request.getParameter("salary");
-		String f_num = request.getParameter("f_num");
 		String nick = request.getParameter("nick");
 
 		userVO vo = new userVO(id, pw, name, age, salary, nick);

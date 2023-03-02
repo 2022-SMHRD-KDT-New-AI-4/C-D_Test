@@ -142,6 +142,7 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="form-floating mb-3">
+						<form action = "joinservice" method="post">
 							<input type="text" class="form-control" id="floatingInput"
 								placeholder="아이디"> <label for="floatingInput">아이디</label>
 						</div>
@@ -211,6 +212,7 @@
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="creat_id();">회원가입</button>
 						</div>
 						<div>
+							</form>
 							<br><br>
 							<p class="text-center mb-0">
 								이미 캐시앤대시의 회원입니까? <a href="signin.jsp">로그인</a>
