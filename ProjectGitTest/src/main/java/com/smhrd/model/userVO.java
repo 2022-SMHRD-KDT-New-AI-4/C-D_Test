@@ -7,5 +7,5 @@ public class userVO {
 	private String age;
 	private String nick;
 	private String salary;
-	
+	 
 }
