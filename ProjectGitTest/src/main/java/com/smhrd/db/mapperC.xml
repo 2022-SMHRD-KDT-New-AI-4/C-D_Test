@@ -4,4 +4,58 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.mapperC">
 <!-- 차지현 -->
+
+
+<!-- tb_user 테이블에서 회원 나이, 연봉 select  -->
+<select id="userSalary" resultType="" parameterType="">
+	select user_age, user_salary FROM tb_user;
+</select>
+
+<!-- tb_user 테이블에서 회원 연령별 평균 연봉 select -->
+<select id="age_Salary" resultType="" parameterType="">
+   SELECT age, AVG(salary) AS avg_salary FROM tb_user GROUP BY user_age;
+</select>
+
+
+<!-- 회원의 나이, 월 평균 지출금액 select -->
+<select id="user_spending_m" resultType="" parameterType="">
+   SELECT age, AVG(out?) AS avg_monthly_expense FROM tb_Income_Expense GROUP By user_age;
+</select>
+
+
+<!-- 연령별 월 평균 소비량 -->
+<select id="age_spending_m" resultType="" parameterType="">
+  SELECT age, AVG(out?) AS avg_out FROM tb_Income_Expense GROUP BY user_age; 
+</select>
+
+<!-- tb_Income_Expense 테이블에서 회원 연 지출금액 select -->
+<select id="age_spending_y" resultType="" parameterType="">
+  SELECT age, AVG(out?) AS avg_out FROM tb_Income_Expense GROUP BY user_age; 
+</select>
+
+<!-- 연령별 연 평균 소비량 -->
+<select id="age_spending_y" resultType="" parameterType="">
+SELECT age, AVG(out?) AS avg_yearly_consumption FROM table_name GROUP BY age
+</select>
+
+
+<!-- 소득구간별 소비량 월 평균 -->
+
+<select id="">
+
+</select>
+
+<!-- 소득구간별 소비량 연 평균 -->
+
+<select id="">
+
+</select>
+
+<!-- 소득구간별 총 자산 평균-->
+
+<select id="">
+
+</select>
+
+
 </mapper>

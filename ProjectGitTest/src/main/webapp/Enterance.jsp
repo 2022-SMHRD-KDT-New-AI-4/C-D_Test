@@ -48,12 +48,13 @@
 }
 
 #logo:hover {
-  text-shadow: 5px 5px 10px #888888; /* 그림자 강화 */
+  text-shadow: 8px 8px 10px #888888; /* 그림자 강화 */
 }
 
 
 #message {
    font-size: 90px;
+   color: white;
    font-family: '나눔 손글씨 붓','Nanum Brush Script';
    line-height: 100%;
    margin-top: 15%;
@@ -70,7 +71,7 @@
 
 
 #message2 {
-   color: Black;
+   color: white;
    font-family: 'GmarketSansMedium';    
    font-size: 20px;
    margin-top: 10px;
@@ -81,7 +82,7 @@
 }
 
 .first {
-   background-color: white; 
+   background-color: #4baf4b; 
    display: flex;
    justify-content: center;
    align-items: center;
