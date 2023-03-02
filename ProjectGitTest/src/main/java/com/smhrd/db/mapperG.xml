@@ -4,4 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.mapperG">
 <!-- 장예지 -->
+
+<!-- 로그인  -->
+<select id="login" resultType="com.smhrd.model.userVO" parameterType="com.smhrd.model.userVO">
+select * from tb_user where user_id=#{user_id} and user_pw=#{user_pw}
+</select>
+
 </mapper>

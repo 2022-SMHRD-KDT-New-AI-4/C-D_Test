@@ -142,15 +142,17 @@
                             </a>
                             <h3>로그인</h3>
                         </div>
+                        <form action="loginservice" method="post">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">아이디</label>
+                            <input name="user_id" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input name="user_pw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">비밀번호</label>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='index.jsp'">로그인</button>
+                        </form>
                         <p class="text-center mb-0">캐시앤대시 회원이 아니십니까? <a href="signup.jsp">회원가입</a></p>
                     </div>
                 </div>
