@@ -8,12 +8,12 @@
 <!-- #{?} {}중 괄호는 객체 안 필드에 만들어준 이름 작성 -->
 
 <!-- 회원가입(insert)  -->
-<insert id="join" parameterType="MemberVO">
-	insert into tb_user values(#{id},#{pw},#{name},#{age},#{salary},#{f_num},#{nick},sysdate,1)
+<insert id="join" parameterType="userVO">
+	insert into tb_user values(#{id},#{pw},#{name},#{age},#{salary},#{nick},sysdate)
 </insert>
   
   <!-- 로그인(select) --> 
- <select id="login" resultType ="MemberVO" parameterType="MemberVO">
+ <select id="login" resultType ="userVO" parameterType="userVO">
  	select * from tb_user where user_id = #{id} and pw = #{pw}
  </select>
 
