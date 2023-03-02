@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.model.DAO_L;
 import com.smhrd.model.targetVO;
 
-@WebServlet("/joinservice")
+@WebServlet("/targetservice")
 public class targetservice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
