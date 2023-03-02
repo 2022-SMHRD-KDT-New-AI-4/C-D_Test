@@ -6,6 +6,9 @@
 <!-- 차지현 -->
 
 
+
+<!-- 연봉(소득) -->
+
 <!-- tb_user 테이블에서 회원 나이, 연봉 select  -->
 <select id="userSalary" resultType="" parameterType="">
 	select user_age, user_salary FROM tb_user;
@@ -13,8 +16,12 @@
 
 <!-- tb_user 테이블에서 회원 연령별 평균 연봉 select -->
 <select id="age_Salary" resultType="" parameterType="">
-   SELECT age, AVG(salary) AS avg_salary FROM tb_user GROUP BY user_age;
+
 </select>
+
+
+
+<!-- 소비량 -->
 
 
 <!-- 회원의 나이, 월 평균 지출금액 select -->
@@ -24,31 +31,44 @@
 
 
 <!-- 연령별 월 평균 소비량 -->
-<select id="age_spending_m" resultType="" parameterType="">
-  SELECT age, AVG(out?) AS avg_out FROM tb_Income_Expense GROUP BY user_age; 
+
+<select id="monthspending_by_ages" resultType="" parameterType="">
+SELECT CASE 
+  WHEN age BETWEEN 20 AND 29 THEN '20-29'
+  WHEN age BETWEEN 30 AND 39 THEN '30-39'
+  WHEN age BETWEEN 40 AND 49 THEN '40-49'
+  WHEN age BETWEEN 50 AND 59 THEN '50-59'
+  WHEN age BETWEEN 60 AND 69 THEN '60-69'
+  ELSE '70+' END AS age_range, AVG(consumption) AS avg_monthly_consumption FROM tb_Income_Expense GROUP BY age_range
 </select>
 
-<!-- tb_Income_Expense 테이블에서 회원 연 지출금액 select -->
-<select id="age_spending_y" resultType="" parameterType="">
+
+<!-- 회원의 나이, 연 지출금액 select -->
+<select id="yearspending_by_user" resultType=" " parameterType=" ">
   SELECT age, AVG(out?) AS avg_out FROM tb_Income_Expense GROUP BY user_age; 
 </select>
 
 <!-- 연령별 연 평균 소비량 -->
-<select id="age_spending_y" resultType="" parameterType="">
-SELECT age, AVG(out?) AS avg_yearly_consumption FROM table_name GROUP BY age
+<select id="yearspending_by_ages" resultType="" parameterType="">
+SELECT CASE 
+  WHEN age BETWEEN 20 AND 29 THEN '20-29'
+  WHEN age BETWEEN 30 AND 39 THEN '30-39'
+  WHEN age BETWEEN 40 AND 49 THEN '40-49'
+  WHEN age BETWEEN 50 AND 59 THEN '50-59'
+  WHEN age BETWEEN 60 AND 69 THEN '60-69'
+  ELSE '70+' END AS age_range, AVG(consumption) AS avg_yearly_consumption FROM tb_Income_Expense GROUP BY age_range;
 </select>
 
 
 <!-- 소득구간별 소비량 월 평균 -->
+<select id="monthspending_by_earnings" resultType="" parameterType="">
 
-<select id="">
 
 </select>
 
 <!-- 소득구간별 소비량 연 평균 -->
 
-<select id="">
-
+<select id="yearspending_by_earnings" resultType="" parameterType="">
 </select>
 
 <!-- 소득구간별 총 자산 평균-->
