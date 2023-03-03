@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +47,7 @@
 </head>
 
 <body>
+<%userVO loginD = (userVO)session.getAttribute("loginD"); %>
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -65,7 +67,12 @@
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
 					<div class="position-relative">
+					<%
+						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
+					<%}else{%>
+						<h6><%=loginD.getUser_nick() %></h6>	
+					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
@@ -116,12 +123,16 @@
 						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">로그인</a></button> -->
 						<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
 							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<%if(loginD==null){ %>
 							<span class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
+							<%}else{ %>
+							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
+							<%} %>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="signin.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 

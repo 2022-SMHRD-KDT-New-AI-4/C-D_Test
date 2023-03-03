@@ -165,14 +165,14 @@
                                success : function(data){ 
                             	   if(data!=-1){
                             	     alert("로그인 성공");
-                            	     location.href = "index.jsp";
+                            	     location.href = "Menubar.jsp";
                             	   }else{
                             		 alert("로그인 실패");
                             		 location.href ="signin.jsp";
                             	   }                               
                                },
                                error : function(err) {
-                                  alert("로그인 실패 ㅠ");
+                                  alert("에러..ㅜ^ㅜ ");
                                }
                             });
 
