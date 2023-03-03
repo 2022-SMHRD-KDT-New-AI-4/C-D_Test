@@ -10,4 +10,9 @@
 select * from tb_user where user_id=#{user_id} and user_pw=#{user_pw}
 </select>
 
+<!--회원정보 수정 -->
+<update id="update" parameterType="com.smhrd.model.userVO">
+update tb_user set user_salary = #{user_salary} ,user_nick = #{user_nick} where user_id = #{user_id}
+</update>
+
 </mapper>
