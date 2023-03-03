@@ -39,6 +39,7 @@ public class targetservice extends HttpServlet {
 		} else {
 			System.out.println("목표추가 실패");
 		}
+		
 	}
 
 }

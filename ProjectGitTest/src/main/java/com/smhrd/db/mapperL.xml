@@ -25,4 +25,18 @@
 		delete from tb_target where target_seq =#{target_seq}
 </delete>
 
+<select id = "target_date_start" resultType="com.smhrd.model.targetVO" parameterType="String">
+	select target_start from tb_target where user_id = 'cjfals'
+</select>
+
+<select id = "target_date_end" resultType="com.smhrd.model.targetVO" parameterType="String">
+	select target_end from tb_target where user_id = 'cjfals'
+</select>
+
+
+<select id = "target_amount_cal" resultType="com.smhrd.model.targetVO">
+	select target_amount from tb_target where user_id ='cjfals'
+</select>
+
+
 </mapper>

@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -160,13 +162,26 @@
 							<br>
 							
 							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
-							<button type="submit" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
+							
+							
+							
+							<button type="submit" id ="btn_del" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
+							
+							
+							
 							</div>
 							
 						</div>
 						</div>
 						
 						<script type="text/javascript">
+						$('#btn_del').click(function()){
+							if($("input:checkbox[name='check_t']:checked").length === 0){
+								return;
+							}
+						}
+						
+						
 							function Target() {
 								let returnValue = confirm('해당 목표를 삭제하시겠습니까?');
 								if (returnValue === true) { // 확인 버튼을 눌렀을 경우
@@ -185,10 +200,24 @@
 
 
 			<!--  목표 상세 시작 -->
+			
+			<%
+           	ArrayList<targetVO> startlist = dao.target_date_start("cjfals");
+           	ArrayList<targetVO> endlist = dao.target_date_end("cjfals");
+           	
+           	List<targetVO> amountlist = dao.target_amount_cal("cjfals");
+           	
+           	for(int i = 0 ; i < amountlist.size(); i++ ){
+           		System.out.println(amountlist.get(i).getTarget_amount());
+           	}
+           	
+           	
+           	%>
+     
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<div class="border rounded p-4 pb-0 mb-4">
-						<h3 class="mb-4">1억 모으기</h3>
+						<h3 class="mb-4"><%=list.get(0).getTarget_name()%></h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="55"
@@ -197,8 +226,8 @@
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : 500만원 모으기</li>
-									<li>기간 : 2022.01.01~2023.03.04</li>
+									<li>목표 : <%=list.get(0).getTarget_name()%></li>
+									<li>기간 : <%=startlist.get(0).getTarget_start() %>~<%=endlist.get(0).getTarget_end() %></li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
@@ -206,7 +235,7 @@
 				
 				
 			
-						<h3 class="mb-4">10억 모으기</h3>
+						<h3 class="mb-4"><%=list.get(1).getTarget_name()%></h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="30"
@@ -215,8 +244,8 @@
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : 10억 모으기</li>
-									<li>기간 : 2022.01.01~2023.03.04</li>
+									<li>목표 : <%=list.get(1).getTarget_name()%></li>
+									<li>기간 : <%=startlist.get(1).getTarget_start() %>~<%=endlist.get(1).getTarget_end() %></li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
@@ -224,7 +253,7 @@
 				</div>
 			
 			
-						<h3 class="mb-4">100억 모으기</h3>
+						<h3 class="mb-4"><%=list.get(2).getTarget_name()%></h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="70"
@@ -233,8 +262,8 @@
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : 100억 모으기</li>
-									<li>기간 : 2022.01.01~2023.03.04</li>
+									<li>목표 : <%=list.get(2).getTarget_name()%></li>
+									<li>기간 : <%=startlist.get(2).getTarget_start() %>~<%=endlist.get(2).getTarget_end() %></li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
@@ -288,6 +317,8 @@
 
 	<!-- Template Javascript -->
 	<script src="assets/darkpan-1.0.0/js/main.js"></script>
+	
+
 </body>
 
 </html>

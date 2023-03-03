@@ -1,5 +1,7 @@
 package com.smhrd.model;
- 
+
+import com.google.errorprone.annotations.ForOverride;
+
 public class targetVO {
 
 	private int target_seq;
@@ -10,6 +12,14 @@ public class targetVO {
 	private int target_amount;
 	
 	
+
+
+
+	public targetVO(String target_start, String target_end) {
+		super();
+		this.target_start = target_start;
+		this.target_end = target_end;
+	}
 
 
 
@@ -29,6 +39,8 @@ public class targetVO {
 	public targetVO() {
 		
 	}
+	
+	
 	
 	
 	public targetVO(int target_seq, String target_name, String user_id, String target_start, String target_end,
@@ -68,21 +80,15 @@ public class targetVO {
 		this.target_amount = target_amount;
 	}
 
-	
 
 
 
-
-
-	@Override
+	@ForOverride
 	public String toString() {
 		return "targetVO [target_seq=" + target_seq + ", target_name=" + target_name + ", user_id=" + user_id
 				+ ", target_start=" + target_start + ", target_end=" + target_end + ", target_amount=" + target_amount
 				+ "]";
 	}
-
-
-
 
 
 

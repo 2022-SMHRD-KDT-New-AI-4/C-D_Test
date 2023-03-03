@@ -38,4 +38,24 @@ public class DAO_L {
 		session.close();
 		return cnt;
 	}
+	
+	public ArrayList<targetVO> target_date_start(String user_id) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<targetVO> list = session.selectList("target_date_start", user_id);
+		session.close();
+		return (ArrayList<targetVO>) list;
+	}
+	public ArrayList<targetVO> target_date_end(String user_id) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<targetVO> list = session.selectList("target_date_end", user_id);
+		session.close();
+		return (ArrayList<targetVO>) list;
+	}
+	
+	public List<targetVO> target_amount_cal(String user_id) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<targetVO> cnt = session.selectList("target_amount_cal",user_id);
+		session.close();
+		return cnt;
+	}
 }
