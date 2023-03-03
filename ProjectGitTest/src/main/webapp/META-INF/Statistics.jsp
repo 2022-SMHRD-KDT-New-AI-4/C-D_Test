@@ -143,15 +143,27 @@
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<h6 class="mb-4">연령별 소득 평균</h6>
-							<canvas id="ages_earning" width="450" height="230"
+							<canvas id="Salary_on_ages" width="450" height="230"
+								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="container-fluid pt-4 px-4">
+				<div class="row g-4">
+				<div class="col-sm-12 col-xl-6">
+						<div class="bg-secondary rounded h-100 p-4">
+							<h6 class="mb-4">연령별 월 소비량 평균</h6>
+							<canvas id="month_spendings_by_ages" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
 						</div>
 					</div>
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">연령별 소비량 평균</h6>
-							<canvas id="ages_expend" width="450" height="230"
-								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
+							<h6 class="mb-4">연령별 연 소비량 평균</h6>
+							<canvas id= "year_spendings_by_ages" width="450" height="230"
+								style="display: block; box-sizing: border-box; height: 230px; width: 400px;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -160,20 +172,41 @@
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">소득구간별 총 자산 평균</h6>
-							<canvas id="earnings_asset" width="450" height="230"
-								style="display: block; box-sizing: border-box; height: 230px; width: 400px;"></canvas>
+							<h6 class="mb-4">소득구간별 월 소비량 평균</h6>
+							<canvas id= "month_spendings_by_earnings" width="450" height="230"
+								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
 						</div>
 					</div>
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">소득구간별 소비량 평균</h6>
-							<canvas id="earnings_expend" width="450" height="230"
+							<h6 class="mb-4">소득구간별 연 소비량 평균</h6>
+							<canvas id="year_spendings_by_earnings" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 400px;"></canvas>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="container-fluid pt-4 px-4">
+				<div class="row g-4">
+				<div class="col-sm-12 col-xl-6">
+						<div class="bg-secondary rounded h-100 p-4">
+							<h6 class="mb-4">연령별 총 자산 평균</h6>
+							<canvas id="assets_on_ages" width="450" height="230"
+								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
+						</div>
+					</div>
+					<div class="col-sm-12 col-xl-6">
+						<div class="bg-secondary rounded h-100 p-4">
+							<h6 class="mb-4">소득구간별 총 자산 평균</h6>
+							<canvas id="assets_on_earnings" width="450" height="230"
+								style="display: block; box-sizing: border-box; height: 230px; width: 400px;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
 
 			<!-- JavaScript Libraries -->
 			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -200,8 +233,8 @@
 			    Chart.defaults.borderColor = "#000000";
 
 
-			    // Worldwide Sales Chart
-			    var ctx1 = $("#ages_earning").get(0).getContext("2d");
+			    // 연령별 소득 
+			    var ctx1 = $("#Salary_on_ages").get(0).getContext("2d");
 			    var myChart1 = new Chart(ctx1, {
 			        type: "bar",
 			        data: {
@@ -211,7 +244,7 @@
 			                    data: [15, 30, 55, 65, 60, 80],
 			                    backgroundColor: "rgba(173,255,47, .7)"
 			                }, {
-			                     label: "나의 평균",
+			                     label: "나의 소득",
 			                     data: [0, 0, 50, 0, 0, 0, 0],
 			                     backgroundColor: "rgba(245,255,250, .7)"
 			                 }]
@@ -221,18 +254,18 @@
 			        }
 			    });
 			    
-			         // Worldwide Sales Chart
-			     var ctx7 = $("#ages_expend").get(0).getContext("2d");
-			     var myChart7 = new Chart(ctx7, {
+			         // 나이별 월/연 소비량 평균  
+			     var ctx2 = $("#month_spendings_by_ages").get(0).getContext("2d");
+			     var myChart2 = new Chart(ctx2, {
 			         type: "bar",
 			         data: {
 			             labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
 			             datasets: [{
 			                     label: "소비량 평균",
 			                     data: [15, 30, 55, 65, 60, 80],
-			                     backgroundColor: "rgba(135,206,250, .7)"
+			                     backgroundColor: "rgba(255,255,36, .7)"
 			                 }, {
-			                     label: "나의 평균",
+			                     label: "나의 소비량",
 			                     data: [0, 0, 50, 0, 0, 0, 0],
 			                     backgroundColor: "rgba(255,250,250, .7)"
 			                 }]			             
@@ -241,18 +274,83 @@
 			             responsive: true
 			         }
 			     });
-			      // Worldwide Sales Chart
-			    var ctx8 = $("#earnings_asset").get(0).getContext("2d");
-			    var myChart8 = new Chart(ctx8, {
+			     
+			     var ctx3 = $("#year_spendings_by_ages").get(0).getContext("2d");
+			     var myChart3 = new Chart(ctx3, {
+			         type: "bar",
+			         data: {
+			             labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
+			             datasets: [{
+			                     label: "소비량 평균",
+			                     data: [15, 30, 55, 65, 60, 80],
+			                     backgroundColor: "rgba(255,255,36, .7)"
+			                 }, {
+			                     label: "나의 소비량",
+			                     data: [0, 0, 50, 0, 0, 0, 0],
+			                     backgroundColor: "rgba(255,250,250, .7)"
+			                 }]			             
+			             },
+			         options: {
+			             responsive: true
+			         }
+			     });
+			     
+			     
+			     			    
+			     // 소득구간별 월/연 소비량 평균  
+			     var ctx4 = $("#month_spendings_by_earnings").get(0).getContext("2d");
+			     var myChart4 = new Chart(ctx4, {
+			         type: "bar",
+			         data: {
+			             labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
+			             datasets: [{
+			                     label: "소비량 평균",
+			                     data: [15, 30, 55, 65, 60, 80],
+			                     backgroundColor: "rgba(30,144,255, .7)"
+			                 }, {
+			                     label: "나의 소비량",
+			                     data: [0, 0, 50, 0, 0, 0, 0],
+			                     backgroundColor: "rgba(255,250,250, .7)"
+			                 }]			             
+			             },
+			         options: {
+			             responsive: true
+			         }
+			     });
+			     
+			     var ctx5 = $("#year_spendings_by_earnings").get(0).getContext("2d");
+			     var myChart5 = new Chart(ctx5, {
+			         type: "bar",
+			         data: {
+			             labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
+			             datasets: [{
+			                     label: "소비량 평균",
+			                     data: [15, 30, 55, 65, 60, 80],
+			                     backgroundColor: "rgba(30,144,255, .7)"
+			                 }, {
+			                     label: "나의 소비량",
+			                     data: [0, 0, 50, 0, 0, 0, 0],
+			                     backgroundColor: "rgba(255,250,250, .7)"
+			                 }]			             
+			             },
+			         options: {
+			             responsive: true
+			         }
+			     });
+			     
+			     
+			      //
+			    var ctx6 = $("#assets_on_ages").get(0).getContext("2d");
+			    var myChart6 = new Chart(ctx6, {
 			        type: "bar",
 			        data: {
-			            labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
+			            labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
 			            datasets: [{
 			                    label: "총 자산 평균",
 			                    data: [15, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(30,144,255, .7)"
+			                    backgroundColor: "rgba(255,20,147, .7)"
 			                }, {
-			                     label: "나의 평균",
+			                     label: "나의 총 자산",
 			                     data: [0, 0, 50, 0, 0, 0, 0],
 			                     backgroundColor: "rgba(255,250,250, .7)"
 			                 }]
@@ -261,18 +359,20 @@
 			            responsive: true
 			        }
 			    });
-			     // Worldwide Sales Chart
-			     var ctx9 = $("#earnings_expend").get(0).getContext("2d");
-			     var myChart9 = new Chart(ctx9, {
+			    
+			    
+			     //소득별 총 자산 
+			     var ctx7 = $("#assets_on_earnings").get(0).getContext("2d");
+			     var myChart7 = new Chart(ctx7, {
 			         type: "bar",
 			         data: {
 			             labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
 			             datasets: [{
-			                     label: "소비량 평균",
+			                     label: "총 자산 평균",
 			                     data: [15, 30, 55, 65, 60, 80, 95],
 			                     backgroundColor: "rgba(255,20,147, .7)"
 			                 }, {
-			                     label: "나의 평균",
+			                     label: "나의 총 자산",
 			                     data: [0, 0, 50, 0, 0, 0, 0],
 			                     backgroundColor: "rgba(255,250,250, .7)"
 			                 }] 

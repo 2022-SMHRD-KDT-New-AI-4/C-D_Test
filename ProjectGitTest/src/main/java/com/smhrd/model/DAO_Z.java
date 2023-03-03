@@ -1,6 +1,10 @@
 package com.smhrd.model;
 
-import org.apache.ibatis.annotations.Select;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.websocket.Session;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -25,6 +29,22 @@ public class DAO_Z {
 		session.close();
 		return idCheck;
 		
+	}
+
+// 내 자산 도넛그래프
+	public List<assetVO> myAsset (String user_id){
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<assetVO> list = session.selectList("assetZ",user_id);
+		session.close();
+		return list;
+	}
+
+// 총 자산 가져오기
+	public List<assetVO> allAll (assetVO vo) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<assetVO> allval = session.selectOne("allAll",vo);
+		session.close();
+		return allval;
 	}
 	
 	

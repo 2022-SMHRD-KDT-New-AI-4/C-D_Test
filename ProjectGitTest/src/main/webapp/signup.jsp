@@ -121,20 +121,15 @@
 				<div class="navbar-nav align-items-center ms-auto">
 					<div class="nav-item dropdown">
 						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">로그인</a></button> -->
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown"> <img
-							class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-							style="width: 40px; height: 40px;"> <span
-							class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> 
+						<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<span class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
 						</a>
-						<div
-							class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> <a
 								href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> <a
 								href="signin.jsp" class="dropdown-item">로그아웃</a>
 						</div>
-
-
 					</div>
 				</div>
 			</nav>

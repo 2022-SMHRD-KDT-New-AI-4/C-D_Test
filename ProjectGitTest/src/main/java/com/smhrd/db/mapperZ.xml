@@ -5,18 +5,25 @@
 <mapper namespace="com.smhrd.db.mapperZ">
 <!-- 장향미 -->
 
+<!-- 회원가입 -->
 <insert id = "joinz" parameterType="com.smhrd.model.userVO">
 	insert into tb_user 
 	values(#{user_id},#{user_pw},#{user_name},#{user_age},
 	#{user_salary},#{user_nick}, sysdate)
 </insert>
 
+<!-- 아이디 중복확인 -->
 <select id="checkIdz" resultType="String" parameterType="String">
 	select * from tb_user where user_id = #{user_id}
 </select>
 
 
+<!-- 내 자산 가져오기-->
 
+<select id="assetZ" resultType="com.smhrd.model.assetVO" parameterType="String">
+	select * from tb_asset where user_id = #{user_id}
+
+</select>
 
 
 
