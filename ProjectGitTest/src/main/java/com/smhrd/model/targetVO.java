@@ -42,6 +42,15 @@ public class targetVO {
 		this.target_end = target_end;
 	}
 
+	
+	public targetVO(String target_name, int target_amount, String target_start, String target_end) {
+		super();
+		this.target_name = target_name;
+		this.target_amount = target_amount;
+		this.target_start = target_start;
+		this.target_end = target_end;
+	}
+
 	public int getTarget_seq() {
 		return target_seq;
 	}

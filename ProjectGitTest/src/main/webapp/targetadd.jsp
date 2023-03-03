@@ -139,23 +139,28 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                                 <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                       
+                                      <form action="targetservice" method="post"> 
                                             <h3 class="text-primary">목표추가</h3>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
+                                        <input type="text" class="form-control" id="floatingText" name ="target_name">
                                         <label for="floatingText">목표명</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                        <label for="floatingInput">목표기간</label>
+                                        <input type="date" class="form-control" id="floatingInput" name ="target_start" min="2000-01-01" max="2099-12-31">
+                                        <label for="floatingInput">목표시작일</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="date" class="form-control" id="floatingInput" name ="target_end" min="2000-01-01" max="2099-12-31">
+                                        <label for="floatingInput">목표종료일</label>
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                        <input type="text" class="form-control" id="floatingdate" name ="target_amount">
                                         <label for="floatingPassword">목표금액</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='TargetList.jsp'">목표추가</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
