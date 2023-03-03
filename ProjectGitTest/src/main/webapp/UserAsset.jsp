@@ -1,3 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.DAO_Z"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.assetVO"%>
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +52,50 @@
 </head>
 
 <body>
+
+	<% userVO loginD = (userVO) session.getAttribute("loginD"); %>
+	<%DAO_Z dao = new DAO_Z();
+	System.out.println(loginD.getUser_id());
+	List<assetVO> asvo =dao.myAsset(loginD.getUser_id());	
+	
+	if(asvo != null) {
+		
+		System.out.println("유저자산그래프 나옹당");
+	}
+	else {
+		System.out.println("유저자산그래프 안나옹다");
+	}
+	int [] Sum = new int [3];
+	for(int i=0; i<asvo.size(); i++) {
+		if(asvo.get(i).getAccount_balance() != 0) {
+			Sum[0] += asvo.get(i).getAccount_balance();
+		}
+		if(asvo.get(i).getDept_loan_amount() !=0) {
+			Sum[1] += asvo.get(i).getDept_loan_amount();
+		}
+		if(asvo.get(i).getDept_card_amount() !=0) {
+			Sum[2] += asvo.get(i).getDept_card_amount();
+		}
+		System.out.println(Sum[0]+Sum[1]+Sum[2]);
+	}
+	
+	%>
+<!--  assetVO total_asset = (assetVO) request.getAttribute("total_asset")
+	int conf = dao.assetAll(loginD.getUser_id());
+	
+	if(conf != 0){
+		System.out.println("총자산 나옴");
+	}
+	else {
+		System.out.println("총자산 안나옴");
+	}
+
+	 -->
+	
+
+
+
+	
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -133,7 +183,9 @@
 
 
 
-<!-- main -->
+<!-- 내자산 start -->
+
+
 			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
@@ -143,20 +195,20 @@
 							<br><br>
 							<figure>
 								<blockquote class="blockquote" style="text-align: center;">
-									<h3>이철민 님의 총 자산은</h3>
+									<h3><%=loginD.getUser_name() %> 님의 총 자산은</h3>
 									<br>
-									<h3>100,000 원입니다.</h3>
+									<h3></h3>
+									<h3><%= asvo.get(0).getTotal_asset()%>원입니다.</h3>
 								</blockquote>
 								<div style="text-align: center;">
 									<br>
 									<button type="button" class="btn btn-primary w-100 m-2" onclick="location.href='UserAsset_Add.jsp'">자산추가하기</button>
-										
 								</div>
 							</figure>
 						</div>
 
 					</div>
-					
+				<!-- 현금성 자산 -->
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<div class="border rounded p-4 pb-0 mb-4">
@@ -166,16 +218,32 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">No</th>
+												<th scope="col">No.</th>
 												<th scope="col">은행명</th>
 												<th scope="col">잔액</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
+											<%
+											for(int i=0; i<asvo.size(); i++){
+												out.print("<tr>");
+												out.print("<th scope='row'>"+(i+1)+"</th>");
+												out.print("<td>"+asvo.get(i).getBank_name()+"</td>");
+												out.print("<td>"+asvo.get(i).getAccount_balance()+"</td>");
+												out.print("</tr>");
+											}
+											
+											
+											%>
+										</tbody>
+									</table>
+								</div>
+										
+											<!-- <tr>
 												<th scope="row">1</th>
 												<td>NH농협</td>
 												<td>100,000원</td>
+												
 											</tr>
 											<tr>
 												<th scope="row">2</th>
@@ -186,11 +254,8 @@
 												<th scope="row">3</th>
 												<td>기업은행</td>
 												<td>10,000,000원</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-
+											</tr> -->
+<!-- 부채 - 카드-->
 								<div class="bg-secondary rounded h-100 p-4">
 									<h5 class="mb-4" style="text-align: center;">부채</h5>
 									<h6 class="mb-4" style="text-align: center;">카드</h6>
@@ -204,7 +269,19 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
+										
+										<%
+											for(int i=0; i<asvo.size(); i++){
+												out.print("<tr>");
+												out.print("<th scope='row'>"+(i+1)+"</th>");
+												out.print("<td>"+asvo.get(i).getDept_card_name()+"</td>");
+												out.print("<td>"+asvo.get(i).getDept_card_amount()+"</td>");
+												out.print("</tr>");
+											}
+											
+											
+											%>
+											<!-- <tr>
 												<th scope="row">1</th>
 												<td>BC카드</td>
 												<td>100,000원</td>
@@ -221,10 +298,12 @@
 												<td>NH농협</td>
 												<td>10,000,000원</td>
 												<td>카드론 이자</td>
-											</tr>
+											</tr> -->
 										</tbody>
 									</table>
 								</div>
+								
+<!-- 부채 - 대출 -->
 								<div class="bg-secondary rounded h-100 p-4">
 									<h6 class="mb-4" style="text-align: center;">대출</h6>
 									<table class="table">
@@ -237,7 +316,20 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
+										
+										<%
+											for(int i=0; i<asvo.size(); i++){
+												out.print("<tr>");
+												out.print("<th scope='row'>"+(i+1)+"</th>");
+												out.print("<td>"+asvo.get(i).getDept_loan_name()+"</td>");
+												out.print("<td>"+asvo.get(i).getDept_loan_amount()+"</td>");
+												
+												out.print("</tr>");
+											}
+											
+											
+											%>
+											<!-- <tr>
 												<th scope="row">1</th>
 												<td>NH농협</td>
 												<td>100,000원</td>
@@ -254,7 +346,7 @@
 												<td>기업은행</td>
 												<td>10,000,000,000원</td>
 												<td>전세대출</td>
-											</tr>
+											</tr> -->
 										</tbody>
 									</table>
 								</div>
@@ -262,8 +354,7 @@
 						</div>
 					</div>
 				</div>
-				
-	<!-- main End -->
+	<!-- 내 자산 End -->
 	
 			<!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
@@ -314,7 +405,7 @@
 							backgroundColor : [ "rgba(235, 22, 22, .7)",
 									"rgba(235, 22, 22, .4)",
 									"rgba(235, 22, 22, .3)" ],
-							data : [ 50, 30, 20 ]
+									data : [<%=Sum[0]%>,<%=Sum[1]%>,<%=Sum[2]%> ]
 						} ]
 					},
 					options : {
