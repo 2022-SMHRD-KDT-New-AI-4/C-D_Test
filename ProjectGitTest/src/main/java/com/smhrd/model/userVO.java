@@ -19,7 +19,13 @@ public class userVO {
 	public userVO() {
 		
 	}
-	
+
+	public userVO(String user_id, String user_nick, int user_salary) {
+		this.user_id = user_id;
+		this.user_nick = user_nick;
+		this.user_salary = user_salary;
+	}
+
 	public userVO(String user_id, String user_pw) {
 		this.user_id = user_id;
 		this.user_pw = user_pw;

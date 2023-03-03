@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +47,7 @@
 </head>
 
 <body>
+<%userVO loginD =(userVO)session.getAttribute("loginD"); %>
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -138,96 +140,60 @@
 					<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
 						<div class="d-flex align-items-center justify-content-between mb-3">
 							<h4>회원정보 수정</h4>
+							<form action="updateservice" method="post">
 						</div>
 						
 							<dl>
 								<h6 class="mb-4">아이디</h6>
-								<dd class="col-sm-8">zidari</dd>
+								<dd class="col-sm-8"><%=loginD.getUser_id() %></dd>
 							</dl>
 						
 						
 						
 							<dl>
 								<h6 class="mb-4">닉네임</h6>
-								<dd class="col-sm-8">자냥미</dd>
+								<dd class="col-sm-8"><%=loginD.getUser_nick() %></dd>
 							</dl>
 						
 						
 							
 							<dl>
 								<h6 class="mb-4">나이</h6>
-								<dd class="col-sm-8">234667 세</dd>
+								<dd class="col-sm-8"><%=loginD.getUser_age() %></dd>
 							</dl>
 						
 
 						
 						<h6 class="mb-4">닉네임</h6>
-							<input type="text" class="form-control" id="floatingInput"
+							<input name="user_nick" type="text" class="form-control" id="floatingInput"
 								placeholder="변경할 닉네임을 적어주세요."> <label
 								for="floatingInput"></label>
 
 						<h6 class="mb-4">연봉</h6>
-							<select class="form-select form-select-lg mb-3"
+							<select name="user_salary" class="form-select form-select-lg mb-3"
 								aria-label=".form-select-lg example">
-								<option selected>연봉 선택</option>
-								<option value="salary1">3000만원 이하</option>
-								<option value="salary2">3000~4000만원</option>
-								<option value="salary3">4000~5000만원</option>
-								<option value="salary4">5000~6000만원</option>
-								<option value="salary5">6000만원이상</option>
+								<option class="form-select form-select-lg mb-3"
+								aria-label=".form-select-lg example"
+								  selected>연봉 선택</option>
+								<option  value="2">3000만원 이하</option>
+								<option value="3">3000~4000만원</option>
+								<option value="4">4000~5000만원</option>
+								<option value="5">5000~6000만원</option>
+								<option value="6">6000만원이상</option>
 							</select>
 						
-						<div class="form-floating mb-4">
-						<h6 class="mb-4">비밀번호</h6>
-							<input type="password" class="form-control" id="floatingPassword"
-								onchange="check_pw()" placeholder="비밀번호 변경"> <label
-								for="floatingPassword"></label>
-						</div>
-
-
-						<div class="form-floating mb-4">
-						<h6 class="mb-4">비밀번호 확인</h6>
-							<input type="password" class="form-control"
-								id="floatingPassword2" onchange="check_pw()"
-								placeholder="비밀번호 확인"> <label for="floatingPassword2">
-								</label>&nbsp;<span id="check_check"></span>
-						</div>
-						<script>
-							function check_pw() {
-								var pw = document
-										.getElementById('floatingPassword').value;
-
-								if (document.getElementById('floatingPassword').value != ''
-										&& document
-												.getElementById('floatingPassword2').value != '') {
-									if (document
-											.getElementById('floatingPassword').value == document
-											.getElementById('floatingPassword2').value) {
-										document.getElementById('check_check').innerHTML = '비밀번호가 일치합니다.'
-										document.getElementById('check_check').style.color = 'blue';
-									} else {
-										document.getElementById('check_check').innerHTML = '비밀번호가 일치하지 않습니다.';
-										document.getElementById('check_check').style.color = 'red';
-									}
-								}
-							}
-						</script>
 						
-						</table>
+
+					
+						
 						<div
 							class="d-flex align-items-center justify-content-between mb-4">
 
-							
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="modify();">회원정보수정</button> &nbsp; &nbsp; &nbsp;
+							<input type="hidden" value="<%= loginD.getUser_id() %>" name = "user_id">
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" >회원정보수정</button> &nbsp; &nbsp; &nbsp;
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4"  onclick="location.href='Mypage.jsp'">뒤로가기</button>
+								</form>
 								
-								<script>
-									function modify(){
-										alert("회원정보가 수정되었습니다.");
-										location.href="Mypage.jsp";
-									}
-									
-								</script>
 						</div>
 						<div>
 							<br>

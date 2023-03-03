@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +47,7 @@
 </head>
 
 <body>
+<%userVO loginD =(userVO)session.getAttribute("loginD"); %>
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -147,24 +149,21 @@
 									<tbody>
 										<tr>
 											<td>아이디</td>
-											<td>zidari</td>
+											<td><%=loginD.getUser_id() %></td>
 
 										</tr>
 										<tr>
 											<td>이름</td>
-											<td>장향미</td>
+											<td><%=loginD.getUser_name() %></td>
 										</tr>
 										<tr>
 											<td>연봉</td>
-											<td>1억원 이상</td>
+											<td><%=loginD.getUser_salary() %></td>
 										</tr>
-										<tr>
-											<td>세대원 수</td>
-											<td>3명</td>
-										</tr>
+										
 										<tr>
 											<td>닉네임</td>
-											<td>자냥미</td>
+											<td><%=loginD.getUser_nick() %></td>
 										</tr>
 
 									</tbody>
