@@ -15,4 +15,8 @@ select * from tb_user where user_id=#{user_id} and user_pw=#{user_pw}
 update tb_user set user_salary = #{user_salary} ,user_nick = #{user_nick} where user_id = #{user_id}
 </update>
 
+<!--내역조회 -->
+<select id="list" resultType="com.smhrd.model.income_expenseVO" parameterType="String">
+select *from tb_income_expense where user_id=#{user_id}
+</select>
 </mapper>
