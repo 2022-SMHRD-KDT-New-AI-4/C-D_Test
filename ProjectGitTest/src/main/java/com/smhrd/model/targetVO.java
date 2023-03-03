@@ -18,6 +18,13 @@ public class targetVO {
 		this.target_name = target_name;
 	}
 
+	
+
+	public targetVO(int target_seq) {
+		this.target_seq = target_seq;
+	}
+
+
 
 	public targetVO() {
 		

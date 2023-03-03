@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.targetVO"%>
+<%@page import="com.smhrd.model.DAO_L"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +49,7 @@
 </head>
 
 <body>
+
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -140,19 +144,19 @@
 							<br>
 							<div>
 							<h1 class="mb-4">목표 리스트</h1><br><br>
-							<% 
-							
-							
-							%>
-							 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
-                             <label class="form-check-label" for="exampleCheck1" ><h3>ㆍ1억 모으기</h3></label><br>
-                             
-                             <input type="checkbox" class="form-check-input" id="exampleCheck2" name="check_t" value="Check2">
-                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ5억 모으기</h3></label><br>
-                             
-                             <input type="checkbox" class="form-check-input" id="exampleCheck3" name="check_t" value="Check3">
-                             <label class="form-check-label" for="exampleCheck1"><h3>ㆍ1000억 모으기</h3></label><br>
-								
+
+							<%
+                           	DAO_L dao = new DAO_L();
+                           	// 실습
+               				// MessageDAO 클래스 안에 messageSelect()메소드를 구현하시오
+               				// session id값은 messageSelect로 해주세요
+                           	ArrayList<targetVO> list = dao.target_name_call("cjfals");
+                           	for(int i = 0; i< list.size(); i++){%>
+								<input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
+                             	<label class="form-check-label" for="exampleCheck1" >
+                             	<h3><%=list.get(i).getTarget_name()%></h3></label><br>
+                           	<%}%>
+                           
 							<br>
 							
 							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>

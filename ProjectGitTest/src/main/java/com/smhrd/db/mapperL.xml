@@ -17,4 +17,12 @@
 </insert>
 
 
+<select id = "target_name_call" resultType="com.smhrd.model.targetVO" parameterType="String">
+	select target_name from tb_target where user_id = 'cjfals'
+</select>
+
+<delete id="target_name_del" parameterType="int">
+		delete from tb_target where target_seq =#{target_seq}
+</delete>
+
 </mapper>
