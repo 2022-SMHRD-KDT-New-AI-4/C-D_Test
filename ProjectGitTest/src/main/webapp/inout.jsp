@@ -1,3 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.DAO_G"%>
+<%@page import="com.smhrd.model.income_expenseVO"%>
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -70,6 +75,17 @@
 </head>
 
 <body>
+<%userVO loginD = (userVO)session.getAttribute("loginD"); %>
+<%
+
+DAO_G dao = new DAO_G();
+ArrayList<income_expenseVO> ie_list = dao.selectlist(loginD.getUser_id());
+
+System.out.print(ie_list.toString());
+
+%>
+
+
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -107,7 +123,9 @@
 							<a href="#" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
+						
 						<a href="inout.jsp" class="nav-item nav-link  active"><i class="fa fa-laptop me-2"></i>입/지출</a>
+						
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown"> 
 						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
@@ -164,8 +182,9 @@
 					<canvas id="pie-chart"></canvas>
 				</div>
 			</div>
-			<div id="all">전체 : 잔액</div>
+			<div id="all">전체 :</div>
 			<div id="in">수입 :</div>
+			
 			<div id="out">지출 :</div>
 			<!--  chart end  -->
 
@@ -187,15 +206,23 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>2023.12.31</td>
-									<td>신한은행</td>
-									<td>입금</td>
-									<td>10,000,000</td>
+								
+									<%for(int i =0; i<ie_list.size();i++) {%>
+									<tr>
+									<th scope="row"><%=i+1 %></th>
+									<td><%=ie_list.get(i).getItem_dt() %></td>
+									<td><%=ie_list.get(i).getItem_content() %></td>
+									<td><%=ie_list.get(i).getItem_type() %></td>
+									<%if(ie_list.get(i).getItem_type().equals("지출액")){ %>
 									<td></td>
-
-								</tr>
+									<td><%=ie_list.get(i).getAmount() %></td>
+									<%} %>
+									<%if(ie_list.get(i).getItem_type().equals("입금")){ %>
+									<td><%=ie_list.get(i).getAmount() %></td>
+									<td></td>
+									<%} %>
+									<%} %>
+							
 
 
 							</tbody>
