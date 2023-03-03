@@ -77,7 +77,7 @@ public class testVB {
 //						+ "', '카드','" + knList[i] + "','지출','" + detail + "'," + amount + ");");
 			} // 초기 카드 값 설정 끝
 
-			// 초기 대출 값 설정 시작
+			// 초기 대출 값 설정 시작123
 			int ilNum = random.nextInt(6);// 대출 랜덤
 			String[] ln = new String[ilNum]; // 대출 랜덤 저장
 			for (int i = 0; i < ilNum; i++) { // 대출 랜덤
