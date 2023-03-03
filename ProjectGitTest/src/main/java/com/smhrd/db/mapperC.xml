@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -35,7 +35,7 @@ SELECT CASE
 SELECT tb_user.age, tb_asset.total_asset FROM tb_user JOIN tb_asset ON tb_user.id = tb_asset.id
 </select>
 
-<select id=" ">
+<select id="month_spendings_on_ages">
 SELECT CASE 
   WHEN age BETWEEN 20 AND 29 THEN '20-29'
   WHEN age BETWEEN 30 AND 39 THEN '30-39'
@@ -52,7 +52,7 @@ SELECT CASE
   Select 소득, AS 총자산 FROM tb_asset GROUP BY user_수입;
 </select>
 
-<select id="assets_per_earnings">
+<select id="assets_on_earnings">
 SELECT CASE 
     WHEN income >= 5300 THEN '1억 이상'
     WHEN income >= 4800 THEN '4800 이상'
@@ -70,14 +70,14 @@ SELECT CASE
 
 <!-- 회원의 나이, 월 평균 지출금액 -->
 
-<select id="month_spending_by_user" resultType="" parameterType="">
+<select id="month_spendings_by_user" resultType="" parameterType="">
    SELECT age, AVG(지출) AS avg_monthly_expense FROM tb_Income_Expense GROUP By user_age
 </select>
 
 
 <!-- 연령별 월 평균 소비량 -->
 
-<select id="month_spending_by_ages" resultType="" parameterType="">
+<select id="month_spendings_by_ages" resultType="" parameterType="">
 SELECT CASE 
   WHEN age BETWEEN 20 AND 29 THEN '20-29'
   WHEN age BETWEEN 30 AND 39 THEN '30-39'
@@ -89,12 +89,12 @@ SELECT CASE
 
 
 <!-- 회원의 나이, 연 지출금액 -->
-<select id="year_spending_by_user" resultType=" " parameterType=" ">
+<select id="year_spendings_by_user" resultType=" " parameterType=" ">
   SELECT age, AVG(지출) AS avg_out FROM tb_Income_Expense GROUP BY user_age 
 </select>
 
 <!-- 연령별 연 평균 소비량 -->
-<select id="year_spending_by_ages" resultType=" " parameterType=" ">
+<select id="year_spendings_by_ages" resultType=" " parameterType=" ">
 SELECT CASE 
   WHEN age BETWEEN 20 AND 29 THEN '20-29'
   WHEN age BETWEEN 30 AND 39 THEN '30-39'
@@ -109,10 +109,9 @@ SELECT CASE
 
 <select id="month_spending_by_user" resultType=" " parameterType=" ">
  Select 수입, AVG(지출액) AS 월평균소비량 FROM tb_Income_Expense GROUP BY user_수입
- 
 </select>
 
-<select id="month_spending_by_earnings" resultType="" parameterType="">
+<select id="month_spendings_by_earnings" resultType="" parameterType="">
 SELECT CASE 
     WHEN income >= 5300 THEN '1억 이상'
     WHEN income >= 4800 THEN '4800 이상'
@@ -126,11 +125,11 @@ SELECT CASE
 
 <!-- 소득구간별 소비량 연 평균 -->
 
-<select id="user_spending_by_earnigs" resultType="" parameterType="">
+<select id="user_spendings_by_earnigs" resultType="" parameterType="">
 Select 수입, 연간지출액 FROM tb_Income_Expense GROUP BY user_수입
 </select>
 
-<select id="year_spending_by_earnings" resultType="" parameterType="">
+<select id="year_spendings_by_earnings" resultType="" parameterType="">
 SELECT CASE 
     WHEN income >= 5300 THEN '1억 이상'
     WHEN income >= 4800 THEN '4800 이상'
@@ -142,4 +141,4 @@ SELECT CASE
 </select>
 
 
-</mapper>
+</mapper> 
