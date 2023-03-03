@@ -32,19 +32,36 @@ public class bankDAO {
 
 	// 날짜 랜덤(랜덤년 입력)
 	public String data(int yyyy) {
-		if (yyyy >= 2023) {
-			int mm = random.nextInt(3) + 1;
+		if (yyyy == 2023) {
+			int num = random.nextInt(100)+1;
+			int mm = 0;
 			int dd = 0;
-			if (mm == 1) {
+			if (num >45) {
 				dd = random.nextInt(31) + 1;
-			} else if (mm == 2) {
+				mm = 1;
+			} else if (num >90) {
 				dd = random.nextInt(28) + 1;
+				mm = 2;
 			} else {
 				dd = random.nextInt(8) + 1;
-			} // 날짜 랜덤
-			return yyyy + "-" + mm + "-" + dd;
+				mm = 3;
+				
+			}
+			 // 날짜 랜덤
+			
+			if (dd < 10) {
+				return yyyy + "-0" + mm + "-0" + dd;
+			} // 날짜가 10보다 작으면 앞에 0 입력
+			return yyyy + "-0" + mm + "-" + dd;
 		} else {
 			int mm = random.nextInt(12) + 1;
+			String mm0 = null ;
+			if (mm < 10 ) {
+				mm0 = "0"+mm;
+			} else {
+				mm0 = ""+mm;
+			}
+			
 			int dd = 0;
 			if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
 				dd = random.nextInt(31) + 1;
@@ -53,7 +70,12 @@ public class bankDAO {
 			} else {
 				dd = random.nextInt(30) + 1;
 			}
-			return yyyy + "-" + mm + "-" + dd;
+			
+			if (dd < 10) {
+				return yyyy + "-" + mm0 + "-0" + dd;
+			} // 날짜가 10보다 작으면 앞에 0 입력
+			return yyyy + "-" + mm0 + "-" + dd;
+			
 		}
 
 	}
