@@ -198,7 +198,7 @@
 									<h3><%=loginD.getUser_name() %> 님의 총 자산은</h3>
 									<br>
 									<h3></h3>
-									<h3><%= asvo.get(0).getTotal_asset()%>원입니다.</h3>
+									<h3><%=asvo.get(0).getTotal_asset() %>원입니다.</h3>
 								</blockquote>
 								<div style="text-align: center;">
 									<br>

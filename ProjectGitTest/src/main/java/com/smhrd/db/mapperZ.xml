@@ -21,7 +21,7 @@
 <!-- 내 자산 가져오기-->
 
 <select id="assetZ" resultType="com.smhrd.model.assetVO" parameterType="String">
-	select * from tb_asset here user_id = #{user_id}
+	select * from tb_asset where user_id = #{user_id}
 
 </select>
 
