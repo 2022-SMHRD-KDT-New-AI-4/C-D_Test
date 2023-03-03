@@ -10,15 +10,20 @@
  								#{bk_Detail},#{bk_Deposit_Withdrawal},#{bk_AccountAmount})
 </insert>
 
+
 <!-- tb_user 테이블에서 회원명 select  -->
 <select id="userNameSelect" resultType="String">
-	select USER_NAME FROM tb_user;
+	select USER_id FROM tb_user
 </select>
 
 
 <!-- tb_target 테이블에서 목표명 select -->
 <select id="targetNameSelect"  parameterType="String" resultType="String">
-	SELECT TARGET_NAME from tb_target where user_name = #{String}
+	SELECT TARGET_NAME from tb_target where user_id = #{user_id}
+</select>
+
+<select id="user_salarySelectVB"  resultType="Integer" parameterType="String">
+ select USER_SALARY from tb_user where user_id = #{user_id}
 </select>
 
 

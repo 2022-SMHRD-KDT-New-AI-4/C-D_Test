@@ -1,45 +1,21 @@
 package com.smhrd.virtualData;
 
 public class bankVO {		
-		private int bk_Idx; // 순번
-		private String bk_Member; // 고객
-		private String bk_Date; // 날짜
-		private String bk_BankName; // 은행명
+		private int Idx; // 순번
+		private String VB_id; // 고객
+		private String VB_Date; // 날짜
+		private String code_Type; // 구분코드 (은행, 카드, 대출)
+		private String bk_BankName; // 은행명 (은행&대출 , 카드사 )
+		private String Deposit_Withdrawal; // 입출금 코드
 		private String bk_Detail; // 거래내역
-		private String bk_Deposit_Withdrawal; // 입출금 코드
-		private long bk_AccountAmount; // 금액
+		private int bk_AccountAmount; // 금액
 		
 		
 		@Override
 		public String toString() {
-			return "BankVO [bk_Idx=" + bk_Idx + ", bk_Member=" + bk_Member + ", bk_Date=" + bk_Date + ", bk_BankName="
-					+ bk_BankName + ", bk_Detail=" + bk_Detail + ", bk_Deposit_Withdrawal=" + bk_Deposit_Withdrawal
-					+ ", bk_AccountAmount=" + bk_AccountAmount + "]";
-		}
-
-
-		public bankVO(int bk_Idx, String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
-				String bk_Deposit_Withdrawal, long bk_AccountAmount) {
-			super();
-			this.bk_Idx = bk_Idx;
-			this.bk_Member = bk_Member;
-			this.bk_Date = bk_Date;
-			this.bk_BankName = bk_BankName;
-			this.bk_Detail = bk_Detail;
-			this.bk_Deposit_Withdrawal = bk_Deposit_Withdrawal;
-			this.bk_AccountAmount = bk_AccountAmount;
-		}
-
-
-		public bankVO(String bk_Member, String bk_Date, String bk_BankName, String bk_Detail,
-				String bk_Deposit_Withdrawal, long bk_AccountAmount) {
-			super();
-			this.bk_Member = bk_Member;
-			this.bk_Date = bk_Date;
-			this.bk_BankName = bk_BankName;
-			this.bk_Detail = bk_Detail;
-			this.bk_Deposit_Withdrawal = bk_Deposit_Withdrawal;
-			this.bk_AccountAmount = bk_AccountAmount;
+			return "bankVO [Idx=" + Idx + ", VB_id=" + VB_id + ", VB_Date=" + VB_Date + ", code_Type=" + code_Type
+					+ ", bk_BankName=" + bk_BankName + ", Deposit_Withdrawal=" + Deposit_Withdrawal + ", bk_Detail="
+					+ bk_Detail + ", bk_AccountAmount=" + bk_AccountAmount + "]";
 		}
 
 
@@ -48,33 +24,70 @@ public class bankVO {
 		}
 
 
-		public int getBk_Idx() {
-			return bk_Idx;
+		public bankVO(int idx, String vB_id, String vB_Date, String code_Type, String bk_BankName,
+				String deposit_Withdrawal, String bk_Detail, int bk_AccountAmount) {
+			super();
+			Idx = idx;
+			VB_id = vB_id;
+			VB_Date = vB_Date;
+			this.code_Type = code_Type;
+			this.bk_BankName = bk_BankName;
+			Deposit_Withdrawal = deposit_Withdrawal;
+			this.bk_Detail = bk_Detail;
+			this.bk_AccountAmount = bk_AccountAmount;
 		}
 
 
-		public void setBk_Idx(int bk_Idx) {
-			this.bk_Idx = bk_Idx;
+		public bankVO(String vB_id, String vB_Date, String code_Type, String bk_BankName, String deposit_Withdrawal,
+				String bk_Detail, int bk_AccountAmount) {
+			super();
+			VB_id = vB_id;
+			VB_Date = vB_Date;
+			this.code_Type = code_Type;
+			this.bk_BankName = bk_BankName;
+			Deposit_Withdrawal = deposit_Withdrawal;
+			this.bk_Detail = bk_Detail;
+			this.bk_AccountAmount = bk_AccountAmount;
 		}
 
 
-		public String getBk_Member() {
-			return bk_Member;
+		public int getIdx() {
+			return Idx;
 		}
 
 
-		public void setBk_Member(String bk_Member) {
-			this.bk_Member = bk_Member;
+		public void setIdx(int idx) {
+			Idx = idx;
 		}
 
 
-		public String getBk_Date() {
-			return bk_Date;
+		public String getVB_id() {
+			return VB_id;
 		}
 
 
-		public void setBk_Date(String bk_Date) {
-			this.bk_Date = bk_Date;
+		public void setVB_id(String vB_id) {
+			VB_id = vB_id;
+		}
+
+
+		public String getVB_Date() {
+			return VB_Date;
+		}
+
+
+		public void setVB_Date(String vB_Date) {
+			VB_Date = vB_Date;
+		}
+
+
+		public String getCode_Type() {
+			return code_Type;
+		}
+
+
+		public void setCode_Type(String code_Type) {
+			this.code_Type = code_Type;
 		}
 
 
@@ -88,6 +101,16 @@ public class bankVO {
 		}
 
 
+		public String getDeposit_Withdrawal() {
+			return Deposit_Withdrawal;
+		}
+
+
+		public void setDeposit_Withdrawal(String deposit_Withdrawal) {
+			Deposit_Withdrawal = deposit_Withdrawal;
+		}
+
+
 		public String getBk_Detail() {
 			return bk_Detail;
 		}
@@ -98,27 +121,17 @@ public class bankVO {
 		}
 
 
-		public String getBk_Deposit_Withdrawal() {
-			return bk_Deposit_Withdrawal;
-		}
-
-
-		public void setBk_Deposit_Withdrawal(String bk_Deposit_Withdrawal) {
-			this.bk_Deposit_Withdrawal = bk_Deposit_Withdrawal;
-		}
-
-
-		public long getBk_AccountAmount() {
+		public int getBk_AccountAmount() {
 			return bk_AccountAmount;
 		}
 
 
-		public void setBk_AccountAmount(long bk_AccountAmount) {
+		public void setBk_AccountAmount(int bk_AccountAmount) {
 			this.bk_AccountAmount = bk_AccountAmount;
 		}
+		
+		
 	
-		
-		
 
 		
 }

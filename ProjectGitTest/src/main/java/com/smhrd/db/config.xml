@@ -25,9 +25,9 @@
 
 	<mappers>
 		<mapper resource="com/smhrd/db/mapper.xml" />
-		<!-- <mapper resource="com/smhrd/vitualData/vbdmapper.xml" /> -->
+		<mapper resource="com/smhrd/db/vbdmapper.xml" /> 
 		<mapper resource="com/smhrd/db/mapperZ.xml" />
-		<mapper resource="com/smhrd/db/mapperC.xml" />
+		<!-- <mapper resource="com/smhrd/db/mapperC.xml" /> -->
 		<mapper resource="com/smhrd/db/mapperG.xml" />
 		<mapper resource="com/smhrd/db/mapperS.xml" />
 		<mapper resource="com/smhrd/db/mapperW.xml" />

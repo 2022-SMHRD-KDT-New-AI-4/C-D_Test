@@ -6,13 +6,14 @@ import java.util.Random;
 public class vdMain {
 
 	public static void main(String[] args) {
+		
 		bankDAO dao = new bankDAO();
 		Random random = new Random();
 		
 		ArrayList<String> memlist = dao.userNameSelect(); // tb_user에서 회원 Select 후 memlist 저장
 	
 		
-		String []  BankNameList = {"KEB하나은행","SC제일은행","국민은행","기업은행","농협","신한은행","우리은행","한국시티은행"};
+	
 		
 		
 		
@@ -22,7 +23,7 @@ public class vdMain {
 			
 			String date = dao.data(2023); // 랜덤 입력할 연도 숫자로 입력
 			
-			String BankName = BankNameList[random.nextInt(BankNameList.length)]; // 은행 랜덤
+			//String BankName = BankNameList[random.nextInt(BankNameList.length)]; // 은행 랜덤
 			
 			String Detail = dao.DetailList(Member).get(random.nextInt(dao.DetailList(Member).size())) ; // 소비태그 랜덤
 			
@@ -30,9 +31,14 @@ public class vdMain {
 			
 			long Amount = random.nextInt(1000) * 100 ;
 			
-			bankVO vo = new bankVO(Member, date, BankName,Detail, Deposit_Withdrawal, Amount);
+			bankVO vo = new bankVO();
 			System.out.println(vo.toString());
 			dao.vdInsert(vo);
+			
+			
+			
+			
+			
 			
 			
 		}
