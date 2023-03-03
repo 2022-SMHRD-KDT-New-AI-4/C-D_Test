@@ -140,6 +140,10 @@
 							<br>
 							<div>
 							<h1 class="mb-4">목표 리스트</h1><br><br>
+							<% 
+							
+							
+							%>
 							 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
                              <label class="form-check-label" for="exampleCheck1" ><h3>ㆍ1억 모으기</h3></label><br>
                              

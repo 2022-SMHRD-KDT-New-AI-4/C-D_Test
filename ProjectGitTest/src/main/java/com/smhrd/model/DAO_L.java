@@ -11,11 +11,11 @@ public class DAO_L {
 // 		│	쳐다보지 마시오 			│
 //		│				-주인백	│
 //		└───────────────────────┘
+	
 	private SqlSessionFactory sqlSesstionFAcFactory = SqlSessionManager.getSqlSession();
-	//회원가입
-		public int targetadd(targetVO vo) {
+		public int target_add(targetVO vo) {
 			SqlSession session = sqlSesstionFAcFactory.openSession(true);
-			int cnt = session.insert("targetadd", vo);
+			int cnt = session.insert("target_add", vo);
 			session.close();
 			return cnt;
 			

@@ -11,9 +11,9 @@
 		└───────────────────────┘
 -->
 
-<insert id = "tagertadd" parameterType="com.smhrd.model.targetVO">
+<insert id = "target_add" parameterType="com.smhrd.model.targetVO">
 	insert into tb_target 
-	values(1,#{target_name},#{target_amount},'ad',#{target_start},#{target_end})
+	values(TB_TARGET_SEQ.NEXTVAL,#{target_name},#{target_amount},'cjfals',#{target_start},#{target_end})
 </insert>
 
 

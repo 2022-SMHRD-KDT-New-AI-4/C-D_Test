@@ -22,18 +22,16 @@ public class targetservice extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String target_name = request.getParameter("target_name");
-		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
-		String user_id = request.getParameter("user_id");
 		String target_start = request.getParameter("target_start");
 		String target_end = request.getParameter("target_end");
+		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
 
-		targetVO vo = new targetVO(target_name,target_amount,user_id,target_start,target_end);
+		targetVO vo = new targetVO(target_name,target_start,target_end,target_amount);
 
-		DAO_L dao = new DAO_L();
+		DAO_L dao = new DAO_L();	
 		
-		 
-		int cnt = dao.targetadd(vo);
-
+		int cnt = dao.target_add(vo);
+		
 		if (cnt > 0) {
 			System.out.println("목표추가 성공");
 			RequestDispatcher rd = request.getRequestDispatcher("TargetList.jsp");
