@@ -211,7 +211,7 @@
            		System.out.println(amountlist.get(i).getTarget_amount());
            	}
            	
-           	
+           	 
            	%>
      
 					<div class="col-sm-12 col-xl-6">
