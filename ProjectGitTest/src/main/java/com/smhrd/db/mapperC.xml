@@ -7,11 +7,11 @@
 
 
 
-<!-- 연령별 소득(연봉) -->
+<!-- 소득(연봉) -->
 
 <!-- 회원 나이, 연봉 -->
 <select id="Salary_on_user" resultType="" parameterType="">
-select user_age, user_salary FROM tb_user;
+select user_age, user_salary FROM tb_user
 </select>
 
 <!-- 회원 연령별 평균 연봉 -->
@@ -22,8 +22,9 @@ SELECT CASE
   WHEN age BETWEEN 40 AND 49 THEN '40-49'
   WHEN age BETWEEN 50 AND 59 THEN '50-59'
   WHEN age BETWEEN 60 AND 69 THEN '60-69'
-  ELSE '70+' END AS age_range, AVG(salary) AS avg_salary FROM tb_user GROUP BY age_range;
+  ELSE '70+' END AS age_range, AVG(salary) AS avg_salary FROM tb_user GROUP BY age_range
 </select>
+
 
 
 
@@ -31,9 +32,7 @@ SELECT CASE
 
 <!-- 연령별 -->
 <select id="">
-SELECT tb_user.age, tb_asset.total_asset
-FROM tb_user
-JOIN tb_asset ON tb_user.id = tb_asset.id;
+SELECT tb_user.age, tb_asset.total_asset FROM tb_user JOIN tb_asset ON tb_user.id = tb_asset.id
 </select>
 
 <select id=" ">
@@ -43,7 +42,7 @@ SELECT CASE
   WHEN age BETWEEN 40 AND 49 THEN '40-49'
   WHEN age BETWEEN 50 AND 59 THEN '50-59'
   WHEN age BETWEEN 60 AND 69 THEN '60-69'
-  ELSE '70+' END AS age_range, AVG(consumption) AS avg_monthly_consumption FROM tb_Income_Expense GROUP BY age_range;
+  ELSE '70+' END AS age_range, AVG(consumption) AS avg_monthly_consumption FROM tb_Income_Expense GROUP BY age_range
 </select>
 
 
@@ -61,16 +60,18 @@ SELECT CASE
     WHEN income >= 3400 THEN '3400 이상'
     WHEN income >= 2800 THEN '2800 이상'
     WHEN income >= 2500 THEN '2500 이상'
-    ELSE '기타' END AS income_range, AVG(assets) AS avg_total_assets FROM 총자산테이블 GROUP BY income_range;
+    ELSE '기타' END AS income_range, AVG(assets) AS avg_total_assets FROM 총자산테이블 GROUP BY income_range
 </select>
 
-<!-- 소비량 -->
 
+
+
+<!-- 소비량 -->
 
 <!-- 회원의 나이, 월 평균 지출금액 -->
 
 <select id="month_spending_by_user" resultType="" parameterType="">
-   SELECT age, AVG(지출) AS avg_monthly_expense FROM tb_Income_Expense GROUP By user_age;
+   SELECT age, AVG(지출) AS avg_monthly_expense FROM tb_Income_Expense GROUP By user_age
 </select>
 
 
@@ -89,7 +90,7 @@ SELECT CASE
 
 <!-- 회원의 나이, 연 지출금액 -->
 <select id="year_spending_by_user" resultType=" " parameterType=" ">
-  SELECT age, AVG(out?) AS avg_out FROM tb_Income_Expense GROUP BY user_age; 
+  SELECT age, AVG(지출) AS avg_out FROM tb_Income_Expense GROUP BY user_age 
 </select>
 
 <!-- 연령별 연 평균 소비량 -->
@@ -100,14 +101,14 @@ SELECT CASE
   WHEN age BETWEEN 40 AND 49 THEN '40-49'
   WHEN age BETWEEN 50 AND 59 THEN '50-59'
   WHEN age BETWEEN 60 AND 69 THEN '60-69'
-  ELSE '70+' END AS age_range, AVG(consumption) AS avg_yearly_consumption FROM tb_Income_Expense GROUP BY age_range;
+  ELSE '70+' END AS age_range, AVG(지출액) AS avg_yearly_consumption FROM tb_Income_Expense GROUP BY age_range
 </select>
 
 
 <!-- 소득구간별 소비량 월 평균 -->
 
 <select id="month_spending_by_user" resultType=" " parameterType=" ">
- Select 수입, AVG() AS avg_소비량 FROM tb_Income_Expense GROUP BY user_수입; 
+ Select 수입, AVG(지출액) AS 월평균소비량 FROM tb_Income_Expense GROUP BY user_수입
  
 </select>
 
@@ -119,14 +120,14 @@ SELECT CASE
     WHEN income >= 3400 THEN '3400 이상'
     WHEN income >= 2800 THEN '2800 이상'
     WHEN income >= 2500 THEN '2300 이상'
-    ELSE '기타' END AS income_range, AVG(consumption) AS avg_monthly_consumption FROM tb_Income_Expense GROUP BY income_range;
+    ELSE '기타' END AS income_range, AVG(consumption) AS avg_monthly_consumption FROM tb_Income_Expense GROUP BY income_range
 </select>
 
 
 <!-- 소득구간별 소비량 연 평균 -->
 
 <select id="user_spending_by_earnigs" resultType="" parameterType="">
-Select 수입, AV AS avg_소비량 FROM tb_Income_Expense GROUP BY user_수입;
+Select 수입, 연간지출액 FROM tb_Income_Expense GROUP BY user_수입
 </select>
 
 <select id="year_spending_by_earnings" resultType="" parameterType="">
@@ -137,7 +138,7 @@ SELECT CASE
     WHEN income >= 3400 THEN '3400 이상'
     WHEN income >= 2800 THEN '2800 이상'
     WHEN income >= 2500 THEN '2500 이상'
-    ELSE '기타' END AS income_range, AVG(consumption) AS avg_yearly_consumption FROM tb_Income_Expense GROUP BY income_range;
+    ELSE '기타' END AS income_range, AVG(consumption) AS avg_yearly_consumption FROM tb_Income_Expense GROUP BY income_range
 </select>
 
 
