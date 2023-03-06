@@ -140,7 +140,7 @@
 							<div class="dropdown-menu bg-transparent border-0">
 								<a href="Report.jsp" class="dropdown-item">보고서</a> 
 								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
-								<a href="Statisticts.jsp"class="dropdown-item">통계</a>
+								<a href="Statistics.jsp"class="dropdown-item">통계</a>
 							</div>
 						</div>
 						<a href="TargetList.jsp" class="nav-item nav-link"><i class="fa fa-table me-2"></i>목표</a>
