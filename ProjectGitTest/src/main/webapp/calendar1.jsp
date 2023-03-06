@@ -139,7 +139,7 @@
                     if (plusDate == 0) {
                         $("#calendar tbody:last").append("<tr></tr>");
                     }
-                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br><span><br></span> <span id='dtIn"+i+"'></span><br><span id='dtOut"+i+"'></span></td>");
+                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br><span><br></span> <span id='dtIn"+i+"'>수입</span><br><span id='dtOut"+i+"'>지출</span></td>");
                 }
                 if ($("#calendar > tbody > td").length % 7 != 0) { //마지막 줄 빈칸
                     for (i = 1; i <= $("#calendar > tbody > td").length % 7; i++) {
