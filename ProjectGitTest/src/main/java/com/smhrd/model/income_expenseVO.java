@@ -10,7 +10,7 @@ public class income_expenseVO {
 	private String user_id;
 
 	
-	public income_expenseVO(String item_type, String item_content, int amount, String item_tag, String item_dt,
+	public income_expenseVO(String item_type,String item_content, int amount, String item_tag, String item_dt,
 			String user_id) {
 		super();
 		this.item_type = item_type;
