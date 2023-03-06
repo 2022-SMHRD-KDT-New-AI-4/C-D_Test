@@ -9,6 +9,20 @@ public class income_expenseVO {
 	private String item_dt;
 	private String user_id;
 
+	
+	public income_expenseVO(String item_type, String item_content, int amount, String item_tag, String item_dt,
+			String user_id) {
+		super();
+		this.item_type = item_type;
+		this.item_content = item_content;
+		this.amount = amount;
+		this.item_tag = item_tag;
+		this.item_dt = item_dt;
+		this.user_id = user_id;
+	}
+	
+	
+
 	@Override
 	public String toString() {
 		return "income_expenseVO [moneybook_seq=" + moneybook_seq + ", item_type=" + item_type + ", item_content="
