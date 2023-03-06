@@ -48,6 +48,18 @@
 
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
+
+<style>
+.tgdel{
+	font-size : 15px;
+}
+.tgadd{
+	color : #ffeaa7;
+	text-align: center;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -143,9 +155,8 @@
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4" style="display : flex; justify-content: center; align-items : center;">
-							<br>
 							<div>
-							<h1 class="mb-4">목표 리스트</h1><br><br>
+							<h1 class="mb-4">🎉 목표리스트</h1><br><br>
 
 							<%
                            	DAO_L dao = new DAO_L();
@@ -156,20 +167,18 @@
                            	
         					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
-								<input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
-                             	<label class="form-check-label" for="exampleCheck1" >
-                             	<h3><%=list.get(i).getTarget_name()%><a href="targetdeleteservice?num=<%=list.get(i).getTarget_seq()%>">삭제</a></h3></label><br>
+
+                             <h3><li><%=list.get(i).getTarget_name()%><a class="tgdel" href="targetdeleteservice?num=<%=list.get(i).getTarget_seq() %>">&emsp;🗑</a></li></h3>
+                    
                            	<%}
         					}else{%>
-                           		<h3>목표를 추가해주세요</h3>
+                           		<h3 class="tgadd">목표를 추가해주세요</h3>
                            	<%}%>
 							<br>
 							
-							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
+							<button type="button" class="btn btn-lg btn-primary m-2" onclick="location.href='targetadd.jsp'">&emsp;&emsp;&emsp;&emsp;목표 추가&emsp;&emsp;&emsp;&emsp;</button>
 							
 							
-							
-							<button type="submit" id ="btn_del" class="btn btn-warning m-2" onclick="Target();">목표삭제</button>
 							
 							
 							
@@ -177,27 +186,6 @@
 							
 						</div>
 						</div>
-						
-						<script type="text/javascript">
-						$('#btn_del').click(function()){
-							if($("input:checkbox[name='check_t']:checked").length === 0){
-								return;
-							}
-						}
-						
-						
-							function Target() {
-								let returnValue = confirm('해당 목표를 삭제하시겠습니까?');
-								if (returnValue === true) { // 확인 버튼을 눌렀을 경우
-									returnValue = '목표가 삭제되었습니다.';
-
-								} else { // 취소 버튼을 눌렀을 경우
-									returnValue = '취소되었습니다.';
-								}
-								alert(returnValue);
-							}
-							
-						</script>
 				
 			
 			<!-- 목표리스트 End -->
@@ -219,7 +207,7 @@
        			System.out.println(list.get(i).getTarget_seq());
        		}
            	
-           	 
+           	
            	%>
      
 					<div class="col-sm-12 col-xl-6">
@@ -244,7 +232,7 @@
 						</div>
 						<%} 
 							}else{%>
-								<h3>목표리스트가 없습니다</h3>
+								<h3 class="tgadd">목표리스트가 없습니다</h3>
 							<%}%>
 				
 			
