@@ -34,7 +34,7 @@
    }
 }
 #logo {
-   font-size: 60px; 
+   font-size: 68px; 
    font-family: '검은고딕', 'Black Han Sans'; 
    margin-top: 0px;
    border-top:0px;
@@ -43,7 +43,7 @@
    border-bottom:0px;
    padding-bottom: 100%;
    line-height: 20px; 
-   color: #FFC107; 
+   color: #ffdc3c; 
    text-shadow: 3px 4px 3px #888888;  
 }
 
@@ -73,7 +73,7 @@
 #message2 {
    color: white;
    font-family: 'GmarketSansMedium';    
-   font-size: 20px;
+   font-size: 18px;
    margin-top: 10px;
    border-top: 10px;
    padding-top: 15px;
@@ -115,9 +115,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <body>
    <div class="first">
-      <h1 id="message">"Money를 향해 달리다"</h1>      
-      <h2 id="message2">목표달성형 가계부 서비스</h2>
-      <a href="" target="_Self"><h3 id="logo">Cash&Dash</h3></a>      
+      <h1 id="message">"Money를 그리다, Money를 달리다"</h1>      
+      <h2 id="message2">대시보드로 읽는 목표달성형 가계부 서비스</h2>
+      <a href="signin.jsp" target="_Self"><h3 id="logo">Cash&Dash</h3></a>      
    </div>
 </body>
 </html>
