@@ -33,6 +33,11 @@ public class userVO {
 
 
 
+	public userVO(String user_id) {
+		super();
+		this.user_id = user_id;
+	}
+
 	public userVO(String user_id, String user_pw, String user_name, String user_age, String user_nick,
 			int user_salary) {
 		super();

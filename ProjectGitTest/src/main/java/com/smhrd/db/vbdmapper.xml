@@ -6,8 +6,8 @@
 
 <!-- 은행 가상데이터 insert  -->
 <insert id="vdInsert" parameterType="com.smhrd.virtualData.bankVO">
- insert into virtualBank values (mbseq.NEXTVAL,#{bk_Member},#{bk_Date},#{bk_BankName},
- 								#{bk_Detail},#{bk_Deposit_Withdrawal},#{bk_AccountAmount})
+ insert into virtualBank values (mbseq.NEXTVAL,#{VB_id},#{VB_Date},#{code_Type},
+ 								#{BankName},#{Deposit_Withdrawal},#{Detail},#{AccountAmount})
 </insert>
 
 
@@ -25,6 +25,8 @@
 <select id="user_salarySelectVB"  resultType="Integer" parameterType="String">
  select USER_SALARY from tb_user where user_id = #{user_id}
 </select>
+
+
 
 
 </mapper>

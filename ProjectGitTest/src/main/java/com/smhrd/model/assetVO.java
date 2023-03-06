@@ -16,6 +16,18 @@ public class assetVO {
 		
 	}
 	
+	public assetVO(String user_id, String bank_name, int account_balance, String dept_card_name, int dept_card_amount,
+			String dept_loan_name, int dept_loan_amount) {
+		super();
+		this.user_id = user_id;
+		this.bank_name = bank_name;
+		this.account_balance = account_balance;
+		this.dept_card_name = dept_card_name;
+		this.dept_card_amount = dept_card_amount;
+		this.dept_loan_name = dept_loan_name;
+		this.dept_loan_amount = dept_loan_amount;
+	}
+
 	public int getAsset_seq() {
 		return asset_seq;
 	}
@@ -97,6 +109,17 @@ public class assetVO {
 	}
 	
 	
+
+	public assetVO(String bank_name, int account_balance, String dept_card_name, int dept_card_amount,
+			String dept_loan_name, int dept_loan_amount) {
+		super();
+		this.bank_name = bank_name;
+		this.account_balance = account_balance;
+		this.dept_card_name = dept_card_name;
+		this.dept_card_amount = dept_card_amount;
+		this.dept_loan_name = dept_loan_name;
+		this.dept_loan_amount = dept_loan_amount;
+	}
 
 	public assetVO(int total_asset) {
 		super();
