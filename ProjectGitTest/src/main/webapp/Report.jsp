@@ -155,7 +155,7 @@
                             <canvas id="worldwide-sales"></canvas>
                             <br>
 						<div style="text-align: right;">
-						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Details_consumption.jsp'">상세보기</button>
 						</div>  
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
@@ -163,7 +163,7 @@
                             <canvas id="worldwide-sales2"></canvas>
                             <br>
 						<div style="text-align: right;">
-						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Statistics.jsp'">상세보기</button>
 						</div>
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
@@ -171,7 +171,7 @@
                             <canvas id="worldwide-sales3"></canvas>
                             <br>
 						<div style="text-align: right;">
-						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='UserAsset.jsp'">상세보기</button>
+						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Statistics.jsp'">상세보기</button>
 						</div>
                         </div>
           </div>
