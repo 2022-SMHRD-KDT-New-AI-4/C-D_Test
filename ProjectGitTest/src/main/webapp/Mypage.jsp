@@ -67,7 +67,7 @@
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
 					<div class="position-relative">
-						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
+						<a href="signin.jsp"><h6 class="ms-3">로그인이 필요합니다</h6></a>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
@@ -80,28 +80,32 @@
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="#" class="nav-link dropdown-toggle active"
+							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="#" class="dropdown-item">메인</a> 
-							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
+							<a href="index.jsp" class="dropdown-item">메인</a> <a
+								href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
-						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
-						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
-						<div class="nav-item dropdown"> 
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+						<a href="inout.jsp" class="nav-item nav-link"><i
+							class="fa fa-laptop me-2"></i>입/지출</a> <a href="UserAsset.jsp"
+							class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
+						<div class="nav-item dropdown">
+							<a href="#" class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
-								<a href="Report.jsp" class="dropdown-item">보고서</a> 
-								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
-								<a href="Statisticts.jsp"class="dropdown-item">통계</a>
+								<a href="Report.jsp" class="dropdown-item">보고서</a> <a
+									href="Details_consumption.jsp" class="dropdown-item">소비현황</a> <a
+									href="Statistics.jsp" class="dropdown-item">통계</a>
 							</div>
 						</div>
-						<a href="TargetList.jsp" class="nav-item nav-link"><i class="fa fa-table me-2"></i>목표</a>
+						<a href="TargetList.jsp" class="nav-item nav-link"><i
+							class="fa fa-table me-2"></i>목표</a>
 					</div>
 				</div>
 			</nav>
 		</div>
 		<!-- Sidebar End -->
-		
+
 		<!-- Content Start -->
 		<div class="content">
 		
