@@ -52,6 +52,8 @@
             clear: both;
             width: 80%;
         }
+        
+
 
         th {
             height: 50px;
@@ -93,9 +95,6 @@
             background-color:  #2d3436;
         }
         
-        #preMon,#nextMon{
-      
-        }
     </style>
 
     <script>
