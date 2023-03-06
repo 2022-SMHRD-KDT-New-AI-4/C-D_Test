@@ -30,7 +30,7 @@ public class income_expenseVO {
 				+ user_id + "]";
 	}
 
-	public income_expenseVO(int amount,String item_tag, String user_id) {
+	public income_expenseVO(int amount,String item_tag,String user_id) {
 		super();
 		this.amount = amount;
 		this.item_tag = item_tag;
