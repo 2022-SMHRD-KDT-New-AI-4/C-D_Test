@@ -130,7 +130,7 @@
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="#" class="dropdown-item">메인</a> 
+							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
