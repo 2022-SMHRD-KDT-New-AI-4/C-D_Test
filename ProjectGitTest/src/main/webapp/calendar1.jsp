@@ -224,7 +224,7 @@
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="index.jsp" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="#" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item active">캘린더</a>
