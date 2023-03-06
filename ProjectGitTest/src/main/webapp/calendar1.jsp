@@ -287,7 +287,7 @@
         	<thead>
             	<tr>
                	 <th><input style="color: #EB1616" name="preMon" type="button" value="<"></th>
-                	<th colspan="5" class="year_mon"></th>
+                	<th  style="color: #EB1616" colspan="5" class="year_mon"></th>
                 	<th><input style="color: #EB1616" name="nextMon" type="button" value=">"></th>
             	</tr>
            		 <tr style="color: #EB1616">
