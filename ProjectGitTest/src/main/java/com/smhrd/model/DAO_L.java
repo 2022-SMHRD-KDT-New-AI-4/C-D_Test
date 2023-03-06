@@ -58,4 +58,18 @@ public class DAO_L {
 		session.close();
 		return cnt;
 	}
+	
+	public int targetamount_add(int amount ) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		int cnt = session.delete("targetamount_add",amount);
+		session.close();
+		return cnt;
+		
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -24,8 +24,9 @@ public class targetVO {
 
 
 	// 목표이름만 
-	public targetVO(String target_name) {
+	public targetVO(String target_name, int target_seq) {
 		this.target_name = target_name;
+		this.target_seq = target_seq;
 	}
 
 	

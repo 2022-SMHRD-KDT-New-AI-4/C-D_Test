@@ -153,12 +153,16 @@
                				// MessageDAO 클래스 안에 messageSelect()메소드를 구현하시오
                				// session id값은 messageSelect로 해주세요
                            	ArrayList<targetVO> list = dao.target_name_call("cjfals");
+                           	
+        					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
 								<input type="checkbox" class="form-check-input" id="exampleCheck1" name="check_t" value="Check1">
                              	<label class="form-check-label" for="exampleCheck1" >
-                             	<h3><%=list.get(i).getTarget_name()%></h3></label><br>
+                             	<h3><%=list.get(i).getTarget_name()%><a href="targetdeleteservice?num=<%=list.get(i).getTarget_seq()%>">삭제</a></h3></label><br>
+                           	<%}
+        					}else{%>
+                           		<h3>목표를 추가해주세요</h3>
                            	<%}%>
-                           
 							<br>
 							
 							<button type="button" class="btn btn-primary m-2" onclick="location.href='targetadd.jsp'">목표추가</button>
@@ -208,8 +212,12 @@
            	List<targetVO> amountlist = dao.target_amount_cal("cjfals");
            	
            	for(int i = 0 ; i < amountlist.size(); i++ ){
-           		System.out.println(amountlist.get(i).getTarget_amount());
+           			System.out.println(amountlist.get(i).getTarget_amount());
            	}
+           	
+           	for(int i = 0 ; i < list.size(); i++ ){
+       			System.out.println(list.get(i).getTarget_seq());
+       		}
            	
            	 
            	%>
@@ -217,57 +225,30 @@
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
 							<div class="border rounded p-4 pb-0 mb-4">
-						<h3 class="mb-4"><%=list.get(0).getTarget_name()%></h3>
+							<%if(list.size() != 0){ %>
+							<% for(int i = 0 ; i < list.size(); i++ ){%>
+						<h3 class="mb-4"><%=list.get(i).getTarget_name()%></h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="55"
-									aria-valuemin="0" aria-valuemax="100" style="width: 100%">55%
+									aria-valuemin="0" aria-valuemax="100" style="width: 100%">55% <!-- 목표태그로 추가된 금액/목표액 * 100 -->
 								</div>
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
-									<li>목표 : <%=list.get(0).getTarget_name()%></li>
-									<li>기간 : <%=startlist.get(0).getTarget_start() %>~<%=endlist.get(0).getTarget_end() %></li>
+									<li>목표 : <%=list.get(i).getTarget_name()%></li>
+									<li>기간 : <%=startlist.get(i).getTarget_start() %>~<%=endlist.get(i).getTarget_end() %></li>
 									<li>상태 : 480만원 모은 상태</li>
 								</ul>
 							</ul>
 						</div>
+						<%} 
+							}else{%>
+								<h3>목표리스트가 없습니다</h3>
+							<%}%>
 				
-				
 			
-						<h3 class="mb-4"><%=list.get(1).getTarget_name()%></h3>
-						<div class="pg-bar mb-3">
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="30"
-									aria-valuemin="0" aria-valuemax="100" style="width: 100%">30%
-								</div>
-							</div>
-							<ul class="list-unstyled mb-0">
-								<ul>
-									<li>목표 : <%=list.get(1).getTarget_name()%></li>
-									<li>기간 : <%=startlist.get(1).getTarget_start() %>~<%=endlist.get(1).getTarget_end() %></li>
-									<li>상태 : 480만원 모은 상태</li>
-								</ul>
-							</ul>
-					
-				</div>
-			
-			
-						<h3 class="mb-4"><%=list.get(2).getTarget_name()%></h3>
-						<div class="pg-bar mb-3">
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="70"
-									aria-valuemin="0" aria-valuemax="100" style="width: 100%">70%
-								</div>
-							</div>
-							<ul class="list-unstyled mb-0">
-								<ul>
-									<li>목표 : <%=list.get(2).getTarget_name()%></li>
-									<li>기간 : <%=startlist.get(2).getTarget_start() %>~<%=endlist.get(2).getTarget_end() %></li>
-									<li>상태 : 480만원 모은 상태</li>
-								</ul>
-							</ul>
-						</div>
+						
 				</div>
 				</div>
 				</div>
