@@ -58,18 +58,13 @@ public class DAO_L {
 		session.close();
 		return cnt;
 	}
+
 	
-	public int targetamount_add(int amount ) {
+	public  ArrayList<income_expenseVO> targetamount_add(String user_id) {
 		SqlSession session = sqlSesstionFAcFactory.openSession(true);
-		int cnt = session.delete("targetamount_add",amount);
+		List<income_expenseVO> list = session.selectList("targetamount_add",user_id);
 		session.close();
-		return cnt;
-		
+		return (ArrayList<income_expenseVO>) list;
 	}
-	
-	
-	
-	
-	
-	
+
 }

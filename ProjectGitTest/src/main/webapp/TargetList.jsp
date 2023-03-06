@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,6 +6,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.targetVO"%>
 <%@page import="com.smhrd.model.DAO_L"%>
+<%@page import="com.smhrd.model.income_expenseVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +53,8 @@
 
 <style>
 .tgdel{
-	font-size : 15px;
+	font-size : 30px;
+	color: #74b9ff;
 }
 .tgadd{
 	color : #ffeaa7;
@@ -156,7 +159,7 @@
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4" style="display : flex; justify-content: center; align-items : center;">
 							<div>
-							<h1 class="mb-4">🎉 목표리스트</h1><br><br>
+							<h1 class="mb-4"> ✨목표리스트✨</h1><br><br>
 
 							<%
                            	DAO_L dao = new DAO_L();
@@ -168,7 +171,7 @@
         					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
 
-                             <h3><li><%=list.get(i).getTarget_name()%><a class="tgdel" href="targetdeleteservice?num=<%=list.get(i).getTarget_seq() %>">&emsp;🗑</a></li></h3>
+                             <h3><li><%=list.get(i).getTarget_name()%><a class="tgdel" href="targetdeleteservice?num=<%=list.get(i).getTarget_seq() %>">&nbsp;🗑</a></li></h3>
                     
                            	<%}
         					}else{%>
@@ -199,15 +202,29 @@
            	
            	List<targetVO> amountlist = dao.target_amount_cal("cjfals");
            	
-           	for(int i = 0 ; i < amountlist.size(); i++ ){
-           			System.out.println(amountlist.get(i).getTarget_amount());
-           	}
+            //for(int i = 0 ; i < amountlist.size(); i++ ){
+           	//		System.out.println(amountlist.get(i).getTarget_amount());
+           	//		System.out.println(amountlist.get(i).getTarget_amount());
+           	//}
+           	//
+           	//for(int i = 0 ; i < list.size(); i++ ){
+       		//	System.out.println(list.get(i).getTarget_seq());
+       		//}
            	
-           	for(int i = 0 ; i < list.size(); i++ ){
-       			System.out.println(list.get(i).getTarget_seq());
-       		}
+           	ArrayList<income_expenseVO> addlist = dao.targetamount_add("cjfals");
            	
-           	
+           	//for(int i = 0 ; i < addlist.size(); i++ ){
+       		//	System.out.println(addlist.get(i).getAmount());
+       		//}
+           	double pst = 0;
+        	for(int i = 0 ; i < addlist.size(); i++ ){
+           		double a = addlist.get(i).getAmount()/10000;
+           		double b = amountlist.get(i).getTarget_amount()/10000;
+           		pst = (a/b)*100;
+           		System.out.println(pst);
+           		System.out.println(a+"a");
+           		System.out.println(b+"b");
+        	}
            	%>
      
 					<div class="col-sm-12 col-xl-6">
@@ -218,15 +235,19 @@
 						<h3 class="mb-4"><%=list.get(i).getTarget_name()%></h3>
 						<div class="pg-bar mb-3">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="55"
-									aria-valuemin="0" aria-valuemax="100" style="width: 100%">55% <!-- 목표태그로 추가된 금액/목표액 * 100 -->
+								<%	double a = addlist.get(i).getAmount()/10000;
+				           			double b = amountlist.get(i).getTarget_amount()/10000;
+				           			pst = (a/b)*100;
+								%>
+								<div class="progress-bar" role="progressbar" aria-valuenow="<%=Math.floor(pst) %>"
+									aria-valuemin="0" aria-valuemax="100" style="width: 100%"><%=Math.floor(pst) %>% <!-- 목표태그로 추가된 금액/목표액 * 100 -->
 								</div>
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
 									<li>목표 : <%=list.get(i).getTarget_name()%></li>
 									<li>기간 : <%=startlist.get(i).getTarget_start() %>~<%=endlist.get(i).getTarget_end() %></li>
-									<li>상태 : 480만원 모은 상태</li>
+									<li>상태 : <%=addlist.get(i).getAmount() %>원</li>
 								</ul>
 							</ul>
 						</div>
