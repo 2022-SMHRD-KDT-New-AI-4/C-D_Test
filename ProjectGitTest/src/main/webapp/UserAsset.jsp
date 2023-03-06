@@ -226,14 +226,14 @@
 										<tbody>
 											<%
 											for(int i=0; i<asvo.size(); i++){
+												if(!asvo.get(i).getBank_name().equals("은행선택")){
 												out.print("<tr>");
 												out.print("<th scope='row'>"+(i+1)+"</th>");
 												out.print("<td>"+asvo.get(i).getBank_name()+"</td>");
 												out.print("<td>"+asvo.get(i).getAccount_balance()+"</td>");
 												out.print("</tr>");
 											}
-											
-											
+											}
 											%>
 										</tbody>
 									</table>
@@ -265,20 +265,20 @@
 												<th scope="col">No</th>
 												<th scope="col">카드명</th>
 												<th scope="col">사용금액</th>
-												<th scope="col">사용내역</th>
 											</tr>
 										</thead>
 										<tbody>
 										
 										<%
 											for(int i=0; i<asvo.size(); i++){
+												if(!asvo.get(i).getDept_card_name().equals("카드선택")){
 												out.print("<tr>");
 												out.print("<th scope='row'>"+(i+1)+"</th>");
 												out.print("<td>"+asvo.get(i).getDept_card_name()+"</td>");
 												out.print("<td>"+asvo.get(i).getDept_card_amount()+"</td>");
 												out.print("</tr>");
 											}
-											
+											}
 											
 											%>
 											<!-- <tr>
@@ -312,21 +312,20 @@
 												<th scope="col">No</th>
 												<th scope="col">은행명</th>
 												<th scope="col">대출금액</th>
-												<th scope="col">사용 내역</th>
 											</tr>
 										</thead>
 										<tbody>
 										
 										<%
 											for(int i=0; i<asvo.size(); i++){
+												if(!asvo.get(i).getDept_loan_name().equals("은행 선택")){
 												out.print("<tr>");
 												out.print("<th scope='row'>"+(i+1)+"</th>");
 												out.print("<td>"+asvo.get(i).getDept_loan_name()+"</td>");
 												out.print("<td>"+asvo.get(i).getDept_loan_amount()+"</td>");
-												
 												out.print("</tr>");
 											}
-											
+											}
 											
 											%>
 											<!-- <tr>

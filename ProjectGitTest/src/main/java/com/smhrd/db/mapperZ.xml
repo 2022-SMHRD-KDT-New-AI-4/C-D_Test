@@ -26,6 +26,17 @@
 </select>
 
 
+<!-- 내자산 추가 -->
+
+<insert id="assetAdd" parameterType="com.smhrd.model.assetVO">
+	insert into tb_asset
+	values(TB_ASSET_SEQ.NEXTVAL,#{user_id}, #{bank_name},
+	#{account_balance},#{dept_card_name},
+	#{dept_card_amount},#{dept_loan_name},
+	#{dept_loan_amount},0)
+</insert>
+
+
 
 
 </mapper>

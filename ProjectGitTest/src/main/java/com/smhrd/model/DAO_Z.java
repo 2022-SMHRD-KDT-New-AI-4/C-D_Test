@@ -46,6 +46,17 @@ public class DAO_Z {
 		session.close();
 		return allval;
 	}
+
+//내 자산 추가 
+	
+	public int assetAdd(assetVO vo) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		int cnt = session.insert("assetAdd", vo);
+		session.close();
+		return cnt;
+		
+		
+	}
 	
 	
 }
