@@ -1,3 +1,7 @@
+<%@page import="com.smhrd.model.userVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.virtualData.bankDAO"%>
+<%@page import="com.smhrd.virtualData.bankVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +50,7 @@
 </head>
 
 <body>
+	<% userVO loginD = (userVO)session.getAttribute("loginD"); %>
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -65,7 +70,12 @@
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
 					<div class="position-relative">
-						<a href="signin.jsp"><h6 class="ms-3">로그인이 필요합니다</h6></a>
+					<%
+						if(loginD==null){%>
+						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
+					<%}else{%>
+						<h6><%=loginD.getUser_nick() %></h6>	
+					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
@@ -78,32 +88,28 @@
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="index.jsp" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.jsp" class="dropdown-item">메인</a> <a
-								href="calendar1.jsp" class="dropdown-item">캘린더</a>
+							<a href="index.jsp" class="dropdown-item">메인</a> 
+							<a href="calendar1.jsp" class="dropdown-item active">캘린더</a>
 						</div>
-						<a href="inout.jsp" class="nav-item nav-link"><i
-							class="fa fa-laptop me-2"></i>입/지출</a> <a href="UserAsset.jsp"
-							class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
-						<div class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle active"
-								data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
+						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
+						<div class="nav-item dropdown"> 
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
-								<a href="Report.jsp" class="dropdown-item">보고서</a> <a
-									href="Details_consumption.jsp" class="dropdown-item active">소비현황</a>
-								<a href="Statistics.jsp" class="dropdown-item">통계</a>
+								<a href="Report.jsp" class="dropdown-item">보고서</a> 
+								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
+								<a href="Statistics.jsp"class="dropdown-item">통계</a>
 							</div>
 						</div>
-						<a href="TargetList.jsp" class="nav-item nav-link"><i
-							class="fa fa-table me-2"></i>목표</a>
+						<a href="TargetList.jsp" class="nav-item nav-link"><i class="fa fa-table me-2"></i>목표</a>
 					</div>
 				</div>
 			</nav>
 		</div>
 		<!-- Sidebar End -->
-
+		
 		<!-- Content Start -->
 		<div class="content">
 		
@@ -120,12 +126,16 @@
 						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">로그인</a></button> -->
 						<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
 							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<%if(loginD==null){ %>
 							<span class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
+							<%}else{ %>
+							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
+							<%} %>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="signin.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -140,11 +150,7 @@
 				<div class="col-sm-12 col-xl-13 text-center p-4">
 					<div class="row g-4 bg-secondary rounded">
 
-
-						<h2
-							style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별
-							지출 순위</h2>
-
+						<h2 style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별 지출 순위</h2>
 
 						<!-- Chart Start -->
 						<div class="col-sm-12 col-xl-5" style="margin-left: 200px;">
@@ -1094,6 +1100,7 @@
 	<script src="assets/darkpan-1.0.0/js/main.js"></script>
 
 	<script>
+	
 		/** @type {CanvasRenderingContext2D} */
 		// Pie Chart
 		var ctx = $("#pie-chart").get(0).getContext("2d");
@@ -1101,11 +1108,19 @@
 				{
 					type : "pie",
 					data : {
-						labels : [ "저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비",
-								"기타" ],
+						labels : [
+							<% 
+							bankDAO bdao = new bankDAO();
+							ArrayList<String> DetailList = bdao.DetailList(loginD.getUser_id());
+							 for (int i = 0 ; i < DetailList.size(); i++ ){ 
+									out.print("\""+DetailList.get(i)+"\",");
+										} %> 
+//							"저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비","기타" 
+							],
 						datasets : [ {
-							backgroundColor : [ "rgba(235, 22, 22, .7)",
-									"rgba(235, 22, 22, .6)",
+							backgroundColor : [ 
+									"rgba(235, 22, 22, .7)",
+									"rgba(235, 22, 22, .6)", 
 									"rgba(235, 22, 22, .5)",
 									"rgba(235, 22, 22, .4)",
 									"rgba(235, 22, 22, .3)",
@@ -1119,6 +1134,13 @@
 					}
 				});
 
+		
+		
+		
+		
+		
+		
+		
 		// Single Line Chart
 		var ctx3 = $("#line-chart1").get(0).getContext("2d");
 		var myChart3 = new Chart(ctx3, {

@@ -254,7 +254,7 @@
 									<td><%=ie_list.get(i).getItem_content()%></td>
 									<td><%=ie_list.get(i).getItem_type()%></td>
 									<%
-									if (ie_list.get(i).getItem_type().equals("지출액")) {
+									if (ie_list.get(i).getItem_type().equals("지출")) {
 									%>
 									<td></td>
 									<td><%=ie_list.get(i).getAmount()%></td>
@@ -262,7 +262,7 @@
 									}
 									%>
 									<%
-									if (ie_list.get(i).getItem_type().equals("입금")) {
+									if (ie_list.get(i).getItem_type().equals("수입")) {
 									%>
 									<td><%=ie_list.get(i).getAmount()%></td>
 									<td></td>

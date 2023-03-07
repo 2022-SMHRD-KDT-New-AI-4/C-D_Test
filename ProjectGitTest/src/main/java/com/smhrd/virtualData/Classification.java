@@ -20,7 +20,7 @@ public class Classification {
 
 
 
-		for (int index = 700; index < 755; index++) {
+		for (int index = 0; index < 754; index++) {
 
 			String user_id = vb_idList.get(index); // 회원 아이디
 			System.out.println("--" + (index + 1) + "번째 회원 아이디 : " + user_id);
@@ -45,8 +45,6 @@ public class Classification {
 						user_id);
 //				System.out.println(ievo.toString());
 
-//				cnt = dao.tb_in_exInsertvb(ievo);
-
 				cnt = dao.tb_in_exInsertvb(ievo);
 
 			}
@@ -56,49 +54,49 @@ public class Classification {
 
 			int sum = 0;
 
-			ArrayList<bankVO> PersonalList = dao.groupby3Selectvb(user_id);
-			System.out.println("\t" + PersonalList.size());
-
-			for (int i = 0; i < PersonalList.size(); i++) {
-//				System.out.println(PersonalList.get(i).toString());
-				String bank_name = "";
-				int account_balance = 0;
-				String dept_card_name = "";
-				int dept_card_amount = 0;
-				String dept_loan_name = "";
-				int dept_loan_amount = 0;
-
-				if (PersonalList.get(i).code_Type().equals("은행")) {
-
-					bank_name = PersonalList.get(i).getBankName();
-					account_balance = PersonalList.get(i).getAccountAmount();
-
-				} else if (PersonalList.get(i).code_Type().equals("카드")) {
-
-					dept_card_name = PersonalList.get(i).getBankName();
-					dept_card_amount = PersonalList.get(i).getAccountAmount();
-
-				} else {
-
-					dept_loan_name = PersonalList.get(i).getBankName();
-					dept_loan_amount = PersonalList.get(i).getAccountAmount();
-
-				}
-
-				assetVO asvo = new assetVO(user_id, bank_name, account_balance, dept_card_name, dept_card_amount,
-						dept_loan_name, dept_loan_amount);
-
-				DAO_Z daoz = new DAO_Z();
-
-				cnt = daoz.assetAdd(asvo);
-//				System.out.println(asvo.toString());
-
-//				System.out.println(asvo.toString());
-				cnt = daoz.assetAdd(asvo);
-
-			}
-			System.out.println("내자산 완료");
-			System.out.println();
+//			ArrayList<bankVO> PersonalList = dao.groupby3Selectvb(user_id);
+//			System.out.println("\t" + PersonalList.size());
+//
+//			for (int i = 0; i < PersonalList.size(); i++) {
+////				System.out.println(PersonalList.get(i).toString());
+//				String bank_name = "";
+//				int account_balance = 0;
+//				String dept_card_name = "";
+//				int dept_card_amount = 0;
+//				String dept_loan_name = "";
+//				int dept_loan_amount = 0;
+//
+//				if (PersonalList.get(i).code_Type().equals("은행")) {
+//
+//					bank_name = PersonalList.get(i).getBankName();
+//					account_balance = PersonalList.get(i).getAccountAmount();
+//
+//				} else if (PersonalList.get(i).code_Type().equals("카드")) {
+//
+//					dept_card_name = PersonalList.get(i).getBankName();
+//					dept_card_amount = PersonalList.get(i).getAccountAmount();
+//
+//				} else {
+//
+//					dept_loan_name = PersonalList.get(i).getBankName();
+//					dept_loan_amount = PersonalList.get(i).getAccountAmount();
+//
+//				}
+//
+//				assetVO asvo = new assetVO(user_id, bank_name, account_balance, dept_card_name, dept_card_amount,
+//						dept_loan_name, dept_loan_amount);
+//
+//				DAO_Z daoz = new DAO_Z();
+//
+//				cnt = daoz.assetAdd(asvo);
+////				System.out.println(asvo.toString());
+//
+////				System.out.println(asvo.toString());
+//				cnt = daoz.assetAdd(asvo);
+//
+//			}
+//			System.out.println("내자산 완료");
+//			System.out.println();
 		} // tb_income_expense 자료 보내기 while
 		System.out.println("끝");
 
