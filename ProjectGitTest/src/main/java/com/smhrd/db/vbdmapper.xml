@@ -26,6 +26,21 @@
  select USER_SALARY from tb_user where user_id = #{user_id}
 </select>
 
+<!-- 가상데이터 테이블에서 입지출테이블로 insert  -->
+<insert id="tb_in_exInsertvb" parameterType="com.smhrd.model.income_expenseVO">
+ insert into tb_income_expense values (TB_INCOME_EXPENSE_SEQ.NEXTVAL,#{ITEM_TYPE},#{ITEM_CONTENT}
+ 										,#{AMOUNT},#{ITEM_TAG},#{ITEM_DT},#{USER_ID})
+</insert>
+
+<!-- 가상데이터 테이블  select-->
+<select id="vbtSelectvb" resultType="com.smhrd.virtualData.bankVO" parameterType="String">
+	select * FROM virtualBank where VB_ID = #{user_id}
+</select>
+
+<!-- 가상데이터 테이블에서 회원별 자산 select-->
+<select id="groupby3Selectvb" resultType="com.smhrd.virtualData.bankVO" parameterType="String">
+SELECT vb_id, code_type, bankname, sum(accountamount) FROM virtualbank where vb_id =#{user_id} GROUP by vb_id, code_type, bankname
+</select>
 
 
 
