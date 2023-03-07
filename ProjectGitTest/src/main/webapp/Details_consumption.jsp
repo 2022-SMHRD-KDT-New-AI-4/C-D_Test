@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.income_expenseVO"%>
+<%@page import="com.smhrd.model.DAO_S"%>
 <%@page import="com.smhrd.model.userVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.virtualData.bankDAO"%>
@@ -1132,8 +1134,14 @@ response.sendRedirect("signin.jsp");
 									"rgba(235, 22, 22, .2)",
 									"rgba(235, 22, 22, .1)", ],
 							data : [
-								<% %>
-								33.2, 28.1, 13.2, 11.6, 8.4, 3.2, 2.3 
+								<%
+								DAO_S daos = new DAO_S();
+								ArrayList<income_expenseVO> list = daos.ietgroupSelects(loginD.getUser_id());
+								for (int i = 0 ; i < list.size(); i++ ) {
+									out.print(list.get(i).getAmount()+",");	
+								}
+								%>
+//								33.2, 28.1, 13.2, 11.6, 8.4, 3.2, 2.3 
 								]
 						} ]
 					},
