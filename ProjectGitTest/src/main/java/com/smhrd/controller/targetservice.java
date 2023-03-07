@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.DAO_L;
 import com.smhrd.model.targetVO;
+import com.smhrd.model.userVO;
 
 @WebServlet("/targetservice")
 public class targetservice extends HttpServlet {
@@ -21,12 +23,15 @@ public class targetservice extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession();
+		String user_id = ((userVO)session.getAttribute("loginD")).getUser_id();
+		
 		String target_name = request.getParameter("target_name");
 		String target_start = request.getParameter("target_start");
 		String target_end = request.getParameter("target_end");
 		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
 
-		targetVO vo = new targetVO(target_name,target_start,target_end,target_amount);
+		targetVO vo = new targetVO(user_id,target_name,target_start,target_end,target_amount);
 
 		DAO_L dao = new DAO_L();	
 		
