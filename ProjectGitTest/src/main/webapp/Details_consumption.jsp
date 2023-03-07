@@ -1141,7 +1141,7 @@ response.sendRedirect("signin.jsp");
 									out.print(list.get(i).getAmount()+",");	
 								}
 								%>
-//								33.2, 28.1, 13.2, 11.6, 8.4, 3.2, 2.3 
+
 								]
 						} ]
 					},
