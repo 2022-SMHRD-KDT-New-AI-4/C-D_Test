@@ -15,9 +15,9 @@ public class Classification {
 		bankDAO dao = new bankDAO();
 
 		int cnt;
-		ArrayList<String> vb_idList = dao.userNameSelect(); // user 테이블에서 user_id Select
+		ArrayList<String> vb_idList = dao.userNameSelect(); // user 테이블에서 user_id Select   754
 
-		for (int index = 0; index < 3; index++) {
+		for (int index = 0; index < 20; index++) {
 
 
 			String user_id = vb_idList.get(index); // 회원 아이디
@@ -41,8 +41,8 @@ public class Classification {
 
 				income_expenseVO ievo = new income_expenseVO(item_type, item_content, amount, item_tag, item_dt,
 						user_id);
-				System.out.println(ievo.toString());
-//				cnt = dao.tb_in_exInsertvb(ievo);
+//				System.out.println(ievo.toString());
+				cnt = dao.tb_in_exInsertvb(ievo);
 
 			}
 			System.out.print("입지출 완료");
@@ -79,8 +79,8 @@ public class Classification {
 						dept_loan_name, dept_loan_amount);
 
 				DAO_Z daoz = new DAO_Z();
-				System.out.println(asvo.toString());
-//				cnt = daoz.assetAdd(asvo);
+//				System.out.println(asvo.toString());
+				cnt = daoz.assetAdd(asvo);
 			}
 			System.out.println("내자산 완료");
 			System.out.println();
