@@ -92,7 +92,7 @@ response.sendRedirect("signin.jsp");
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
@@ -100,7 +100,7 @@ response.sendRedirect("signin.jsp");
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown"> 
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
 								<a href="Report.jsp" class="dropdown-item">보고서</a> 
 								<a href="Details_consumption.jsp"class="dropdown-item active">소비현황</a> 
