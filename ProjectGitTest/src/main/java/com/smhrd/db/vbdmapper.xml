@@ -28,8 +28,7 @@
 
 <!-- 가상데이터 테이블에서 입지출테이블로 insert  -->
 <insert id="tb_in_exInsertvb" parameterType="com.smhrd.model.income_expenseVO">
- insert into tb_income_expense values (TB_INCOME_EXPENSE_SEQ.NEXTVAL,#{ITEM_TYPE},#{ITEM_CONTENT}
- 										,#{AMOUNT},#{ITEM_TAG},#{ITEM_DT},#{USER_ID})
+ insert into tb_income_expense values (TB_INCOME_EXPENSE_SEQ.NEXTVAL,#{item_type},#{item_content},#{amount},#{item_tag},#{item_dt},#{user_id})
 </insert>
 
 <!-- 가상데이터 테이블  select-->
