@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
+import com.smhrd.model.assetVO;
+import com.smhrd.model.income_expenseVO;
 
 public class bankDAO {
 
@@ -69,5 +71,29 @@ public class bankDAO {
 
 		return Balance;
 	}
+	
+	public int tb_in_exInsertvb(income_expenseVO ievo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.insert("tb_in_exInsertvb", ievo);
+		session.close();
+		return cnt;
+	}
+	
+	public ArrayList<bankVO> vbtSelectvb(String user_id) {	
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<bankVO> list = session.selectList("vbtSelectvb",user_id);
+		session.close();
+		return (ArrayList<bankVO>) list;
+	}
+	
+	
+	public ArrayList<bankVO> groupby3Selectvb(String user_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<bankVO> list = session.selectList("groupby3Selectvb",user_id);
+		session.close();
+		return (ArrayList<bankVO>) list;
+	}
+
+
 
 }
