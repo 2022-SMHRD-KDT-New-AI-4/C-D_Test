@@ -150,6 +150,7 @@
                       <form action="loginservice" method="post">  
                         <div class="form-floating mb-3">
                             <input name="user_id" id="user_id" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">아이디</label>
                             
                         </div>
                         <div class="form-floating mb-4">
