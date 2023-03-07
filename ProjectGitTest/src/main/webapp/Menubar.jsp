@@ -55,9 +55,9 @@
 
 <body>
 <%userVO loginD = (userVO)session.getAttribute("loginD"); %>
-<% if(loginD == null){
-response.sendRedirect("signin.jsp");	
-}	%>
+<%// if(loginD == null){
+//response.sendRedirect("signin.jsp");	
+//}	%>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->

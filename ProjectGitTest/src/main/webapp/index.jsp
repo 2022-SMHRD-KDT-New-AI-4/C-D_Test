@@ -115,7 +115,7 @@ response.sendRedirect("signin.jsp");
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.jsp" class="dropdown-item">메인</a> 
+							<a href="index.jsp" class="dropdown-item active">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
@@ -154,7 +154,7 @@ response.sendRedirect("signin.jsp");
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<img class="rounded-circle me-lg-2" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>
@@ -193,8 +193,7 @@ response.sendRedirect("signin.jsp");
                            	// 실습
                				// MessageDAO 클래스 안에 messageSelect()메소드를 구현하시오
                				// session id값은 messageSelect로 해주세요
-                           	ArrayList<targetVO> list = dao.target_name_call("cjfals");
-                           	
+							ArrayList<targetVO> list = dao.target_name_call(loginD.getUser_id());                           	
         					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
 
