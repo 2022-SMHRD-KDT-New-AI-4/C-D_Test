@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.virtualData.bankDAO"%>
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -58,6 +60,10 @@
 .list_{
 	color : #6C7293;
 }
+.tgdel{
+	font-size : 30px;
+	color: #74b9ff;
+}
 
 
 </style>
@@ -65,6 +71,7 @@
 </head>
 
 <body>
+<% userVO loginD = (userVO)session.getAttribute("loginD"); %>
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -159,15 +166,17 @@
 				<div class="row g-4">
 					<div class="col-sm-12 col-md-6">
 						<div class="h-50 bg-secondary rounded p-4">
+						<div class="border rounded p-4 pb-0 mb-4">
 							<div class="d-flex align-items-center justify-content-between mb-4">
 								<h3 class="mb-0"><a class="cal_">📅캘린더</a></h3>
 								<a href="calendar1.jsp">자세히보기</a>
 							</div>
-							<div id="calender"></div>
+						
+							<div id="calender"></div><br>
 						</div>
-
+						</div>
 						<div class="bg-secondary rounded h-50 p-4 " style="display : flex; justify-content: center; align-items : center;">
-							<div> <h1 class="mb-4"> ✨목표리스트✨</h1><br><br>
+							<div> <h2 class="mb-4">✨목표리스트✨</h2><br><br>
 							<%
                            	DAO_L dao = new DAO_L();
                            	// 실습
@@ -196,6 +205,7 @@
 
 					<div class="col-md-6 text-center">
 					<div class="h-100 bg-secondary rounded p-4">
+					<h3>항목별 지출</h3>
 						<canvas id="pie-chart"></canvas>
 					</div>
 					</div>
@@ -205,71 +215,7 @@
 			
 
 			<div class="container-fluid pt-4 px-4">
-				<div
-					class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-
-					<!-- 항목별 지출 순위 (월 누적 데이터)  Start-->
-					<div class="container-fluid pt-4 px-4">
-						<div class="bg-secondary text-center rounded p-4">
-
-							<h3 class="mb-4">항목별 지출 순위</h3>
-
-							<!-- Chart Start -->
-
-							<!-- Chart End -->
-
-							<!-- 막대 Start -->
-							<div class="col-sm-12 col-xl-6">
-
-								<div class="pg-bar mb-3">
-									<h6>1억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped"
-											role="progressbar" aria-valuenow="10" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-
-								<div class="pg-bar mb-3">
-									<h6>5억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-success"
-											role="progressbar" aria-valuenow="25" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-3">
-									<h6>100억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-info"
-											role="progressbar" aria-valuenow="50" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-3">
-									<h6>1000억 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-warning"
-											role="progressbar" aria-valuenow="75" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="pg-bar mb-0">
-									<h6>1조 모으기</h6>
-									<div class="progress">
-										<div class="progress-bar progress-bar-striped bg-danger"
-											role="progressbar" aria-valuenow="10" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-
-							</div>
-
-							<!-- 막대 End -->
-						</div>
-					</div>
-
-				</div>
+				
 			</div>
 			<!-- 본문 End -->
 			
@@ -310,22 +256,37 @@
 	<script src="assets/darkpan-1.0.0/js/main.js"></script>
 	<script>
 		// Pie Chart
-		var ctx5 = $("#pie-chart").get(0).getContext("2d");
-		var myChart5 = new Chart(ctx5, {
-			type : "pie",
-			data : {
-				labels : [ "Italy", "France", "Spain", "USA", "Argentina" ],
-				datasets : [ {
-					backgroundColor : [ "rgba(235, 22, 22, .7)",
-							"rgba(235, 22, 22, .6)", "rgba(235, 22, 22, .5)",
-							"rgba(235, 22, 22, .4)", "rgba(235, 22, 22, .3)" ],
-					data : [ 55, 49, 44, 24, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
+		var ctx = $("#pie-chart").get(0).getContext("2d");
+		var pie_chart = new Chart(ctx,
+				{
+					type : "pie",
+					data : {
+						labels : [
+							<% 
+							bankDAO bdao = new bankDAO();
+							ArrayList<String> DetailList = bdao.DetailList(loginD.getUser_id());
+							 for (int i = 0 ; i < DetailList.size(); i++ ){ 
+									out.print("\""+DetailList.get(i)+"\",");
+										} %> 
+//							"저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비","기타" 
+							],
+						datasets : [ {
+							backgroundColor : [ 
+									"rgba(235, 22, 22, .7)",
+									"rgba(235, 22, 22, .6)", 
+									"rgba(235, 22, 22, .5)",
+									"rgba(235, 22, 22, .4)",
+									"rgba(235, 22, 22, .3)",
+									"rgba(235, 22, 22, .2)",
+									"rgba(235, 22, 22, .1)", ],
+							data : [ 33.2, 28.1, 13.2, 11.6, 8.4, 3.2, 2.3 ]
+						} ]
+					},
+					options : {
+						responsive : true
+					}
+				});
+
 	</script>
 </body>
 </html>
