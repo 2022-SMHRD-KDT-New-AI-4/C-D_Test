@@ -11,7 +11,7 @@
 		└───────────────────────┘
 -->
 
-<insert id = "target_add" parameterType="com.smhrd.model.targetVO">
+<insert id = "target_add"  parameterType="com.smhrd.model.targetVO">
 	insert into tb_target 
 	values(99999,#{target_name},#{target_amount},#{user_id},#{target_start},#{target_end})
 </insert>
