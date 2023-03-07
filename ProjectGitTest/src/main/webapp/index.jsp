@@ -187,7 +187,7 @@
         					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
 
-                             <h3><li><%=list.get(i).getTarget_name()%><a class="tgdel" href="targetdeleteservice?num=<%=list.get(i).getTarget_seq() %>">&nbsp;🗑</a></li></h3>
+                             <h3><li><%=list.get(i).getTarget_name()%></li></h3>
                     
                            	<%}
         					}else{%>
@@ -195,7 +195,7 @@
                            	<%}%>
 							<br>
 							
-							<button type="button" class="btn btn-lg btn-primary m-2" onclick="location.href='targetadd.jsp'">&emsp;&emsp;&emsp;&emsp;목표 추가&emsp;&emsp;&emsp;&emsp;</button>
+							<button type="button" class="btn btn-lg btn-primary m-2" onclick="location.href='TargetList.jsp'">&emsp;&emsp;&emsp;&emsp;목표 상세 보러가기&emsp;&emsp;&emsp;&emsp;</button>
 							
 							</div>
 							
