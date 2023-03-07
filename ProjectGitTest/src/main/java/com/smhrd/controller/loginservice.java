@@ -3,6 +3,7 @@ package com.smhrd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,16 +35,16 @@ public class loginservice extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginD", luser);
 			System.out.println("로그인성공!");
-			succ=1;
 		} else {
 			System.out.println("아아악");
 			System.out.println("로그인실패");
 
 		}
-		
+		response.setCharacterEncoding("UTF-8");
 		PrintWriter out=response.getWriter();
 		out.println(succ);
-
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
 	 
 
 	}
