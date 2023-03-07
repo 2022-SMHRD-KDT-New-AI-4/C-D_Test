@@ -217,14 +217,12 @@
        		//	System.out.println(addlist.get(i).getAmount());
        		//}
            	double pst = 0;
-        	for(int i = 0 ; i < addlist.size(); i++ ){
-           		double a = addlist.get(i).getAmount()/10000;
-           		double b = amountlist.get(i).getTarget_amount()/10000;
-           		pst = (a/b)*100;
-           		System.out.println(pst);
-           		System.out.println(a+"a");
-           		System.out.println(b+"b");
-        	}
+        	//for(int i = 0 ; i < addlist.size(); i++ ){
+           	//	double a = addlist.get(i).getAmount()/10000;
+           	//	double b = amountlist.get(i).getTarget_amount()/10000;
+           	//	pst = (a/b)*100;
+        	//}
+        	//System.out.print(addlist.get(3).getAmount());
            	%>
      
 					<div class="col-sm-12 col-xl-6">
@@ -233,24 +231,34 @@
 							<%if(list.size() != 0){ %>
 							<% for(int i = 0 ; i < list.size(); i++ ){%>
 						<h3 class="mb-4"><%=list.get(i).getTarget_name()%></h3>
+						
+						
 						<div class="pg-bar mb-3">
 							<div class="progress">
-								<%	double a = addlist.get(i).getAmount()/10000;
+								<%	try{
+									double a = addlist.get(i).getAmount()/10000;
 				           			double b = amountlist.get(i).getTarget_amount()/10000;
 				           			pst = (a/b)*100;
+				           			
 								%>
 								<div class="progress-bar" role="progressbar" aria-valuenow="<%=Math.floor(pst) %>"
-									aria-valuemin="0" aria-valuemax="100" style="width: 100%"><%=Math.floor(pst) %>% <!-- 목표태그로 추가된 금액/목표액 * 100 -->
+									aria-valuemin="0" aria-valuemax="100" style="width: 100%"><%=Math.floor(pst) %>%<!-- 목표태그로 추가된 금액/목표액 * 100 -->
 								</div>
+								 <%}catch(Exception e){%>
+								 <div class="progress-bar" role="progressbar" aria-valuenow="0"
+											aria-valuemin="0" aria-valuemax="100" style="width: 100%">0%<!-- 목표태그로 추가된 금액/목표액 * 100 -->
+								</div> 
+								<%}%>
 							</div>
 							<ul class="list-unstyled mb-0">
 								<ul>
 									<li>목표 : <%=list.get(i).getTarget_name()%></li>
 									<li>기간 : <%=startlist.get(i).getTarget_start() %>~<%=endlist.get(i).getTarget_end() %></li>
-									<li>상태 : <%=addlist.get(i).getAmount() %>원</li>
+									<li>상태 :<%try{%><%=addlist.get(i).getAmount() %><%}catch(Exception e){%>0<%}%>원</li>
 								</ul>
 							</ul>
 						</div>
+						
 						<%} 
 							}else{%>
 								<h3 class="tgadd">목표리스트가 없습니다</h3>

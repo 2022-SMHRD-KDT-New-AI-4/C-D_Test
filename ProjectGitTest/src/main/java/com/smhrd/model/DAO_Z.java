@@ -13,6 +13,7 @@ import com.smhrd.db.SqlSessionManager;
 public class DAO_Z {
 // 장향미
 	
+	
 	private SqlSessionFactory sqlSesstionFAcFactory = SqlSessionManager.getSqlSession();
 //회원가입
 	public int join(userVO vo) {
@@ -48,14 +49,27 @@ public class DAO_Z {
 	}
 
 //내 자산 추가 
-	
 	public int assetAdd(assetVO vo) {
 		SqlSession session = sqlSesstionFAcFactory.openSession(true);
 		int cnt = session.insert("assetAdd", vo);
 		session.close();
 		return cnt;
-		
-		
+	}
+	
+// 달력 수입지출 추가 	
+	public int calAddInput(income_expenseVO vo) {
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		int cnt = session.insert("calAddInput", vo);
+		session.close();
+		return cnt;
+	}
+	
+// 달력에 수입지출 정보 가져오기
+	public List<income_expenseVO> getinout(income_expenseVO vo){
+		SqlSession session = sqlSesstionFAcFactory.openSession(true);
+		List<income_expenseVO> inout = session.selectList("getinout", vo);
+		session.close();
+		return inout;
 	}
 	
 	

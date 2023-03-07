@@ -14,9 +14,18 @@ public class Classification {
 		bankDAO dao = new bankDAO();
 
 		int cnt;
+<<<<<<< HEAD
 		ArrayList<String> vb_idList = dao.userNameSelect(); // user 테이블에서 user_id Select 754
+=======
+		ArrayList<String> vb_idList = dao.userNameSelect(); // user 테이블에서 user_id Select   754
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 
+<<<<<<< HEAD
 		for (int index = 700; index < 755; index++) {
+=======
+		for (int index = 0; index < 20; index++) {
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 
 			String user_id = vb_idList.get(index); // 회원 아이디
 			System.out.println("--" + (index + 1) + "번째 회원 아이디 : " + user_id);
@@ -40,7 +49,11 @@ public class Classification {
 				income_expenseVO ievo = new income_expenseVO(item_type, item_content, amount, item_tag, item_dt,
 						user_id);
 //				System.out.println(ievo.toString());
+<<<<<<< HEAD
 //				cnt = dao.tb_in_exInsertvb(ievo);
+=======
+				cnt = dao.tb_in_exInsertvb(ievo);
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 
 			}
 			System.out.print("입지출 완료");
@@ -82,8 +95,13 @@ public class Classification {
 						dept_loan_name, dept_loan_amount);
 
 				DAO_Z daoz = new DAO_Z();
+<<<<<<< HEAD
 				cnt = daoz.assetAdd(asvo);
 //				System.out.println(asvo.toString());
+=======
+//				System.out.println(asvo.toString());
+				cnt = daoz.assetAdd(asvo);
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
 			}
 			System.out.println("내자산 완료");
 			System.out.println();
