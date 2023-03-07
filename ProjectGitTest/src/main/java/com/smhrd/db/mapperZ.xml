@@ -37,6 +37,19 @@
 </insert>
 
 
+<!-- 달력 입출금액 추가 -->
+<insert id="calAddInput" parameterType="com.smhrd.model.income_expenseVO">
+
+	insert into tb_income_expense
+	values(tb_income_expense_seq.nextval, #{item_type},#{item_content},
+	#{amount},#{item_tag},#{item_dt},#{user_id})
+
+</insert>
+
+<!-- 수입 지출 가져오기 -->
+<select id="getinout" resultType="com.smhrd.model.income_expenseVO" parameterType="String">
+	select * from tb_income_expense where user_id = #{user_id}
+</select>
 
 
 </mapper>

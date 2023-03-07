@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.userVO"%>
+<%@page import="com.smhrd.virtualData.bankVO"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -63,6 +65,7 @@
 		<!-- Spinner End -->
 
 		<!-- Sign In Start -->
+		<form action = "calInputservice" method="post">
 		<%
 		String date = request.getParameter("date");
 		String [] arr = date.split("/");
@@ -86,37 +89,81 @@
 									<option value="지출">지출</option>
 								</select>
 							</div>
+							
+							<input class="form-check-input" type="radio" 
+								name="flexRadioDefault" id="ckBank">
+							<label class="form-check-label" for="ckBank">은행명</label>
+							
+							<div class="bg-secondary rounded" >
+							
+								<select class="form-select mb-3" 
+									aria-label="Default select example" name="item_content">
+									<option selected>은행 선택</option>
+									<option value="NH농협">NH농협</option>
+									<option value="KB국민은행">KB국민은행</option>
+									<option value="신한은행">신한은행</option>
+									<option value="KEB하나은행">KEB하나은행</option>
+									<option value="SC제일은행">SC제일은행</option>
+									<option value="우리은행">우리은행</option>
+									<option value="기업은행">기업은행</option>
+									<option value="한국씨티은행">한국씨티은행</option>
+								</select>
+							</div>
+							<input class="form-check-input" type="radio"   
+							name="flexRadioDefault" id="ckCard"  >
+							<label class="form-check-label" for="ckCard" >카드명</label>
+							
 							<div class="bg-secondary rounded">
+							
+								<select class="form-select mb-3" name="item_content" aria-label="Default select example">
+									<option selected>카드선택</option>
+									<option value="BC카드">BC카드</option>
+									<option value="국민카드">KB국민카드</option>
+									<option value="신한카드">신한카드</option>
+									<option value="삼성카드">삼성카드</option>
+									<option value="롯데카드">롯데카드</option>
+									<option value="우리카드">우리카드</option>
+									<option value="하나카드">하나카드</option>
+									<option value="NH농협카드">NH농협카드</option>
+									<option value="IBK기업은행카드">IBK기업은행카드</option>
+									<option value="현대카드">현대카드</option>
+								</select>
+							</div>
+							
+							
+							
+								<div class="bg-secondary rounded">
+								
 								<select class="form-select mb-3"
 									aria-label="Default select example" name="ITEM_TAG">
 									<option selected>항목</option>
-									<option value="저축/보험">저축/보험</option>
-									<option value="식비">식비</option>
-									<option value="공과금">공과금</option>
-									<option value="생필품">생필품</option>
-									<option value="품위유지비">품위유지비</option>
-									<option value="교통비">교통비</option>
-									<option value="기타">월급</option>
-									<option value="기타">기타</option>
+									<% bankDAO dao = new bankDAO();
+									
+									userVO loginD = (userVO)session.getAttribute("loginD");
+									ArrayList<String> bvo = dao.DetailList(loginD.getUser_id());
+									for(int i =0; i<bvo.size(); i++){
+										
+										out.print("<option>"+bvo.get(i)+"</option>");
+									}
+									%>
 								</select>
 							</div>
-							<div class="form-floating mb-3">
-								<input type="email" class="form-control" id="floatingInput">
-								<label for="floatingInput">상세내용</label>
+							
+							<div class="row mb-3">
+								<label for="inputEmail3">금액 입력</label>
+								<input type="number" class="form-control" id="inputEmail3">
 							</div>
+							</form>
 							<div align="center">
 								<a href="calendar1.jsp">
-								<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
-								</a>
 								<button type="button" class="btn btn-warning rounded-pill m-2">Submit</button>
+								</a>
+								<button type="button" class="btn btn-danger rounded-pill m-2">Cancel</button>
 							</div>  
 						</div>
-					</div>
-				</div>
-			</div>
+			
 		
 		<!-- Sign In End -->
-	</div>
 
 </form>
 	<!-- JavaScript Libraries -->

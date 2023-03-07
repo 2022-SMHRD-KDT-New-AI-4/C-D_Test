@@ -154,6 +154,7 @@
 					<h2 class="mb-4" style="text-align: center;">내 자산 추가</h2>
 					<div class="form-check">
 							<form action="assetAddservice" method="post">
+							
 								<input class="form-check-input" type="radio"
 									name="flexRadioDefault" id="ckMoney" onclick="showHideDiv()">
 								<label class="form-check-label" for="ckMoney"><h6>현금성 자산</h6></label> 
@@ -190,6 +191,7 @@
 						<div id="dep_choice" style="display: none">
 						
 							<div class="form-check form-check-inline">
+							
 								<input class="form-check-input" type="radio" onclick="showHideDep()"
 									name="inlineRadioOptions" id="ckCard" value="option1">
 								<label class="form-check-label" for="inlineRadio1">신용카드</label>
