@@ -32,10 +32,10 @@ public class assetservice extends HttpServlet {
 		
 		if(asvo != null) {
 			
-			System.out.println("유저자산그래프 나옹당");
+			System.out.println("유저자산그래프 성공");
 		}
 		else {
-			System.out.println("유저자산그래프 안나옹다");
+			System.out.println("유저자산그래프 실패");
 		}
 		int [] Sum = new int [3];
 		for(int i=0; i<asvo.size(); i++) {
@@ -58,7 +58,7 @@ public class assetservice extends HttpServlet {
 		List<assetVO> list =dao.myAsset(user_id);
 		
 		if(list == null) {
-			System.out.println("안낭놈");
+			System.out.println("성공");
 			
 			//session.setAttribute(string name, object value);
 			 session.setAttribute("assetlist", user_id);
@@ -67,7 +67,7 @@ public class assetservice extends HttpServlet {
 			 
 		}
 		else {
-			System.out.println("나옴");
+			System.out.println("실패");
 		}
 		
 		
