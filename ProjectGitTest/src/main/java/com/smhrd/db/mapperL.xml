@@ -13,7 +13,7 @@
 
 <insert id = "target_add" parameterType="com.smhrd.model.targetVO">
 	insert into tb_target 
-	values(TB_TARGET_SEQ.NEXTVAL,#{target_name},#{target_amount},'cjfals',#{target_start},#{target_end})
+	values(99999,#{target_name},#{target_amount},'cjfals',#{target_start},#{target_end})
 </insert>
 
 
@@ -39,8 +39,8 @@
 </select>
 
 
-<select id = "targetamount_add" resultType="com.smhrd.model.income_expenseVO">
-	select sum(amount) from tb_income_expense where user_id ='cjfals'and item_tag = '목표' 
+<select id = "targetamount_add" resultType="com.smhrd.model.income_expenseVO" parameterType="int">
+	select sum(amount)as amount,item_tag from tb_income_expense where user_id ='cjfals' group by item_tag
 </select>
 
 

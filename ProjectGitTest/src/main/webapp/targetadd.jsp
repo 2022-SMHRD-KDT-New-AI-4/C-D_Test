@@ -140,7 +140,7 @@
                                 <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
                                       <form action="targetservice" method="post"> 
-                                            <h3 class="text-primary">목표추가</h3>
+                                            <h3 class="text-primary">목표 추가</h3>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="floatingText" name ="target_name">
@@ -158,7 +158,7 @@
                                         <input type="text" class="form-control" id="floatingdate" name ="target_amount">
                                         <label for="floatingPassword">목표금액</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='TargetList.jsp'">목표추가</button>
+                                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="location.href='TargetList.jsp'">목표 추가</button>
                                 </div>
                                 </form>
                             </div>
