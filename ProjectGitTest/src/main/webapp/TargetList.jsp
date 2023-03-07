@@ -8,6 +8,8 @@
 <%@page import="com.smhrd.model.DAO_L"%>
 <%@page import="com.smhrd.model.income_expenseVO"%>
 <%@page import="com.smhrd.model.userVO"%>
+<%@page import="com.smhrd.model.assetVO"%>
+<%@page import="com.smhrd.model.DAO_Z"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,7 +183,7 @@ response.sendRedirect("signin.jsp");
                            	// 실습
                				// MessageDAO 클래스 안에 messageSelect()메소드를 구현하시오
                				// session id값은 messageSelect로 해주세요
-                           	ArrayList<targetVO> list = dao.target_name_call("cjfals");
+                           	ArrayList<targetVO> list = dao.target_name_call(loginD.getUser_id());
                            	
         					if(list.size() != 0){
                            	for(int i = 0; i< list.size(); i++){%>
@@ -212,10 +214,10 @@ response.sendRedirect("signin.jsp");
 			<!--  목표 상세 시작 -->
 			
 			<%
-           	ArrayList<targetVO> startlist = dao.target_date_start("cjfals");
-           	ArrayList<targetVO> endlist = dao.target_date_end("cjfals");
+           	ArrayList<targetVO> startlist = dao.target_date_start(loginD.getUser_id());
+           	ArrayList<targetVO> endlist = dao.target_date_end(loginD.getUser_id());
            	
-           	List<targetVO> amountlist = dao.target_amount_cal("cjfals");
+           	List<targetVO> amountlist = dao.target_amount_cal(loginD.getUser_id());
            	
             //for(int i = 0 ; i < amountlist.size(); i++ ){
            	//		System.out.println(amountlist.get(i).getTarget_amount());
@@ -226,7 +228,7 @@ response.sendRedirect("signin.jsp");
        		//	System.out.println(list.get(i).getTarget_seq());
        		//}
            	
-           	ArrayList<income_expenseVO> addlist = dao.targetamount_add("cjfals");
+           	ArrayList<income_expenseVO> addlist = dao.targetamount_add(loginD.getUser_id());
            	
            	//for(int i = 0 ; i < addlist.size(); i++ ){
        		//	System.out.println(addlist.get(i).getAmount());

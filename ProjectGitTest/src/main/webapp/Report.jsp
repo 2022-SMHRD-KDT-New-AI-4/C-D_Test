@@ -1,5 +1,13 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.AgeMonthVO"%>
+<%@page import="com.smhrd.model.income_expenseVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.assetVO"%>
+<%@page import="com.smhrd.model.DAO_G"%>
+<%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="com.smhrd.model.userVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +58,69 @@
 <% if(loginD == null){
 response.sendRedirect("signin.jsp");	
 }	%>
+
+<%
+	//내자산
+	DAO_G dao = new DAO_G();
+	assetVO myasset = dao.select(loginD.getUser_id());
+	
+	//태그
+	ArrayList<income_expenseVO> tg_list = dao.tagselect(loginD.getUser_id());
+	System.out.print(tg_list.toString());
+	int saving =0;//저축,보험
+	int foodexpenses = 0;//식비
+	int dues =0;//공과금
+	int dailynecessity =0;//생필품
+	int dmc =0;//품위유지비
+	int trans =0;//교통비
+	int etc =0;//기타
+	for (int i =0; i<tg_list.size();i++){
+		if(tg_list.get(i).getItem_tag().equals("저축/보험")){
+			saving += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("식비")){
+			foodexpenses += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("공과금")){
+			dues += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("생필품")){
+			dailynecessity += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("품위유지비")){
+			dmc += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("교통비")){
+			trans += (int)tg_list.get(i).getAmount();
+		}else if (tg_list.get(i).getItem_tag().equals("기타")){
+			etc += (int)tg_list.get(i).getAmount();
+		}
+	}
+	
+	//연령대별 수입지출
+		ArrayList<AgeMonthVO> avg_20 = dao.avgselect20();
+	    System.out.print(avg_20.toString());
+	    int month01 =0;
+	    int month02 =0;
+	    int month03 =0;
+	    int month04 =0;
+	    int month05 =0;
+	    int month06 =0;
+	    int month07 =0;
+	   
+		for(int i=0;i<avg_20.size();i++){
+			if(avg_20.get(i).getMon().equals("01월")){
+				month01 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("02월")){
+				month02 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("03월")){
+				month03 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("04월")){
+				month04 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("05월")){
+				month05 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("06월")){
+				month06 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}else if(avg_20.get(i).getMon().equals("07월")){
+				month07 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
+			}
+		}
+    %>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
@@ -163,7 +234,7 @@ response.sendRedirect("signin.jsp");
          <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-30 p-4">
                             <h6 class="mb-4">소비 현황</h6>
-                            <canvas id="worldwide-sales"></canvas>
+                            <canvas id="sales"></canvas>
                             <br>
 						<div style="text-align: right;">
 						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Details_consumption.jsp'">상세보기</button>
@@ -171,7 +242,7 @@ response.sendRedirect("signin.jsp");
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
                             <h6 class="mb-4">연령별 통계</h6>
-                            <canvas id="worldwide-sales2"></canvas>
+                            <canvas id="sales2"></canvas>
                             <br>
 						<div style="text-align: right;">
 						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Statistics.jsp'">상세보기</button>
@@ -179,7 +250,7 @@ response.sendRedirect("signin.jsp");
                         </div>
 						<div class="bg-secondary rounded h-30 p-4">
                             <h6 class="mb-4">연봉별 통계</h6>
-                            <canvas id="worldwide-sales3"></canvas>
+                            <canvas id="sales3"></canvas>
                             <br>
 						<div style="text-align: right;">
 						<button type="button" class="btn btn-outline-success m-2" onclick="location.href='Statistics.jsp'">상세보기</button>
@@ -243,6 +314,111 @@ response.sendRedirect("signin.jsp");
 	        }
 	    });
 	    
+		</script>
+				<script>
+				 // Worldwide Sales Chart
+			    var ctx1 = $("#sales").get(0).getContext("2d");
+			    var myChart1 = new Chart(ctx1, {
+			        type: "bar",
+			        data: {
+			            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
+			            datasets: [{
+			                    label: "저축/보험",
+			                    data: [27, 30, 55, 65, 60, 80, 95],
+			                    backgroundColor: "rgba(235, 22, 22, .9)"
+			                },
+			                {
+			                    label: "식비",
+			                    data: [8, 35, 40, 60, 70, 55, 75],
+			                    backgroundColor: "rgba(235, 22, 22, .8)"
+			                },
+			                {
+			                    label: "공과금",
+			                    data: [12, 25, 45, 55, 65, 70, 60],
+			                    backgroundColor: "rgba(235, 22, 22, .7)"
+			                },
+			                {
+			                    label: "생필품",
+			                    data: [15, 30, 55, 65, 60, 80, 95],
+			                    backgroundColor: "rgba(235, 22, 22, .6)"
+			                },{
+			                    label: "품위유지비",
+			                    data: [15, 30, 55, 65, 60, 80, 95],
+			                    backgroundColor: "rgba(235, 22, 22, .5)"
+			                },{
+			                    label: "교통비",
+			                    data: [15, 30, 55, 65, 60, 80, 95],
+			                    backgroundColor: "rgba(235, 22, 22, .4)"
+			                },{
+			                    label: "기타",
+			                    data: [40, 30, 55, 65, 60, 80, 95],
+			                    backgroundColor: "rgba(235, 22, 22, .3)"
+			                }]
+			            },
+			        options: {
+			            responsive: true
+			        }
+			    });
+				</script>
+				
+		<script>
+        // 연령대별 월별사용
+	     var ctx7 = $("#sales2").get(0).getContext("2d");
+	     var myChart7 = new Chart(ctx7, {
+	         type: "bar",
+	         data: {
+	            labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월"],
+	            datasets: [{
+	                    label: "20대",
+	                    data: [<%=month01%>, <%=month02%>, <%=month03%>, <%=month04%>, <%=month05%>, <%=month06%>, <%=month07%>
+	                           ],
+	                    backgroundColor: "rgba(235, 22, 22, .7)"
+	                },
+	                {
+	                    label: "40대",
+	                    data: [8, 35, 40, 60, 70, 55, 75],
+	                    backgroundColor: "rgba(235, 22, 22, .5)"
+	                },
+	                {
+	                    label: "60대",
+	                    data: [12, 25, 45, 55, 65, 70, 60],
+	                    backgroundColor: "rgba(235, 22, 22, .3)"
+	                }
+	            ]
+	             },
+	         options: {
+	             responsive: true
+	         }
+	     });
+		</script>		
+		
+		<script>
+		 var ctx8 = $("#sales3").get(0).getContext("2d");
+		    var myChart8 = new Chart(ctx8, {
+		        type: "bar",
+		        data: {
+		            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
+		            datasets: [{
+		                    label: "3천이상",
+		                    data: [15, 30, 55, 65, 60, 80, 95],
+		                    backgroundColor: "rgba(235, 22, 22, .7)"
+		                },
+		                {
+		                    label: "6천이상",
+		                    data: [8, 35, 40, 60, 70, 55, 75],
+		                    backgroundColor: "rgba(235, 22, 22, .5)"
+		                },
+		                {
+		                    label: "1억이상",
+		                    data: [12, 25, 45, 55, 65, 70, 60],
+		                    backgroundColor: "rgba(235, 22, 22, .3)"
+		                }
+		            ]
+		            },
+		        options: {
+		            responsive: true
+		        }
+		    });
 		</script>
 
 </body>
