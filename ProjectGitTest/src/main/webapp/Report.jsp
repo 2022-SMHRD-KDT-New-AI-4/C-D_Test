@@ -120,6 +120,9 @@ response.sendRedirect("signin.jsp");
 				month07 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
 			}
 		}
+		
+		ArrayList<AgeMonthVO> avg_30 = dao.avgselect30();
+		System.out.print(avg_30.toString());
     %>
 
 	<div class="container-fluid position-relative d-flex p-0">
@@ -297,16 +300,15 @@ response.sendRedirect("signin.jsp");
 	    var myChart10 = new Chart(ctx10, {
 	        type: "pie",
 	        data: {
-	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+	            labels: ["계좌", "카드", "대출"],
 	            datasets: [{
 	                backgroundColor: [
 	                    "rgba(235, 22, 22, .7)",
 	                    "rgba(235, 22, 22, .6)",
 	                    "rgba(235, 22, 22, .5)",
-	                    "rgba(235, 22, 22, .4)",
-	                    "rgba(235, 22, 22, .3)"
+	                    
 	                ],
-	                data: [55, 49, 44, 24, 15]
+	                data: [80,70,50]
 	            }]
 	        },
 	        options: {
