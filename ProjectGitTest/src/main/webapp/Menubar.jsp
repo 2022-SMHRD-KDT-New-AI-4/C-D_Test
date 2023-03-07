@@ -1,3 +1,4 @@
+<%@page import="java.lang.ProcessBuilder.Redirect"%>
 <%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -48,6 +49,10 @@
 
 <body>
 <%userVO loginD = (userVO)session.getAttribute("loginD"); %>
+<% if(loginD == null){
+response.sendRedirect("signin.jsp");	
+}	%>
+
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
 		<div id="spinner"
@@ -117,15 +122,16 @@
 						<i class="fa fa-user-edit"></i>
 					</h2>
 				</a> 
+		
 				<a href="#" class="sidebar-toggler flex-shrink-0"> <i class="fa fa-bars"></i></a>
 				<div class="navbar-nav align-items-center ms-auto">
 					<div class="nav-item dropdown">
-						<!--  <button type="button" class="btn btn-primary m-2"><a href="signin.html" style="color: white;">로그인</a></button> -->
-						<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
-							<%if(loginD==null){ %>
-							<span class="d-none d-lg-inline-flex">로그인한 아이디가 보여지는공간</span>
+						<%if(loginD==null){ %>
+
+							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
+							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
+							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>
