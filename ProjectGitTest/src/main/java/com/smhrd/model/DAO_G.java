@@ -63,10 +63,18 @@ public class DAO_G {
 	
 	//20대 월별 사용량
 	public ArrayList<AgeMonthVO> avgselect20 (){
-		SqlSession session =sqlSessionFactory.openSession();
+		SqlSession session =sqlSessionFactory.openSession(true);
 		List<AgeMonthVO> avg_20 =session.selectList("avg_20");
 		session.close();
 		System.out.println(avg_20.toString());
 		return (ArrayList<AgeMonthVO>) avg_20;
+	}
+	
+	//30대 월별 사용량
+	public ArrayList<AgeMonthVO>avgselect30(){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AgeMonthVO> avg_30 = session.selectList("avg_30");
+		session.close();
+		return (ArrayList<AgeMonthVO>)avg_30;
 	}
 }
