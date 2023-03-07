@@ -262,12 +262,12 @@
 					type : "pie",
 					data : {
 						labels : [
-							<% 
+						<%-- 	<% 
 							bankDAO bdao = new bankDAO();
 							ArrayList<String> DetailList = bdao.DetailList(loginD.getUser_id());
 							 for (int i = 0 ; i < DetailList.size(); i++ ){ 
 									out.print("\""+DetailList.get(i)+"\",");
-										} %> 
+										} %>  --%>
 //							"저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비","기타" 
 							],
 						datasets : [ {
