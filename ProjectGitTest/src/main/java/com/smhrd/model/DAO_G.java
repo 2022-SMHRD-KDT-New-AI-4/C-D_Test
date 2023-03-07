@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
 
+import oracle.jdbc.OracleTypeMetaData.Array;
+
 public class DAO_G {
 //장예지
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
@@ -43,5 +45,27 @@ public class DAO_G {
 		
 	}// 조회
 
+	//내자산 조회
+	public assetVO select(String user_id) {
+		System.out.println(user_id);
+		SqlSession session =sqlSessionFactory.openSession(true);
+		assetVO myasset = session.selectOne("asset",user_id);
+		session.close();
+		return myasset;
+	}
+	//소비현황 조회
+	public ArrayList<income_expenseVO> tagselect (String user_id){
+		SqlSession session =sqlSessionFactory.openSession(true);
+		List<income_expenseVO> tg_list = session.selectList("taglist", user_id);
+		session.close();
+		return (ArrayList<income_expenseVO>) tg_list;
+	}
 	
+	//20대 월별 사용량
+	public ArrayList<AgeMonthVO> avgselect20 (String user_id){
+		SqlSession session =sqlSessionFactory.openSession();
+		List<AgeMonthVO> avg_20 =session.selectList("avg_20",user_id);
+		session.close();
+		return (ArrayList<AgeMonthVO>) avg_20;
+	}
 }
