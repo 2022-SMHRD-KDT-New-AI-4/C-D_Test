@@ -1,3 +1,9 @@
+<%@page import="com.smhrd.model.assetVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.DAO_Z"%>
+<%@page import="com.smhrd.model.income_expenseVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.DAO_G"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@page import="com.smhrd.model.userVO"%>
@@ -47,7 +53,61 @@
 </head>
 
 <body>
-<%userVO loginD = (userVO)session.getAttribute("loginD"); %>
+<%userVO loginD = (userVO)session.getAttribute("loginD"); 
+	DAO_G dao = new DAO_G();
+    ArrayList<income_expenseVO> ie_list = dao.selectlist(loginD.getUser_id()); 
+    DAO_Z dao2 = new DAO_Z();
+    List<assetVO> asvo =dao2.myAsset(loginD.getUser_id());
+    
+    
+    
+    int [] Sum = new int [3];
+	for(int i=0; i<asvo.size(); i++) {
+		if(asvo.get(i).getAccount_balance() != 0) {
+			Sum[0] += asvo.get(i).getAccount_balance();
+		}
+		if(asvo.get(i).getDept_loan_amount() !=0) {
+			Sum[1] += asvo.get(i).getDept_loan_amount();
+		}
+		if(asvo.get(i).getDept_card_amount() !=0) {
+			Sum[2] += asvo.get(i).getDept_card_amount();
+		}
+		System.out.println(Sum[0]+Sum[1]+Sum[2]);
+	}
+%>
+<div id="income" style="display: none">
+				수입 :<%
+			     int income = 0;
+			     for (int i = 0; i < ie_list.size(); i++) {
+			    %>
+				<%
+				if (ie_list.get(i).getItem_type().equals("수입")) {
+				%>
+				<%
+				income += (int) ie_list.get(i).getAmount();
+				}
+				%>
+				<%
+				}
+				%>
+				<%=income%></div>
+
+			<div id="expense" style="display: none">지출 :<%
+			     int expense = 0;
+			     for (int i = 0; i < ie_list.size(); i++) {
+			    %>
+				<%
+				if (ie_list.get(i).getItem_type().equals("지출")) {
+				%>
+				<%
+				expense += (int) ie_list.get(i).getAmount();
+				}
+				%>
+				<%
+				}
+				%>
+				<%=expense%></div>
+            		
 <% if(loginD == null){
 response.sendRedirect("signin.jsp");	
 }	%>
@@ -146,8 +206,9 @@ response.sendRedirect("signin.jsp");
 			</nav>
 			<!-- Navbar End -->
 
-			Lina C, [2023-03-06 오후 2:53]
 			<!-- 통계시작 -->
+			
+			
 			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
@@ -235,12 +296,17 @@ response.sendRedirect("signin.jsp");
 			<script src="assets/darkpan-1.0.0/js/main.js"></script>
 
 			<!-- 막대그래프 Script -->
+			<%-- <% 
+			int a = Integer.parseInt(loginD.getUser_salary());
+			%> --%>
 			<script type="text/javascript">
          
 	         Chart.defaults.color = "#6C7293";
              Chart.defaults.borderColor = "#000000";
 
-		
+			
+         	
+             
              // 연령별 소득 
              var ctx1 = $("#Salary_on_ages").get(0).getContext("2d");
              var myChart1 = new Chart(ctx1, {
@@ -249,18 +315,18 @@ response.sendRedirect("signin.jsp");
                      labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
                      datasets: [{
                              label: "소득평균",
-                             data: [15, 30, 55, 65, 60, 80],
+                             data: [2000, 3000, 5500, 6500, 2000, 1000],
                              backgroundColor: "rgba(255,255,36, .7)" }, 
                              
                              {label: "나의 소득",
-                              data: [0, 0, 50, 0, 0, 0, 0],
+                              data: [0, 0, <%= loginD.getUser_salary()%>*1000, 0, 0, 0, 0],
                               backgroundColor: "rgba(245,255,250, .7)"
                           }]
                      },
                  options: { responsive: true }
              });
              
-                  // 나이별 월 소비량 평균  
+                  // 연령별 월 소비량 평균  
               var ctx2 = $("#month_spendings_by_ages").get(0).getContext("2d");
               var myChart2 = new Chart(ctx2, {
                   type: "bar",
@@ -268,11 +334,11 @@ response.sendRedirect("signin.jsp");
                       labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
                       datasets: [{
                               label: "소비량 월 평균",
-                              data: [15, 30, 55, 65, 60, 80],
+                              data: [100, 130, 250, 650, 100, 80],
                               backgroundColor: "rgba(173,255,47, .7)"
                           }, {
                               label: "나의 소비량",
-                              data: [0, 0, 50, 0, 0, 0, 0],
+                              data: [0, 0, <%=income%>/(30*10000), 0, 0, 0, 0],
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -291,11 +357,11 @@ response.sendRedirect("signin.jsp");
                       labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
                       datasets: [{
                               label: "소비량 평균",
-                              data: [15, 30, 55, 65, 60, 80],
+                              data: [150, 300, 550, 300, 60, 80],
                               backgroundColor: "rgba(30,144,255, .7)"
                           }, {
                               label: "나의 소비량",
-                              data: [0, 0, 50, 0, 0, 0, 0],
+                              data: [0, 0, <%=income%>/(30*10000), 0, 0, 0],
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -317,7 +383,7 @@ response.sendRedirect("signin.jsp");
                              backgroundColor: "rgba(255,20,147, .7)"
                          }, {
                               label: "나의 총 자산",
-                              data: [0, 0, 50, 0, 0, 0, 0],
+                              data: [0, 0, <%=Sum[0]-Sum[1]-Sum[2]%>/10000, 0, 0, 0, 0],
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]
                      },
@@ -339,7 +405,7 @@ response.sendRedirect("signin.jsp");
                               backgroundColor: "rgba(255,000,000, .7)"
                           }, {
                               label: "나의 총 자산",
-                              data: [0, 0, 50, 0, 0, 0, 0],
+                              data: [0, 0, <%=Sum[0]-Sum[1]-Sum[2]%>/10000, 0, 0, 0, 0],
                               backgroundColor: "rgba(255,250,250, .7)"
                           }] 
                         
