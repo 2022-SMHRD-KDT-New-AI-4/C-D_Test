@@ -87,7 +87,7 @@
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
-							<a href="#" class="dropdown-item">메인</a> 
+							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
@@ -132,7 +132,7 @@
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="logoutservice" class="dropdown-item">로그아웃</a>
+							<a href="Enterance.jsp" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -151,7 +151,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="#">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.</div>
                         <div class="col-12 col-sm-6 text-center text-sm-end"> 
                             <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
                             <br>
