@@ -13,7 +13,7 @@
 
 <insert id = "target_add" parameterType="com.smhrd.model.targetVO">
 	insert into tb_target 
-	values(99999,#{target_name},#{target_amount},'cjfals',#{target_start},#{target_end})
+	values(99999,#{target_name},#{target_amount},#{user_id},#{target_start},#{target_end})
 </insert>
 
 
@@ -24,25 +24,25 @@
 </delete>
 
 <select id = "target_name_call" resultType="com.smhrd.model.targetVO" parameterType="String">
-	select target_name, target_seq from tb_target where user_id ='cjfals' ORDER BY target_name asc
+	select target_name, target_seq from tb_target where user_id =#{user_id} ORDER BY target_name asc
 </select>
 
 <select id = "target_date_start" resultType="com.smhrd.model.targetVO" parameterType="String">
-	select target_start,target_name from tb_target where user_id = 'cjfals' ORDER BY target_name asc
+	select target_start,target_name from tb_target where user_id = #{user_id} ORDER BY target_name asc
 </select>
 
 <select id = "target_date_end" resultType="com.smhrd.model.targetVO" parameterType="String">
-	select target_end,target_name from tb_target where user_id = 'cjfals' ORDER BY target_name asc
+	select target_end,target_name from tb_target where user_id = #{user_id} ORDER BY target_name asc
 </select>
 
 
 <select id = "target_amount_cal" resultType="com.smhrd.model.targetVO">
-	select target_amount,target_name from tb_target where user_id = 'cjfals' ORDER BY target_name asc
+	select target_amount,target_name from tb_target where user_id = #{user_id} ORDER BY target_name asc
 </select>
 
 
-<select id = "targetamount_add" resultType="com.smhrd.model.income_expenseVO" parameterType="int">
-	select sum(amount)as amount,item_tag from tb_income_expense where user_id = 'cjfals' group by item_tag  ORDER BY item_tag asc
+<select id = "targetamount_add" resultType="com.smhrd.model.income_expenseVO" parameterType="String">
+	select sum(amount)as amount,item_tag from tb_income_expense where user_id =#{user_id} and item_tag =#{target_name} group by item_tag  ORDER BY item_tag asc
 </select>
 
 

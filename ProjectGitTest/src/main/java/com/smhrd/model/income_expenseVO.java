@@ -8,6 +8,8 @@ public class income_expenseVO {
 	private String item_tag;
 	private String item_dt;
 	private String user_id;
+	
+	private String target_name;
 
 	
 	public income_expenseVO(String item_type,String item_content, int amount, String item_tag, String item_dt,
@@ -109,4 +111,18 @@ public class income_expenseVO {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
+
+
+	public String getTarget_name() {
+		return target_name;
+	}
+
+
+
+	public void setTarget_name(String target_name) {
+		this.target_name = target_name;
+	}
+	
+	
 }
