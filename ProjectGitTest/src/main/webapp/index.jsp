@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.swing.text.Document"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.targetVO"%>
+<%@page import="com.smhrd.model.DAO_L"%>
+<%@page import="com.smhrd.model.income_expenseVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +50,18 @@
 
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
+<style>
+.cal_{
+	color : white;
+	text-align: center;
+}
+.list_{
+	color : #6C7293;
+}
+
+
+</style>
+
 </head>
 
 <body>
@@ -138,19 +157,42 @@
 
 			<div class="container-fluid pt-4 px-4">
 				<div class="row g-4">
-
-					<div class="col-sm-12 col-md-6 col-xl-4">
-						<div class="h-100 bg-secondary rounded p-4">
-							<div
-								class="d-flex align-items-center justify-content-between mb-4">
-								<h6 class="mb-0">Calender</h6>
-								<a href="calendar1.jsp">Show All</a>
+					<div class="col-sm-12 col-md-6">
+						<div class="h-50 bg-secondary rounded p-4">
+							<div class="d-flex align-items-center justify-content-between mb-4">
+								<h3 class="mb-0"><a class="cal_">📅캘린더</a></h3>
+								<a href="calendar1.jsp">자세히보기</a>
 							</div>
 							<div id="calender"></div>
-
 						</div>
 
+						<div class="bg-secondary rounded h-50 p-4 " style="display : flex; justify-content: center; align-items : center;">
+							<div> <h1 class="mb-4"> ✨목표리스트✨</h1><br><br>
+							<%
+                           	DAO_L dao = new DAO_L();
+                           	// 실습
+               				// MessageDAO 클래스 안에 messageSelect()메소드를 구현하시오
+               				// session id값은 messageSelect로 해주세요
+                           	ArrayList<targetVO> list = dao.target_name_call("cjfals");
+                           	
+        					if(list.size() != 0){
+                           	for(int i = 0; i< list.size(); i++){%>
+
+                             <h3><li><%=list.get(i).getTarget_name()%><a class="tgdel" href="targetdeleteservice?num=<%=list.get(i).getTarget_seq() %>">&nbsp;🗑</a></li></h3>
+                    
+                           	<%}
+        					}else{%>
+                           		<h3 class="tgadd">목표를 추가해주세요</h3>
+                           	<%}%>
+							<br>
+							
+							<button type="button" class="btn btn-lg btn-primary m-2" onclick="location.href='targetadd.jsp'">&emsp;&emsp;&emsp;&emsp;목표 추가&emsp;&emsp;&emsp;&emsp;</button>
+							
+							</div>
+							
+						</div>
 					</div>
+
 
 					<div class="col-md-6 text-center">
 					<div class="h-100 bg-secondary rounded p-4">
@@ -159,8 +201,8 @@
 					</div>
 
 				</div>
-
 			</div>
+			
 
 			<div class="container-fluid pt-4 px-4">
 				<div
