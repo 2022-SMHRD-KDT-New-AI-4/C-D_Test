@@ -31,6 +31,7 @@ public class targetservice extends HttpServlet {
 		DAO_L dao = new DAO_L();	
 		
 		int cnt = dao.target_add(vo);
+		//
 		
 		if (cnt > 0) {
 			System.out.println("목표추가 성공");
