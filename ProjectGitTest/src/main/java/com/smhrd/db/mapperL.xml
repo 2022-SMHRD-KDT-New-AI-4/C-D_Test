@@ -42,7 +42,7 @@
 
 
 <select id = "targetamount_add" resultType="com.smhrd.model.income_expenseVO" parameterType="String">
-	select sum(amount)as amount,item_tag from tb_income_expense where user_id =#{user_id} and item_tag =#{target_name} group by item_tag  ORDER BY item_tag asc
+	select sum(amount)as amount,item_tag from tb_income_expense where user_id =#{user_id} group by item_tag  ORDER BY item_tag asc
 </select>
 
 
