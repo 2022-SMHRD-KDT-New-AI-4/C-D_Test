@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.PagingVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.DAO_G"%>
@@ -195,7 +196,7 @@
 			     for (int i = 0; i < ie_list.size(); i++) {
 			    %>
 				<%
-				if (ie_list.get(i).getItem_type().equals("입금")) {
+				if (ie_list.get(i).getItem_type().equals("수입")) {
 				%>
 				<%
 				income += (int) ie_list.get(i).getAmount();
@@ -211,7 +212,7 @@
 			     for (int i = 0; i < ie_list.size(); i++) {
 			    %>
 				<%
-				if (ie_list.get(i).getItem_type().equals("지출액")) {
+				if (ie_list.get(i).getItem_type().equals("지출")) {
 				%>
 				<%
 				expense += (int) ie_list.get(i).getAmount();
@@ -244,6 +245,15 @@
 								</tr>
 							</thead>
 							<tbody>
+								<%
+								PagingVO paging= new PagingVO();
+								paging.setCurPage(1);
+								paging.setTotalRowCount(ie_list.size());
+								paging.pageSetting();
+								
+								System.out.println(paging);
+								
+								%>
 
 								<%
 								for (int i = 0; i < ie_list.size(); i++) {

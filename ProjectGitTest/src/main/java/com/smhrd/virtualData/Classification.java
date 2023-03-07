@@ -27,14 +27,7 @@ public class Classification {
 			ArrayList<bankVO> PersonalList = dao.groupby3Selectvb(user_id);			
 			System.out.print("--" + (index + 1) + "번째 회원 아이디 : " + user_id+ "\t 자산 수 " +PersonalList.size());		
 			System.out.println();
-			
-//			for (int i = 0; i < PersonalList.size(); i++) {	
-//				
-//				System.out.println(PersonalList.get(i).toString());
-//				String value = PersonalList.get(i).code_Type();
-//				System.out.println("PersonalList.get(i).code_Type() 은 : "+value);
-//				}
-//			
+					
 			
 			for (int i = 0; i < PersonalList.size(); i++) {	
 				
