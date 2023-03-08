@@ -22,20 +22,20 @@ public class targetservice extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-
 		
-		String target_name = request.getParameter("target_name");
+		DAO_L dao = new DAO_L();
+		
 		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
 		
 		HttpSession session = request.getSession();
 		String user_id = ((userVO)session.getAttribute("loginD")).getUser_id();
+		String target_name = dao.target_name_call(user_id).size()+1+"."+request.getParameter("target_name");
 		
 		String target_start = request.getParameter("target_start");
 		String target_end = request.getParameter("target_end");
 
 		targetVO vo = new targetVO(target_name,target_amount,user_id,target_start,target_end);
-		
-		DAO_L dao = new DAO_L();	
+			
 		
 		int cnt = dao.target_add(vo);
 		//
