@@ -271,7 +271,7 @@ response.sendRedirect("signin.jsp");
 							<div>
 							<select class="form-select mb-3" name="dept_loan_name"
 								aria-label="Default select example">
-								<option>은행 선택</option>
+								<option>은행선택</option>
 								<option value="NH농협">NH농협</option>
 								<option value="KB국민은행">KB국민은행</option>
 								<option value="신한은행">신한은행</option>

@@ -4,8 +4,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.assetVO"%>
 <%@page import="com.smhrd.model.userVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,7 @@
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
 	rel="stylesheet">
 
-
+ 
 <!-- Icon Font Stylesheet -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
@@ -59,14 +58,16 @@
 //}	%>
 	<%DAO_Z dao = new DAO_Z();
 	System.out.println(loginD.getUser_id());
-	List<assetVO> asvo =dao.myAsset(loginD.getUser_id());	
+	List<assetVO> asvo = dao.myAsset(loginD.getUser_id());	
+	
+	
 	
 	if(asvo != null) {
 		
-		System.out.println("유저자산그래프 나옹당");
+	//	System.out.println("유저자산그래프 나옹당");
 	}
 	else {
-		System.out.println("유저자산그래프 안나옹다");
+	//	System.out.println("유저자산그래프 안나옹다");
 	}
 	int [] Sum = new int [3];
 	for(int i=0; i<asvo.size(); i++) {
@@ -79,9 +80,15 @@
 		if(asvo.get(i).getDept_card_amount() !=0) {
 			Sum[2] += asvo.get(i).getDept_card_amount();
 		}
-		System.out.println(Sum[0]+Sum[1]+Sum[2]);
+		//System.out.println(Sum[0]+Sum[1]+Sum[2]);
 	}
 	
+	//for(int i = 0; i < asvo.size(); i++){
+	//	System.out.println("---------------");
+	//	System.out.println(asvo.get(i).getDept_card_name());
+	//	System.out.println(asvo.get(i).getBank_name());
+	//	System.out.println("---------------");
+	//	}
 	%>
 <!--  assetVO total_asset = (assetVO) request.getAttribute("total_asset")
 	int conf = dao.assetAll(loginD.getUser_id());
@@ -169,7 +176,6 @@
 				<div class="navbar-nav align-items-center ms-auto">
 					<div class="nav-item dropdown">
 						<%if(loginD==null){ %>
-
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
@@ -235,15 +241,15 @@
 										<tbody>
 											<%
 											for(int i=0; i<asvo.size(); i++){
-												if(!asvo.get(i).getBank_name().equals("은행선택")){
-												out.print("<tr>");
-												out.print("<th scope='row'>"+(i+1)+"</th>");
-												out.print("<td>"+asvo.get(i).getBank_name()+"</td>");
-												out.print("<td>"+asvo.get(i).getAccount_balance()+"</td>");
-												out.print("</tr>");
-											}
-											}
-											%>
+												System.out.println(asvo.get(i));
+												if(!asvo.get(i).getBank_name().equals("은행선택")){%>
+												<tr>
+												<th scope='row'><%=i+1%></th>
+												<td><%=asvo.get(i).getBank_name()%></td>
+												<td><%=asvo.get(i).getAccount_balance()%></td>
+												</tr>
+												<%}
+											}%>
 										</tbody>
 									</table>
 								</div>
@@ -280,16 +286,14 @@
 										
 										<%
 											for(int i=0; i<asvo.size(); i++){
-												if(!asvo.get(i).getDept_card_name().equals("카드선택")){
-												out.print("<tr>");
-												out.print("<th scope='row'>"+(i+1)+"</th>");
-												out.print("<td>"+asvo.get(i).getDept_card_name()+"</td>");
-												out.print("<td>"+asvo.get(i).getDept_card_amount()+"</td>");
-												out.print("</tr>");
-											}
-											}
-											
-											%>
+												if(!asvo.get(i).getDept_card_name().equals("카드선택")){%>
+													<tr>
+													<th scope='row'><%=i+1%></th>
+													<td><%=asvo.get(i).getDept_card_name()%></td>
+													<td><%=asvo.get(i).getDept_card_amount()%></td>
+													</tr>
+													<%}
+												}%>
 											<!-- <tr>
 												<th scope="row">1</th>
 												<td>BC카드</td>
@@ -327,16 +331,14 @@
 										
 										<%
 											for(int i=0; i<asvo.size(); i++){
-												if(!asvo.get(i).getDept_loan_name().equals("은행 선택")){
-												out.print("<tr>");
-												out.print("<th scope='row'>"+(i+1)+"</th>");
-												out.print("<td>"+asvo.get(i).getDept_loan_name()+"</td>");
-												out.print("<td>"+asvo.get(i).getDept_loan_amount()+"</td>");
-												out.print("</tr>");
-											}
-											}
-											
-											%>
+												if(!asvo.get(i).getDept_loan_name().equals("은행선택") ){%>
+													<tr>
+													<th scope='row'><%=i+1%></th>
+													<td><%=asvo.get(i).getDept_loan_name()%></td>
+													<td><%=asvo.get(i).getDept_loan_amount()%></td>
+													</tr>
+													<%}
+												}%>
 											<!-- <tr>
 												<th scope="row">1</th>
 												<td>NH농협</td>

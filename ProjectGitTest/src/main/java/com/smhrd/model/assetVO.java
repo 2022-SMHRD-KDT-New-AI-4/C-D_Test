@@ -45,6 +45,9 @@ public class assetVO {
 	}
 
 	public String getBank_name() {
+		if(bank_name==null) {
+			return "은행 선택";
+		}
 		return bank_name;
 	}
 
@@ -61,6 +64,9 @@ public class assetVO {
 	}
 
 	public String getDept_card_name() {
+		if(dept_card_name == null) {
+			return "카드 선택";
+		}
 		return dept_card_name;
 	}
 
@@ -69,6 +75,7 @@ public class assetVO {
 	}
 
 	public int getDept_card_amount() {
+		
 		return dept_card_amount;
 	}
 
@@ -77,6 +84,9 @@ public class assetVO {
 	}
 
 	public String getDept_loan_name() {
+		if(dept_loan_name == null) {
+			return "은행 선택";
+		}
 		return dept_loan_name;
 	}
 
