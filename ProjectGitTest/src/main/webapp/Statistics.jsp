@@ -351,7 +351,7 @@
 			}
          	
              
-             // 연령별 소득 
+             // 연령별 소득 평균
              var ctx1 = $("#Salary_on_ages").get(0).getContext("2d");
              var myChart1 = new Chart(ctx1, {
                  type: "bar",
@@ -403,8 +403,6 @@
 
                               data: str2,
 
-                              data: [0, 0, <%=income%>/(12*10000), 0, 0, 0, 0],
-
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -414,16 +412,16 @@
               });
               
               if(sal <3000){
-            	  str3 = [str3, 0,  0, 0];
+            	  str3 = [expense, 0,  0, 0];
               }
               else if (sal>=3000 && sal<4000){
-            	  str3 = [0, str3,  0, 0];
+            	  str3 = [0, expense,  0, 0];
               }
               else if(sal>=4000 && sal<5000){
-            	  str3 = [0, 0, str3, 0];
+            	  str3 = [0, 0, expense, 0];
               }
               else if(sal>=5000 && sal<6000){
-            	  str3 = [0, 0, 0, str3];
+            	  str3 = [0, 0, 0, expense];
               }
                            
               // 소득구간별 월 소비량 평균  
@@ -440,8 +438,6 @@
                               label: "나의 소비량",
 
                               data: str3,
-
-                              data: [0, 0, <%=income%>/(12*10000), 0, 0, 0],
 
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
@@ -484,15 +480,6 @@
 
                               data: str4,
 
-                            	  <%System.out.print(Integer.parseInt(loginD.getUser_age()));
-if (Integer.parseInt(loginD.getUser_age()) < 30) {%>
-                            		                             		  
-                              data: [ <%=Sum[0] - Sum[1] - Sum[2] / 10000%>, 0, 0, 0, 0, 0],
-                              <%} else {%>
-                            		  data: [ 0, 0, 0, <%=Sum[0] - Sum[1] - Sum[2] / 10000%>, 0, 0],
-                            		  <%}%>
-                         
-                            	  
 
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]
