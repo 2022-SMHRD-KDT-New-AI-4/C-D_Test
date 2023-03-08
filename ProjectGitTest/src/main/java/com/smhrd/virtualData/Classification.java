@@ -16,6 +16,7 @@ public class Classification {
 		// 가상 테이블 데이터 만들어지면 tb_asset, tb_income_expense 테이블로 자료 보내주기
 
 		bankDAO dao = new bankDAO();
+		
 
 		int cnt;
 
