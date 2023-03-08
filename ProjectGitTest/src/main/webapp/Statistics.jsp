@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.assetVO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.DAO_Z"%>
@@ -213,7 +214,7 @@ response.sendRedirect("signin.jsp");
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">연령별 소득 평균</h6>
+							<h6 class="mb-4">연령별 소득 평균</h6><span>(단위 : 만원)</span>
 							<canvas id="Salary_on_ages" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
 						</div>
@@ -225,14 +226,14 @@ response.sendRedirect("signin.jsp");
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">연령별 월 소비량 평균</h6>
+							<h6 class="mb-4">연령별 월 소비량 평균</h6><span>(단위 : 원)</span>
 							<canvas id="month_spendings_by_ages" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
 						</div>
 					</div>
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">소득구간별 월 소비량 평균</h6>
+							<h6 class="mb-4">소득구간별 월 소비량 평균</h6><span>(단위 : 만원)</span>
 							<canvas id="month_spendings_by_earnings" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
 						</div>
@@ -243,16 +244,11 @@ response.sendRedirect("signin.jsp");
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">연령별 총 자산 평균</h6>
+							<h6 class="mb-4">연령별 총 자산 평균</h6><span>(단위 : 만원)</span>
 							<canvas id="assets_on_ages" width="450" height="230"
 								style="display: block; box-sizing: border-box; height: 230px; width: 450px;"></canvas>
-						</div>
-					</div>
-					<div class="col-sm-12 col-xl-6">
-						<div class="bg-secondary rounded h-100 p-4">
-							<h6 class="mb-4">소득구간별 총 자산 평균</h6>
-							<canvas id="assets_on_earnings" width="450" height="230"
-								style="display: block; box-sizing: border-box; height: 230px; width: 400px;"></canvas>
+								
+								
 						</div>
 					</div>
 				</div>
@@ -296,15 +292,42 @@ response.sendRedirect("signin.jsp");
 			<script src="assets/darkpan-1.0.0/js/main.js"></script>
 
 			<!-- 막대그래프 Script -->
-			<%-- <% 
-			int a = Integer.parseInt(loginD.getUser_salary());
-			%> --%>
+	
+	<%
+	int salary = loginD.getUser_salary()*1000; 
+	int sum = Sum[0]-Sum[1]-Sum[2]/10000;
+	int Expense = expense/12;
+	 
+	%>
 			<script type="text/javascript">
          
 	         Chart.defaults.color = "#6C7293";
              Chart.defaults.borderColor = "#000000";
-
-			
+	
+             var age = <%= Integer.parseInt( loginD.getUser_age()) %>; 
+             var sal = <%=salary %>;
+             var str1;
+             var str2;
+             var str3;
+             var str4;
+             
+            
+             
+			if (age < 30){
+				str1 = [sal, 0,  0, 0, 0];
+			} 
+			else if(age >=30 && age<40){
+				str1 = [0, sal, 0, 0, 0];
+			}
+			else if(age >= 40 && age < 50){
+				str1 = [0, 0, sal, 0, 0];
+			}
+			else if (age >= 50 && age <60){
+				str1 = [0, 0, 0,sal, 0];
+			}
+			else {
+				str1 = [0, 0, 0,0, sal];
+			}
          	
              
              // 연령별 소득 
@@ -312,33 +335,51 @@ response.sendRedirect("signin.jsp");
              var myChart1 = new Chart(ctx1, {
                  type: "bar",
                  data: {
-                     labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
+                     labels: ["20대", "30대", "40대", "50대", "60대 이상"],
                      datasets: [{
                              label: "소득평균",
-                             data: [2000, 3000, 5500, 6500, 2000, 1000],
+                             data: [3144.5, 4582.5, 5542, 5430.5, 4239],
                              backgroundColor: "rgba(255,255,36, .7)" }, 
                              
                              {label: "나의 소득",
-                              data: [0, 0, <%= loginD.getUser_salary()%>*1000, 0, 0, 0, 0],
+                              data: str1,
                               backgroundColor: "rgba(245,255,250, .7)"
                           }]
                      },
                  options: { responsive: true }
              });
              
+             var expense = <%=Expense%>
+             
+     		if (age < 30){
+				str2 = [expense, 0,  0, 0, 0];
+			} 
+			else if(age >=30 && age<40){
+				str2 = [0, expense, 0, 0, 0];
+			}
+			else if(age >= 40 && age < 50){
+				str2 = [0, 0, expense, 0, 0];
+			}
+			else if (age >= 50 && age <60){
+				str2 = [0, 0, 0,expense, 0];
+			}
+			else {
+				str2 = [0, 0, 0, 0, expense];
+			}
+             
                   // 연령별 월 소비량 평균  
               var ctx2 = $("#month_spendings_by_ages").get(0).getContext("2d");
               var myChart2 = new Chart(ctx2, {
                   type: "bar",
                   data: {
-                      labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
+                      labels: ["20대", "30대", "40대", "50대", "60대이상"],
                       datasets: [{
                               label: "소비량 월 평균",
-                              data: [100, 130, 250, 650, 100, 80],
+                              data: [3078632, 2839233, 4231157, 3974838, 2369185],
                               backgroundColor: "rgba(173,255,47, .7)"
                           }, {
                               label: "나의 소비량",
-                              data: [0, 0, <%=income%>/(30*10000), 0, 0, 0, 0],
+                              data: str2,
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -347,21 +388,32 @@ response.sendRedirect("signin.jsp");
                   }
               });
               
-                  
+              if(sal <3000){
+            	  str3 = [str3, 0,  0, 0];
+              }
+              else if (sal>=3000 && sal<4000){
+            	  str3 = [0, str3,  0, 0];
+              }
+              else if(sal>=4000 && sal<5000){
+            	  str3 = [0, 0, str3, 0];
+              }
+              else if(sal>=5000 && sal<6000){
+            	  str3 = [0, 0, 0, str3];
+              }
                            
               // 소득구간별 월 소비량 평균  
               var ctx4 = $("#month_spendings_by_earnings").get(0).getContext("2d");
               var myChart4 = new Chart(ctx4, {
                   type: "bar",
                   data: {
-                      labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
+                      labels: ["3000만원이하", "4000~5000만원", "5000~6000만원", "6000만원이상"],
                       datasets: [{
                               label: "소비량 평균",
-                              data: [150, 300, 550, 300, 60, 80],
+                              data: [2254467, 2729463, 3919575,4764427],
                               backgroundColor: "rgba(30,144,255, .7)"
                           }, {
                               label: "나의 소비량",
-                              data: [0, 0, <%=income%>/(30*10000), 0, 0, 0],
+                              data: str3,
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -369,21 +421,38 @@ response.sendRedirect("signin.jsp");
                       responsive: true
                   }
               });
-             
               
-               //
+              var totalSum = <%=sum%>
+             
+          	if (age < 30){
+				str4 = [totalSum, 0,  0, 0, 0];
+			} 
+			else if(age >=30 && age<40){
+				str4 = [0, totalSum, 0, 0, 0];
+			}
+			else if(age >= 40 && age < 50){
+				str4 = [0, 0, totalSum, 0, 0];
+			}
+			else if (age >= 50 && age <60){
+				str4 = [0, 0, 0,totalSum, 0];
+			}
+			else {
+				str4 = [0, 0, 0,0, totalSum];
+			}
+              
+               // 연령별 총 자산 평균
              var ctx6 = $("#assets_on_ages").get(0).getContext("2d");
              var myChart6 = new Chart(ctx6, {
                  type: "bar",
                  data: {
-                     labels: ["20대", "30대", "40대", "50대", "60대", "70대 이상"],
+                     labels: ["20대", "30대", "40대", "50대", "60대이상"],
                      datasets: [{
                              label: "총 자산 평균",
-                             data: [15, 30, 55, 65, 60, 80, 95],
+                             data: [7489, 21904, 31246, 37026,33772],
                              backgroundColor: "rgba(255,20,147, .7)"
                          }, {
                               label: "나의 총 자산",
-                              data: [0, 0, <%=Sum[0]-Sum[1]-Sum[2]%>/10000, 0, 0, 0, 0],
+                              data: str4,
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]
                      },
@@ -392,28 +461,7 @@ response.sendRedirect("signin.jsp");
                  }
              });
              
-             
-              //소득별 총 자산 
-              var ctx7 = $("#assets_on_earnings").get(0).getContext("2d");
-              var myChart7 = new Chart(ctx7, {
-                  type: "bar",
-                  data: {
-                      labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
-                      datasets: [{
-                              label: "총 자산 평균",
-                              data: [15, 30, 55, 65, 60, 80, 95],
-                              backgroundColor: "rgba(255,000,000, .7)"
-                          }, {
-                              label: "나의 총 자산",
-                              data: [0, 0, <%=Sum[0]-Sum[1]-Sum[2]%>/10000, 0, 0, 0, 0],
-                              backgroundColor: "rgba(255,250,250, .7)"
-                          }] 
-                        
-                        },             
-                  options: {
-                      responsive: true
-                  }
-              });
+          
          
          
          </script>
