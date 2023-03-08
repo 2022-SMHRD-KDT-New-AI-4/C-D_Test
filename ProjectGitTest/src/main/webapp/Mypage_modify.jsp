@@ -154,7 +154,7 @@ response.sendRedirect("signin.jsp");
 					<div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
 						<div class="d-flex align-items-center justify-content-between mb-3">
 							<h4>회원정보 수정</h4>
-							<form action="updateservice" method="post">
+							<form action="updateservice" method="post" >
 						</div>
 						
 							<dl>
@@ -162,29 +162,23 @@ response.sendRedirect("signin.jsp");
 								<dd class="col-sm-8"><%=loginD.getUser_id() %></dd>
 							</dl>
 						
-						
-						
 							<dl>
 								<h6 class="mb-4">닉네임</h6>
 								<dd class="col-sm-8"><%=loginD.getUser_nick() %></dd>
 							</dl>
-						
-						
 							
 							<dl>
 								<h6 class="mb-4">나이</h6>
 								<dd class="col-sm-8"><%=loginD.getUser_age() %></dd>
 							</dl>
-						
 
-						
 						<h6 class="mb-4">닉네임</h6>
-							<input name="user_nick" type="text" class="form-control" id="floatingInput"
+							<input name="user_nick" type="text" class="form-control" id="nick"
 								placeholder="변경할 닉네임을 적어주세요."> <label
 								for="floatingInput"></label>
 
 						<h6 class="mb-4">연봉</h6>
-							<select name="user_salary" class="form-select form-select-lg mb-3"
+							<select name="user_salary" class="form-select form-select-lg mb-3" id="salSelect"
 								aria-label=".form-select-lg example">
 								<option class="form-select form-select-lg mb-3"
 								aria-label=".form-select-lg example"
@@ -196,18 +190,13 @@ response.sendRedirect("signin.jsp");
 								<option value="6">6000만원이상</option>
 							</select>
 						
-						
-
-					
-						
 						<div
 							class="d-flex align-items-center justify-content-between mb-4">
 
 							<input type="hidden" value="<%= loginD.getUser_id() %>" name = "user_id">
-							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" >회원정보수정</button> &nbsp; &nbsp; &nbsp;
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="return doAction();">회원정보수정</button> &nbsp; &nbsp; &nbsp;
 							</form>
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4"  onclick="location.href='Mypage.jsp'">뒤로가기</button>
-								
 								
 						</div>
 						<div>
@@ -219,6 +208,20 @@ response.sendRedirect("signin.jsp");
 				</div>
 			</div>
 			<!-- 마이페이지 수정 End -->
+			
+			<script type="text/javascript">
+			
+			var sub1 = document.getElementById("nick");
+			var sub2 = document.getElementById("salSelect")
+				function doAction(){
+					if(sub1.value.length == 0 || sub2.value === "연봉 선택" ){
+						alert("값을 입력해주세요.");
+						return false;
+					}
+					return true;
+				}
+			
+			</script>
 			
 			
 		<!-- Footer Start -->

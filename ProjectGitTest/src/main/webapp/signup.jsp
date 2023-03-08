@@ -199,28 +199,28 @@
 						</script>
 
 								<div class="form-floating mb-3">
-									<input type="text" class="form-control" id="floatingText"
+									<input type="text" class="form-control" id="floatingName"
 										name="user_name" placeholder="이름"> <label
-										for="floatingText">이름</label>
+										for="floatingName">이름</label>
 								</div>
 
 
 								<div class="form-floating mb-3">
-									<input type="text" class="form-control" id="floatingInput"
+									<input type="text" class="form-control" id="floatingAge"
 										name="user_age" placeholder="나이"> <label
-										for="floatingInput">나이</label>
+										for="floatingAge">나이</label>
 								</div>
 
 								<div class="form-floating mb-3">
-									<input type="text" class="form-control" id="floatingInput"
+									<input type="text" class="form-control" id="floatingNick"
 										name="user_nick" placeholder="닉네임"> <label
-										for="floatingInput">닉네임</label>
+										for="floatingNick">닉네임</label>
 								</div>
 
 
 								<h6 class="mb-4">연봉</h6>
 								<select class="form-select form-select-lg mb-3"
-									aria-label=".form-select-lg example" name="user_salary">
+									aria-label=".form-select-lg example" name="user_salary" id="selSal">
 									<option selected>연봉 선택</option>
 									<option value="2">3000만원 이하</option>
 									<option value="3">3000~4000만원</option>
@@ -233,7 +233,7 @@
 
 
 									<button type="submit" class="btn btn-primary py-3 w-100 mb-4"
-										onclick="creat_id();">회원가입</button>
+										onclick="return creat_id();">회원가입</button>
 								</div>
 								<div>
 							</form>
@@ -243,9 +243,26 @@
 								이미 캐시앤대시의 회원입니까? <a href="signin.jsp">로그인</a>
 							</p>
 							<script>
+								var sub1 = document.getElementById("floatingInput");
+								var sub2 = document.getElementById("floatingPassword");
+								var sub3 = document.getElementById("floatingPassword2");
+								var sub4 = document.getElementById("floatingName");
+								var sub5 = document.getElementById("floatingAge");
+								var sub6 = document.getElementById("floatingNick");
+								var sub7 = document.getElementById("selSal");
+								
 								function creat_id() {
+									
+									if(sub1.value.length == 0 || sub2.value.length == 0 || 
+										sub3.value.length == 0 || sub4.value.length == 0 || 
+										sub5.value.length == 0 || sub6.value.length == 0 || sub7.value === "연봉 선택"){
+										
+											alert("값을 입력해주세요.");
+											return false;
+									}
 						    		alert("회원가입되셨습니다.")
                                     location.href="signin.jsp";
+									return true;
 						    	}
 							</script>
 						</div>
