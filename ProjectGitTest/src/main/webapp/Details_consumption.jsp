@@ -1,3 +1,5 @@
+<%@page import="java.util.Random"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.income_expenseVO"%>
 <%@page import="com.smhrd.model.DAO_S"%>
 <%@page import="com.smhrd.model.userVO"%>
@@ -54,6 +56,7 @@
 <body>
 	<%
 	userVO loginD = (userVO) session.getAttribute("loginD");
+	Random random = new Random();
 	%>
 	<%
 	if (loginD == null) {
@@ -189,83 +192,56 @@
 						<!-- Chart Start -->
 						<div class="col-sm-12 col-xl-5" style="margin-left: 200px;">
 
+							<%
+							// 소비내역 x -> <h3> / 소비내역 o -> pie-chart
+							DAO_S daos = new DAO_S();
+							ArrayList<income_expenseVO> list = daos.ietgroupSelects(loginD.getUser_id());
+
+							if (list == null) {
+								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
+							} else {
+							%>
 							<!--  @type {CanvasRenderingContext2D}   -->
 							<canvas id="pie-chart"
 								style="display: inline; box-sizing: content-box; flex-grow: 0;"></canvas>
-
+							<%
+							}
+							%>
 						</div>
 						<!-- Chart End -->
 
 						<!-- 막대 Start -->
 						<div class="col-xl-3" style="padding: 10px; margin-left: 200px;">
 							<%
-							DAO_S daos = new DAO_S();
-							ArrayList<income_expenseVO> list = daos.ietgroupSelects(loginD.getUser_id());
-							for (int i = 0; i < list.size(); i++) {
-								out.print(list.get(i).getAmount() + ",");
-								out.print(list.get(i).getItem_tag() + ",");
-							}
+							if (list == null) {
+								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
+							} else {
+								String[] style = {"bg-success", "bg-info", "bg-warning", "bg-danger", ""};
+								int sum = 0;
+								for (int i = 0; i < list.size(); i++) {
+
+									sum += list.get(i).getAmount();
+								}
+
+								System.out.println(sum);
+								for (int i = 0; i < list.size(); i++) {
+									String st = style[random.nextInt(style.length)];
+
+									Double num = (list.get(i).getAmount() / (sum * 1.0)) * 100;
+									System.out.println(num);
 							%>
 							<div class="pg-bar mb-5">
-								<h4>저축/보험</h4>
+								<h4><%=list.get(i).getItem_tag()%></h4>
 								<div class="progress">
-									<div class="progress-bar progress-bar-striped"
-										role="progressbar" aria-valuenow="33.2" aria-valuemin="0"
+									<div class="progress-bar progress-bar-striped <%=st%>"
+										role="progressbar" aria-valuenow="<%=num%>" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
-							<div class="pg-bar mb-5">
-								<h4>식비</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-success"
-										role="progressbar" aria-valuenow="28.1" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<div class="pg-bar mb-5">
-								<h4>공과금</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-info"
-										role="progressbar" aria-valuenow="13.2" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<div class="pg-bar mb-5">
-								<h4>생필품</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-warning"
-										role="progressbar" aria-valuenow="11.6" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-
-							<div class="pg-bar mb-5">
-								<h4>품위유지비</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-danger"
-										role="progressbar" aria-valuenow="8.4" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-
-							<div class="pg-bar mb-5">
-								<h4>교통비</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-danger"
-										role="progressbar" aria-valuenow="3.2" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-
-							<div class="pg-bar mb-0">
-								<h4>기타</h4>
-								<div class="progress">
-									<div class="progress-bar progress-bar-striped bg-danger"
-										role="progressbar" aria-valuenow="2.3" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-
+							<%
+							}
+							}
+							%>
 						</div>
 
 						<!-- 막대 End -->
@@ -278,6 +254,12 @@
 			<div class="col-sm-12 col-xl-12">
 				<div class="bg-secondary rounded h-100 p-4">
 					<h6 class="mb-4">항목별 상세</h6>
+					<%
+					if (list == null) {
+						out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
+					} else {
+					%>
+
 					<div class="accordion" id="accordionExample">
 						<!-- 항목별 상세  Start-->
 
@@ -370,7 +352,9 @@
 								</div>
 							</div>
 						</div>
-
+						<%
+						}
+						%>
 						<div class="accordion-item bg-transparent">
 							<h2 class="accordion-header" id="headingOne">
 								<button class="accordion-button" type="button"
@@ -461,636 +445,7 @@
 							</div>
 						</div>
 
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">식비</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart3"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">공과금</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart4"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">생필품</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart5"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">품위
-									유지비</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart6"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">교통비</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart7"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">기타</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart8"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">목표</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart9"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-
-
-
-					</div>
-				</div>
-			</div>
+						
 			<!-- 항목별 상세  End-->
 
 
@@ -1148,13 +503,12 @@
 		var pie_chart = new Chart(
 				ctx,
 				{
+
 					type : "pie",
 					data : {
 						labels : [
-	<%bankDAO bdao = new bankDAO();
-ArrayList<String> DetailList = bdao.DetailList(loginD.getUser_id());
-for (int i = 0; i < DetailList.size(); i++) {
-	out.print("\"" + DetailList.get(i) + "\",");
+	<%for (int i = 0; i < list.size(); i++) {
+	out.print("\"" + list.get(i).getItem_tag() + "\",");
 }%>
 		],
 						datasets : [ {
@@ -1167,8 +521,8 @@ for (int i = 0; i < DetailList.size(); i++) {
 									"rgba(235, 22, 22, .1)", ],
 							data : [
 	<%for (int i = 0; i < list.size(); i++) {
-	out.print(list.get(i).getAmount() + ",");
-}%>
+										out.print(list.get(i).getAmount() + ",");
+									}%>
 		]
 						} ]
 					},
