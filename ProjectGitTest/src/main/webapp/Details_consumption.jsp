@@ -197,9 +197,12 @@
 							<%
 							// 소비내역 x -> <h3> / 소비내역 o -> pie-chart
 							DAO_S daos = new DAO_S();
-							ArrayList<income_expenseVO> list = daos.ietgroupSelects(loginD.getUser_id());
+							ArrayList<income_expenseVO> listTag = daos.ietgroupSelects(loginD.getUser_id());
+							DAO_G daog = new DAO_G();
+							ArrayList<income_expenseVO> listAll = daog.selectlist(loginD.getUser_id());
+							
 
-							if (list == null) {
+							if (listTag == null) {
 								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
 							} else {
 							%>
@@ -214,26 +217,26 @@
 
 						<!-- 막대 Start -->
 						<div class="col-xl-3" style="padding: 10px; margin-left: 200px;">
-							<%
-							if (list == null) {
+							<% // 태그별 한번씩 -> listTag
+							if (listTag == null) {
 								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
 							} else {
 								String[] style = {"bg-success", "bg-info", "bg-warning", "bg-danger", ""};
 								int sum = 0;
-								for (int i = 0; i < list.size(); i++) {
+								for (int i = 0; i < listTag.size(); i++) {
 
-									sum += list.get(i).getAmount();
+									sum += listTag.get(i).getAmount();
 								}
 
 								System.out.println(sum);
-								for (int i = 0; i < list.size(); i++) {
+								for (int i = 0; i < listTag.size(); i++) {
 									String st = style[random.nextInt(style.length)];
 
-									Double num = (list.get(i).getAmount() / (sum * 1.0)) * 100;
+									Double num = (listTag.get(i).getAmount() / (sum * 1.0)) * 100;
 									System.out.println(num);
 							%>
 							<div class="pg-bar mb-5">
-								<h4><%=list.get(i).getItem_tag()%></h4>
+								<h4><%=listTag.get(i).getItem_tag()%></h4>
 								<div class="progress">
 									<div class="progress-bar progress-bar-striped <%=st%>"
 										role="progressbar" aria-valuenow="<%=num%>" aria-valuemin="0"
@@ -241,7 +244,7 @@
 								</div>
 							</div>
 							<%
-							} // for
+								} // for
 							} // else
 							%>
 						</div>
@@ -254,22 +257,21 @@
 
 			<!-- 항목별 상세  Start-->
 			<div class="container-fluid pt-4 px-4">
-			
+
 				<div class="col-sm-12 col-xl-13 text-center p-4">
 					<div class="row g-4 bg-secondary rounded">
 						<h2
 							style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별
 							지출 순위</h2>
 						<%
-						if (list == null) {
+						
+						if (listAll == null) {
 							out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
 						} else {
-							DAO_G daog = new DAO_G();
-							ArrayList<income_expenseVO> ie_list = daog.selectlist(loginD.getUser_id());
 						%>
 
 						<div class="accordion" id="accordionExample">
-							
+
 							<div class="accordion-item bg-transparent">
 								<h2 class="accordion-header" id="headingOne">
 									<button class="accordion-button" type="button"
@@ -303,96 +305,135 @@
 												</thead>
 												<tbody>
 
-													<%
+													<% // 아이디별 입지출 전체 출력 -> listAll
 													int index = 1;
-													for (int i = 0; i < ie_list.size(); i++) {
-														if (ie_list.get(i).getItem_type().equals("지출")) {
-															if (!ie_list.get(i).getItem_content().substring(0, 2).equals("대출")) {
-														if (!ie_list.get(i).getItem_tag().equals("상환") && !ie_list.get(i).getItem_tag().equals("기타")) {
+													for (int i = 0; i < listAll.size(); i++) {
+														if (listAll.get(i).getItem_type().equals("지출")) {
+															if (!listAll.get(i).getItem_content().substring(0, 2).equals("대출")) {
+														if (!listAll.get(i).getItem_tag().equals("상환") && !listAll.get(i).getItem_tag().equals("기타")) {
 													%>
 													<tr>
 														<th scope="row"><%=index%></th>
-														<td><%=ie_list.get(i).getItem_dt().substring(0, 10)%></td>
-														<td><%=ie_list.get(i).getItem_content()%></td>
-														<td><%=ie_list.get(i).getItem_tag()%></td>
+														<td><%=listAll.get(i).getItem_dt().substring(0, 10)%></td>
+														<td><%=listAll.get(i).getItem_content()%></td>
+														<td><%=listAll.get(i).getItem_tag()%></td>
 														<td><fmt:formatNumber
-																value="<%=ie_list.get(i).getAmount()%>" pattern="#,###" /></td>
+																value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
 														<%
 														index++;
-														}
-														}
-														}
-														}
+																	} // 소비태크에 상환, 기타 인지 확인하는 if
+																} // 대출인지 확인 if
+															} // 지출 여부 if
+														}  // for
 														%>
 													
 												</tbody>
 											</table>
 										</div>
+
 									</div>
 								</div>
 							</div>
-							<%		
-								for (int i = 0; i < list.size(); i++ ){
-									index = 1;%>
-				
+
+							<% // 태그별 한번씩만 진행 ->listTag
+							for (int j = 0; j < listTag.size(); j++) {
+								int tem = 1;
+
+							%>
+
 							<div class="accordion-item bg-transparent">
-								<h2 class="accordion-header" id="headingTwo">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-										aria-expanded="false" aria-controls="collapseTwo">
-										<%=list.get(i).getItem_tag() + " 상세" %></button>
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne">
+										<%=listTag.get(j).getItem_tag() + " 상세"%></button>
 								</h2>
-								<div id="collapseTwo" class="accordion-collapse collapse"
-									aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-									<div class="accordion-body">Voluptua sit dolores
-										consetetur ea et diam est et takimata. Et erat sadipscing
-										dolores et stet diam ut ut diam, sit aliquyam no magna et
-										dolore lorem dolor sit. Lorem lorem sed sed duo, eirmod sit
-										diam ipsum sit erat, lorem sit dolor diam amet ea aliquyam
-										tempor rebum invidunt,.</div>
+
+								<div id="collapseOne" class="accordion-collapse collapse show"
+									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+
+
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th scope="col">no</th>
+														<th scope="col">일자</th>
+														<th scope="col">은행명</th>
+														<th scope="col">소비현황</th>
+														<th scope="col">지출액</th>
+
+													</tr>
+												</thead>
+												<tbody>
+
+													<% // 회원별 전체 입지출 필요 -> listAll / 부분적 listTag
+													for (int i = 0; i < listAll.size(); i++) {
+														index = 1;
+														if (listAll.get(j).getItem_type().equals("지출")) { // 지출 상세
+															if (!listAll.get(i).getItem_content().substring(0, 2).equals("대출")) { // 대출 제외
+
+													%>
+																	<tr>
+																		<th scope="row"><%=index%></th>
+																		<td><%=listAll.get(i).getItem_dt().substring(0, 10)%></td>
+																		<td><%=listAll.get(i).getItem_content()%></td>
+																		<td><%=listAll.get(i).getItem_tag()%></td>
+																		<td><fmt:formatNumber
+																				value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
+																	</tr>
+													<%
+																	index++;
+																}  
+														} // 지출인지 확인하는 if
+													} // 테이블 바디  반복하는 for
+													%>	
+												</tbody>
+											</table>
+										</div>
+
+									</div>
 								</div>
 							</div>
-							
-								<%
-								index++;
-								}%>
-								
-							
+
+						<%
+							} // 입지출테이블에 있는 태그수 만큼 반복되는 for
 						
+						%>
+						</div>
+						<%} // 소비내역이 있는지 확인하는 if %>
+
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<%
-		}
-		%>
-		<!-- 항목별 상세  End-->
+			<!-- 항목별 상세  End-->
 
 
 
-		<!-- Footer Start -->
-		<div class="container-fluid pt-4 px-4">
-			<div class="bg-secondary rounded-top p-4">
-				<div class="row">
-					<div class="col-12 col-sm-6 text-center text-sm-start">
-						&copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.
-					</div>
-					<div class="col-12 col-sm-6 text-center text-sm-end">
-						<a style="color: #EB1616;">Team:</a><a>Dash&Cash</a> <br> <a
-							style="color: #EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+			<!-- Footer Start -->
+			<div class="container-fluid pt-4 px-4">
+				<div class="bg-secondary rounded-top p-4">
+					<div class="row">
+						<div class="col-12 col-sm-6 text-center text-sm-start">
+							&copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.
+						</div>
+						<div class="col-12 col-sm-6 text-center text-sm-end">
+							<a style="color: #EB1616;">Team:</a><a>Dash&Cash</a> <br> <a
+								style="color: #EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+						</div>
 					</div>
 				</div>
 			</div>
+			<!-- Footer End -->
 		</div>
-		<!-- Footer End -->
-	</div>
-	<!-- Content End -->
+		<!-- Content End -->
 
 
-	<!-- Back to Top -->
-	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-		class="bi bi-arrow-up"></i></a>
+		<!-- Back to Top -->
+		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"></i></a>
 
 	</div>
 
@@ -428,10 +469,11 @@
 					type : "pie",
 					data : {
 						labels : [
-	<%for (int i = 0; i < list.size(); i++) {
-	out.print("\"" + list.get(i).getItem_tag() + "\",");
-}%>
-		],
+									<% // 태그별로 한번씩 -> listTag
+									for (int i = 0; i < listTag.size(); i++) {
+										out.print("\"" + listTag.get(i).getItem_tag() + "\",");
+									}%>
+								],
 						datasets : [ {
 							backgroundColor : [ "rgba(235, 22, 22, .7)",
 									"rgba(235, 22, 22, .6)",
@@ -441,10 +483,10 @@
 									"rgba(235, 22, 22, .2)",
 									"rgba(235, 22, 22, .1)", ],
 							data : [
-	<%for (int i = 0; i < list.size(); i++) {
-	out.print(list.get(i).getAmount() + ",");
-}%>
-		]
+								<%for (int i = 0; i < listTag.size(); i++) {
+									out.print(listTag.get(i).getAmount() + ",");
+								}%>
+									]
 						} ]
 					},
 					options : {
@@ -487,8 +529,6 @@
 				responsive : true
 			}
 		});
-		
-		
 	</script>
 </body>
 
