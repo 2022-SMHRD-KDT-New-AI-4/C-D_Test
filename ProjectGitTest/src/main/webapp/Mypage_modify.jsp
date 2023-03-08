@@ -137,7 +137,7 @@ response.sendRedirect("signin.jsp");
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="Enterance.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -205,8 +205,9 @@ response.sendRedirect("signin.jsp");
 
 							<input type="hidden" value="<%= loginD.getUser_id() %>" name = "user_id">
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4" >회원정보수정</button> &nbsp; &nbsp; &nbsp;
+							</form>
 							<button type="submit" class="btn btn-primary py-3 w-100 mb-4"  onclick="location.href='Mypage.jsp'">뒤로가기</button>
-								</form>
+								
 								
 						</div>
 						<div>
