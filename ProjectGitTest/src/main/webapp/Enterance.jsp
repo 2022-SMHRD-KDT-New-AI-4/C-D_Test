@@ -54,7 +54,7 @@
 
 #message {
    font-size: 90px;
-   color: #6C7293;
+   color: white;
    font-family: '나눔 손글씨 붓','Nanum Brush Script';
    line-height: 100%;
    margin-top: 18%;
@@ -71,7 +71,7 @@
 
 
 #message2 {
-   color: white;
+   color:#6C7293;
    font-family: 'GmarketSansMedium';    
    font-size: 18px;
    margin-top: 10px;
