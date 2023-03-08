@@ -61,7 +61,6 @@ where user_age is not null)
 group by user_age,mon order by mon asc
 
 </select>
-
 <!--30대 월별 소비량 가져오기  -->
 <select id="avg_30" resultType="com.smhrd.model.AgeMonthVO">
 select mon,user_age,round(AVG(age_avg),0) as age_month
@@ -90,6 +89,6 @@ round(AVG(a.amount),0) AS age_avg
   where a.user_id =b.user_id
   GROUP BY a.item_dt,b.user_age)
 where user_age is not null)
-group by user_age,mon order by mon asc
+group by user_age,mon order by mon asc;
 </select>
 </mapper>

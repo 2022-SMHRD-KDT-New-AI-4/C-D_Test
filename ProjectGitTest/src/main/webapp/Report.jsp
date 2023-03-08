@@ -95,32 +95,7 @@ response.sendRedirect("signin.jsp");
 	//연령대별 수입지출
 		ArrayList<AgeMonthVO> avg_20 = dao.avgselect20();
 	    System.out.print(avg_20.toString());
-	    int month01 =0;
-	    int month02 =0;
-	    int month03 =0;
-	    int month04 =0;
-	    int month05 =0;
-	    int month06 =0;
-	    int month07 =0;
-	   
-		for(int i=0;i<avg_20.size();i++){
-			if(avg_20.get(i).getMon().equals("01월")){
-				month01 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("02월")){
-				month02 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("03월")){
-				month03 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("04월")){
-				month04 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("05월")){
-				month05 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("06월")){
-				month06 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("07월")){
-				month07 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}
-		}
-		
+	    
 		ArrayList<AgeMonthVO> avg_30 = dao.avgselect30();
 		System.out.print(avg_30.toString());
     %>
@@ -148,7 +123,7 @@ response.sendRedirect("signin.jsp");
 						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 					<%}else{%>
-						<h6 class="lolog">&nbsp;&nbsp;&nbsp;<%=loginD.getUser_nick() %>님 환영합니다!</h6>	
+						<h6><%=loginD.getUser_nick() %></h6>	
 					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -162,7 +137,7 @@ response.sendRedirect("signin.jsp");
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
@@ -170,9 +145,9 @@ response.sendRedirect("signin.jsp");
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown"> 
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
-								<a href="Report.jsp" class="dropdown-item active">보고서</a> 
+								<a href="Report.jsp" class="dropdown-item">보고서</a> 
 								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
 								<a href="Statistics.jsp"class="dropdown-item">통계</a>
 							</div>
@@ -203,7 +178,7 @@ response.sendRedirect("signin.jsp");
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>
@@ -277,7 +252,7 @@ response.sendRedirect("signin.jsp");
                 </div>
             </div>
             <!-- Footer End -->
-        </div>
+        </div>y
         <!-- Content End -->
 
 <!-- JavaScript Libraries -->
@@ -372,7 +347,13 @@ response.sendRedirect("signin.jsp");
 	            labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월"],
 	            datasets: [{
 	                    label: "20대",
-	                    data: [<%=month01%>, <%=month02%>, <%=month03%>, <%=month04%>, <%=month05%>, <%=month06%>, <%=month07%>
+	                    data: [<%=avg_20.get(0).getAge_month()%>,
+	                    	<%=avg_20.get(1).getAge_month()%>,
+	                    	<%=avg_20.get(2).getAge_month()%>,
+	                    	<%=avg_20.get(3).getAge_month()%>,
+	                    	<%=avg_20.get(4).getAge_month()%>,
+	                    	<%=avg_20.get(5).getAge_month()%>,
+	                    	<%=avg_20.get(6).getAge_month()%>
 	                           ],
 	                    backgroundColor: "rgba(235, 22, 22, .7)"
 	                },

@@ -16,6 +16,7 @@ public class Classification {
 		// 가상 테이블 데이터 만들어지면 tb_asset, tb_income_expense 테이블로 자료 보내주기
 
 		bankDAO dao = new bankDAO();
+		
 
 		int cnt;
 
@@ -37,9 +38,9 @@ public class Classification {
 				int dept_card_amount = 0;
 				String dept_loan_name = "";
 				int dept_loan_amount = 0;
-				
 				System.out.println(PersonalList.get(i).toString());
-				String value = PersonalList.get(i).code_Type();
+
+				String value = PersonalList.get(i).getCode_Type();
 				System.out.println("PersonalList.get(i).code_Type() 은 : "+value);
 				
 				if (value.equals("은행")) {

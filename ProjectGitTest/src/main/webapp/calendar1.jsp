@@ -1,7 +1,3 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@page import="com.smhrd.model.income_expenseVO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.smhrd.model.DAO_G"%>
 <%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -50,7 +46,6 @@
 <!-- Template Stylesheet -->
 <link href="assets/darkpan-1.0.0/css/style.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 
     <style>
         table {
@@ -103,9 +98,6 @@
     </style>
 
     <script>
-    
-   	
-    
         $(function () {
             var today = new Date();
             var date = new Date();
@@ -126,8 +118,6 @@
 
 
             function buildCalendar() {
-            	
-            	
 
                 nowYear = today.getFullYear();
                 nowMonth = today.getMonth();
@@ -144,27 +134,12 @@
                 for (i = 0; i < firstDay; i++) { //첫번째 줄 빈칸
                     $("#calendar tbody:last").append("<td></td>");
                 }
-                
-             
-             	
-                
                 for (i = 1; i <= lastDate; i++) { // 날짜 채우기
                     plusDate = new Date(nowYear, nowMonth, i).getDay();
-                    var a = $('#inOut'+(i-1)).val();
-                    var b = $('#type'+(i-1)).val();
-                    console.log(a);
-                    console.log(b);
                     if (plusDate == 0) {
                         $("#calendar tbody:last").append("<tr></tr>");
                     }
-                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br><span><br></span> <span>수입</span> : <span id='dtIn"+i+"' style='color :red;'></span><br><span>지출</span> :<span id='dtOut"+i+"' style='color :blue;'></span></td>");
-                    
-                    if(b=="수입"){ 
-                     	 $("#dtIn"+i).text(a)
-                     }
-                    if(b=="지출"){
-                     	 $("#dtOut"+i).text(a)
-                     }
+                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br><span><br></span> <span id='dtIn"+i+"'>수입</span><br><span id='dtOut"+i+"'>지출</span></td>");
                 }
                 if ($("#calendar > tbody > td").length % 7 != 0) { //마지막 줄 빈칸
                     for (i = 1; i <= $("#calendar > tbody > td").length % 7; i++) {
@@ -181,10 +156,6 @@
 
            
         })
-          function  comeOut(i){
-        	var a = ie_list.get(i).getAmount()
-        	
-        }
 
         function go(i){
         	
@@ -215,22 +186,10 @@
 </head>
 
 <body>
-<%
-userVO loginD = (userVO)session.getAttribute("loginD");
-            	DAO_G dao = new DAO_G();
-            		ArrayList<income_expenseVO> ie_list = dao.selectlist(loginD.getUser_id());  
-            		%>
-
+<%userVO loginD = (userVO)session.getAttribute("loginD"); %>
 <% if(loginD == null){
 response.sendRedirect("signin.jsp");	
-}	
-
-%>
-<%for(int i =0; i < ie_list.size();i++) {%>
-<input style="display: none" id="inOut<%=i %>" value="<%= ie_list.get(i).getAmount()%>">
-<input style="display: none" id="type<%=i %>" value="<%= ie_list.get(i).getItem_type()%>">
-<%} %>
-           
+}	%>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
@@ -255,7 +214,7 @@ response.sendRedirect("signin.jsp");
 						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 					<%}else{%>
-						<h6 class="lolog">&nbsp;&nbsp;&nbsp;<%=loginD.getUser_nick() %>님 환영합니다!</h6>		
+						<h6><%=loginD.getUser_nick() %></h6>	
 					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -272,7 +231,7 @@ response.sendRedirect("signin.jsp");
 						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="index.jsp" class="dropdown-item">메인</a> 
-							<a href="calendar1.jsp" class="dropdown-item active">캘린더</a>
+							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
@@ -310,14 +269,14 @@ response.sendRedirect("signin.jsp");
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="Enterance.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -325,7 +284,6 @@ response.sendRedirect("signin.jsp");
 				</div>
 			</nav>
 			<!-- Navbar End -->
-
 
 			<div class="container-fluid pt-4 px-4">
 			<div class="bg-secondary rounded h-100 p-4" style="display : flex; justify-content: center; align-items : center;">

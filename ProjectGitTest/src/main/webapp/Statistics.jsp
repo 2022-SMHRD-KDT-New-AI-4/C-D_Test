@@ -379,7 +379,11 @@ response.sendRedirect("signin.jsp");
                               backgroundColor: "rgba(173,255,47, .7)"
                           }, {
                               label: "나의 소비량",
+<<<<<<< HEAD
                               data: str2,
+=======
+                              data: [0, 0, <%=income%>/(12*10000), 0, 0, 0, 0],
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -413,7 +417,11 @@ response.sendRedirect("signin.jsp");
                               backgroundColor: "rgba(30,144,255, .7)"
                           }, {
                               label: "나의 소비량",
+<<<<<<< HEAD
                               data: str3,
+=======
+                              data: [0, 0, <%=income%>/(12*10000), 0, 0, 0],
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]                      
                       },
@@ -452,7 +460,19 @@ response.sendRedirect("signin.jsp");
                              backgroundColor: "rgba(255,20,147, .7)"
                          }, {
                               label: "나의 총 자산",
+<<<<<<< HEAD
                               data: str4,
+=======
+                            	  <% System.out.print (Integer.parseInt(loginD.getUser_age()));
+                            	  if (Integer.parseInt(loginD.getUser_age()) < 30){%>
+                            		                             		  
+                              data: [ <%=Sum[0]-Sum[1]-Sum[2]/10000 %>, 0, 0, 0, 0, 0],
+                              <%  } else {%>
+                            		  data: [ 0, 0, 0, <%=Sum[0]-Sum[1]-Sum[2]/10000 %>, 0, 0],
+                            		  <%   }%>
+                         
+                            	  
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
                               backgroundColor: "rgba(255,250,250, .7)"
                           }]
                      },
