@@ -37,9 +37,9 @@ public class Classification {
 				int dept_card_amount = 0;
 				String dept_loan_name = "";
 				int dept_loan_amount = 0;
-				
 				System.out.println(PersonalList.get(i).toString());
-				String value = PersonalList.get(i).code_Type();
+//				System.out.println(PersonalList.get(i).code_Type());
+				String value = PersonalList.get(i).getCode_Type();
 				System.out.println("PersonalList.get(i).code_Type() 은 : "+value);
 				
 				if (value.equals("은행")) {
