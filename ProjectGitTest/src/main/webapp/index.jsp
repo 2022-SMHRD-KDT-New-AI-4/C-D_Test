@@ -8,6 +8,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.targetVO"%>
 <%@page import="com.smhrd.model.DAO_L"%>
+<%@page import="com.smhrd.model.DAO_S"%>
+<%@page import="com.smhrd.model.DAO_G"%>
 <%@page import="com.smhrd.model.income_expenseVO"%>
 <!DOCTYPE html>
 <html>
@@ -74,7 +76,13 @@
 <%userVO loginD = (userVO)session.getAttribute("loginD"); %>
 <% if(loginD == null){
 response.sendRedirect("signin.jsp");	
-}	%>
+}
+DAO_S daos = new DAO_S();
+ArrayList<income_expenseVO> list1 = daos.ietgroupSelects(loginD.getUser_id());
+DAO_G daog = new DAO_G();
+ArrayList<income_expenseVO> ie_list = daog.selectlist(loginD.getUser_id());
+
+%>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
@@ -99,7 +107,9 @@ response.sendRedirect("signin.jsp");
 						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 					<%}else{%>
-						<h6><%=loginD.getUser_nick() %></h6>	
+						<h6 class="lolog">
+							&nbsp;&nbsp;&nbsp;<%=loginD.getUser_nick()%>님 환영합니다!
+						</h6>	
 					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -267,29 +277,30 @@ response.sendRedirect("signin.jsp");
 	<script>
 		// Pie Chart
 		var ctx = $("#pie-chart").get(0).getContext("2d");
-		var pie_chart = new Chart(ctx,
+		var pie_chart = new Chart(
+				ctx,
 				{
+
 					type : "pie",
 					data : {
 						labels : [
-						<%-- 	<% 
-							bankDAO bdao = new bankDAO();
-							ArrayList<String> DetailList = bdao.DetailList(loginD.getUser_id());
-							 for (int i = 0 ; i < DetailList.size(); i++ ){ 
-									out.print("\""+DetailList.get(i)+"\",");
-										} %>  --%>
-//							"저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비","기타" 
-							],
+									//for (int i = 0; i < list.size(); i++) {
+									//	out.print("\"" + list.get(i).getItem_tag() + "\",");
+									//		}%>
+										],
 						datasets : [ {
-							backgroundColor : [ 
-									"rgba(235, 22, 22, .7)",
-									"rgba(235, 22, 22, .6)", 
+							backgroundColor : [ "rgba(235, 22, 22, .7)",
+									"rgba(235, 22, 22, .6)",
 									"rgba(235, 22, 22, .5)",
 									"rgba(235, 22, 22, .4)",
 									"rgba(235, 22, 22, .3)",
 									"rgba(235, 22, 22, .2)",
 									"rgba(235, 22, 22, .1)", ],
-							data : [ 33.2, 28.1, 13.2, 11.6, 8.4, 3.2, 2.3 ]
+							data : [
+						<%for (int i = 0; i < list1.size(); i++) {
+								out.print(list1.get(i).getAmount() + ",");
+							}%>
+																]
 						} ]
 					},
 					options : {
