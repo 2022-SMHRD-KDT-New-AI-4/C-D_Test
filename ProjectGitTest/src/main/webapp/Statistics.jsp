@@ -398,7 +398,7 @@ response.sendRedirect("signin.jsp");
               var myChart7 = new Chart(ctx7, {
                   type: "bar",
                   data: {
-                      labels: ["2200이상", "2800이상", "3600이상", "4200이상", "5000이상", "5800이상", "1억 이상"],
+                      labels: ["2200이상", "2800이상", "3600이상", "4200이상",  "5000이상", "5800이상", "1억 이상"],
                       datasets: [{
                               label: "총 자산 평균",
                               data: [15, 30, 55, 65, 60, 80, 95],
