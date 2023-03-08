@@ -48,9 +48,9 @@
 
 <body>
 <%userVO loginD = (userVO)session.getAttribute("loginD"); %>
-<% //if(loginD == null){
-//response.sendRedirect("signin.jsp");	
-//}	%>
+<% if(loginD != null){
+response.sendRedirect("Mypage.jsp");	
+}	%>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
@@ -66,7 +66,7 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
+				<a href="signin.jsp" class="navbar-brand mx-4 mb-3">
 					<h3 class="text-primary">CASH&DASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
@@ -87,26 +87,7 @@
                         <span>일반회원</span> -->
 					</div>
 				</div>
-				<div class="navbar-nav w-100">
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
-						<div class="dropdown-menu bg-transparent border-0">
-							<a href="index.jsp" class="dropdown-item">메인</a> 
-							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
-						</div>
-						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
-						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
-						<div class="nav-item dropdown"> 
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
-							<div class="dropdown-menu bg-transparent border-0">
-								<a href="Report.jsp" class="dropdown-item">보고서</a> 
-								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
-								<a href="Statistics.jsp"class="dropdown-item">통계</a>
-							</div>
-						</div>
-						<a href="TargetList.jsp" class="nav-item nav-link"><i class="fa fa-table me-2"></i>목표</a>
-					</div>
-				</div>
+				
 			</nav>
 		</div>
 		<!-- Sidebar End -->
@@ -137,7 +118,7 @@
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="Enterance.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -154,7 +135,7 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.jsp" class="">
+                            <a href="signin.jsp" class="">
                                 <h3 class="text-primary">Cash&Dash</h3>
                             </a>
                             <h3>로그인</h3>
@@ -182,14 +163,15 @@
                                success : function(data){ 
                             	   if(data!=-1){
                             	     alert("로그인 성공");
-                            	     location.href = "Menubar.jsp";
+                            	     location.href = "index.jsp";
                             	   }else{
                             		 alert("로그인 실패");
                             		 location.href ="signin.jsp";
                             	   }                               
                                },
                                error : function(err) {
-                                  alert("에러..ㅜ^ㅜ ");
+                                  alert("아이디를 입력해주세요.");
+                                  location.href ="signin.jsp";
                                }
                             });
 
