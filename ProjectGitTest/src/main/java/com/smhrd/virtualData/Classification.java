@@ -39,10 +39,7 @@ public class Classification {
 				String dept_loan_name = "";
 				int dept_loan_amount = 0;
 				System.out.println(PersonalList.get(i).toString());
-<<<<<<< HEAD
-//				System.out.println(PersonalList.get(i).code_Type());
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/C-D_Test.git
+
 				String value = PersonalList.get(i).getCode_Type();
 				System.out.println("PersonalList.get(i).code_Type() 은 : "+value);
 				
