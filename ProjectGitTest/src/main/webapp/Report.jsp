@@ -318,11 +318,11 @@ response.sendRedirect("signin.jsp");
 			    var myChart1 = new Chart(ctx1, {
 			        type: "bar",
 			        data: {
-			            labels: ["저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비", "기타"],
+			            labels: [ "식비", "공과금", "생필품", "품위유지비", "교통비", "기타"],
 			            datasets: [{
 			            	
 			                    label: "저축/보험",
-			                    data: [<%=saving%>,<%=foodexpenses%>,<%=dues%>,<%=dailynecessity%>,<%=dmc%>,<%=trans%>,<%=etc%>],
+			                    data: [<%=foodexpenses%>,<%=dues%>,<%=dailynecessity%>,<%=dmc%>,<%=trans%>,<%=etc%>],
 			                    backgroundColor: "rgba(235, 22, 22, .9)",
 			                }]
 			            },
