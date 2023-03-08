@@ -112,7 +112,7 @@ response.sendRedirect("signin.jsp");
 						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 					<%}else{%>
-						<h6><%=loginD.getUser_nick() %></h6>	
+						<h6 class="lolog">&nbsp;&nbsp;&nbsp;<%=loginD.getUser_nick() %>님 환영합니다!</h6>		
 					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -126,12 +126,12 @@ response.sendRedirect("signin.jsp");
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
 						</div>
-						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
+						<a href="inout.jsp" class="nav-item nav-link active"><i class="fa fa-laptop me-2"></i>입/지출</a>
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown"> 
 						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
@@ -167,7 +167,7 @@ response.sendRedirect("signin.jsp");
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<img class="rounded-circle me-lg-2" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>

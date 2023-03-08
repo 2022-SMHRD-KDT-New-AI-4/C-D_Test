@@ -120,6 +120,9 @@ response.sendRedirect("signin.jsp");
 				month07 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
 			}
 		}
+		
+		ArrayList<AgeMonthVO> avg_30 = dao.avgselect30();
+		System.out.print(avg_30.toString());
     %>
 
 	<div class="container-fluid position-relative d-flex p-0">
@@ -145,7 +148,7 @@ response.sendRedirect("signin.jsp");
 						if(loginD==null){%>
 						<a href="signin.jsp"><h6 class="ms-3"> 로그인이 필요합니다</h6></a>
 					<%}else{%>
-						<h6><%=loginD.getUser_nick() %></h6>	
+						<h6 class="lolog">&nbsp;&nbsp;&nbsp;<%=loginD.getUser_nick() %>님 환영합니다!</h6>	
 					<%}%>
 						<!--  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
@@ -159,7 +162,7 @@ response.sendRedirect("signin.jsp");
 				</div>
 				<div class="navbar-nav w-100">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
+						<a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>메인</a>
 						<div class="dropdown-menu bg-transparent border-0">
 							<a href="index.jsp" class="dropdown-item">메인</a> 
 							<a href="calendar1.jsp" class="dropdown-item">캘린더</a>
@@ -167,9 +170,9 @@ response.sendRedirect("signin.jsp");
 						<a href="inout.jsp" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>입/지출</a>
 						<a href="UserAsset.jsp" class="nav-item nav-link"><i class="fa fa-th me-2"></i>내 자산</a>
 						<div class="nav-item dropdown"> 
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
+						<a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>보고서</a>
 							<div class="dropdown-menu bg-transparent border-0">
-								<a href="Report.jsp" class="dropdown-item">보고서</a> 
+								<a href="Report.jsp" class="dropdown-item active">보고서</a> 
 								<a href="Details_consumption.jsp"class="dropdown-item">소비현황</a> 
 								<a href="Statistics.jsp"class="dropdown-item">통계</a>
 							</div>
@@ -200,7 +203,7 @@ response.sendRedirect("signin.jsp");
 							<a href="signin.jsp"><span class="ms-3"> 로그인이 필요합니다</span></a>
 							<%}else{ %>
 							<a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown"> 
-							<img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
+							<img class="rounded-circle me-lg-2" src="assets/darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px;"> 
 							<span class="d-none d-lg-inline-flex"><%=loginD.getUser_nick() %></span>
 							<%} %>
 						</a>
@@ -297,16 +300,15 @@ response.sendRedirect("signin.jsp");
 	    var myChart10 = new Chart(ctx10, {
 	        type: "pie",
 	        data: {
-	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+	            labels: ["계좌", "카드", "대출"],
 	            datasets: [{
 	                backgroundColor: [
 	                    "rgba(235, 22, 22, .7)",
 	                    "rgba(235, 22, 22, .6)",
 	                    "rgba(235, 22, 22, .5)",
-	                    "rgba(235, 22, 22, .4)",
-	                    "rgba(235, 22, 22, .3)"
+	                    
 	                ],
-	                data: [55, 49, 44, 24, 15]
+	                data: [80,70,50]
 	            }]
 	        },
 	        options: {
