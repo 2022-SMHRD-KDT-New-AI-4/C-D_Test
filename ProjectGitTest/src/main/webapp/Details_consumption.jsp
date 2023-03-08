@@ -198,9 +198,9 @@
 							// 소비내역 x -> <h3> / 소비내역 o -> pie-chart
 							DAO_S daos = new DAO_S();
 							ArrayList<income_expenseVO> listTag = daos.ietgroupSelects(loginD.getUser_id());
+							ArrayList<income_expenseVO> listDt = daos.iegroupdtSelects(loginD.getUser_id());							
 							DAO_G daog = new DAO_G();
 							ArrayList<income_expenseVO> listAll = daog.selectlist(loginD.getUser_id());
-							
 
 							if (listTag == null) {
 								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
@@ -217,7 +217,8 @@
 
 						<!-- 막대 Start -->
 						<div class="col-xl-3" style="padding: 10px; margin-left: 200px;">
-							<% // 태그별 한번씩 -> listTag
+							<%
+							// 태그별 한번씩 -> listTag
 							if (listTag == null) {
 								out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
 							} else {
@@ -244,7 +245,7 @@
 								</div>
 							</div>
 							<%
-								} // for
+							} // for
 							} // else
 							%>
 						</div>
@@ -264,7 +265,6 @@
 							style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별
 							지출 순위</h2>
 						<%
-						
 						if (listAll == null) {
 							out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
 						} else {
@@ -287,7 +287,7 @@
 											<div class="bg-secondary rounded h-100 p-4"
 												style="height: 50px;">
 
-												<canvas id="line-chart1"></canvas>
+												<canvas id="line-chartAll"></canvas>
 											</div>
 										</div>
 
@@ -305,7 +305,8 @@
 												</thead>
 												<tbody>
 
-													<% // 아이디별 입지출 전체 출력 -> listAll
+													<%
+													// 아이디별 입지출 전체 출력 -> listAll
 													int index = 1;
 													for (int i = 0; i < listAll.size(); i++) {
 														if (listAll.get(i).getItem_type().equals("지출")) {
@@ -321,10 +322,10 @@
 																value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
 														<%
 														index++;
-																	} // 소비태크에 상환, 기타 인지 확인하는 if
-																} // 대출인지 확인 if
-															} // 지출 여부 if
-														}  // for
+														} // 소비태크에 상환, 기타 인지 확인하는 if
+														} // 대출인지 확인 if
+														} // 지출 여부 if
+														} // for
 														%>
 													
 												</tbody>
@@ -335,10 +336,11 @@
 								</div>
 							</div>
 
-							<% // 태그별 한번씩만 진행 ->listTag
+							<%
+							// 태그별 한번씩만 진행 ->listTag
 							for (int j = 0; j < listTag.size(); j++) {
-								int tem = 1;
-
+								if (listAll.get(j).getItem_type().equals("지출")) { // 지출 상세
+									int tem = 1;
 							%>
 
 							<div class="accordion-item bg-transparent">
@@ -353,6 +355,7 @@
 									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 									<div class="accordion-body">
 
+										
 
 										<div class="table-responsive">
 											<table class="table">
@@ -368,27 +371,29 @@
 												</thead>
 												<tbody>
 
-													<% // 회원별 전체 입지출 필요 -> listAll / 부분적 listTag
-													for (int i = 0; i < listAll.size(); i++) {
-														index = 1;
-														if (listAll.get(j).getItem_type().equals("지출")) { // 지출 상세
-															if (!listAll.get(i).getItem_content().substring(0, 2).equals("대출")) { // 대출 제외
-
-													%>
-																	<tr>
-																		<th scope="row"><%=index%></th>
-																		<td><%=listAll.get(i).getItem_dt().substring(0, 10)%></td>
-																		<td><%=listAll.get(i).getItem_content()%></td>
-																		<td><%=listAll.get(i).getItem_tag()%></td>
-																		<td><fmt:formatNumber
-																				value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
-																	</tr>
 													<%
-																	index++;
-																}  
-														} // 지출인지 확인하는 if
+													// 회원별 전체 입지출 필요 -> listAll / 부분적 listTag
+													index = 1;
+													for (int i = 0; i < listAll.size(); i++) {
+
+														if (!listAll.get(i).getItem_content().substring(0, 2).equals("대출")) { // 대출 제외
+															if (listAll.get(i).getItem_tag().equals(listTag.get(j).getItem_tag())) {
+													%>
+													<tr>
+														<th scope="row"><%=index%></th>
+														<td><%=listAll.get(i).getItem_dt().substring(0, 10)%></td>
+														<td><%=listAll.get(i).getItem_content()%></td>
+														<td><%=listAll.get(i).getItem_tag()%></td>
+														<td><fmt:formatNumber
+																value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
+													</tr>
+													<%
+													index++;
+
+													}
+													} // 지출인지 확인하는 if
 													} // 테이블 바디  반복하는 for
-													%>	
+													%>
 												</tbody>
 											</table>
 										</div>
@@ -397,12 +402,14 @@
 								</div>
 							</div>
 
-						<%
+							<%
+							}
 							} // 입지출테이블에 있는 태그수 만큼 반복되는 for
-						
-						%>
+							%>
 						</div>
-						<%} // 소비내역이 있는지 확인하는 if %>
+						<%
+						} // 소비내역이 있는지 확인하는 if
+						%>
 
 					</div>
 				</div>
@@ -469,10 +476,10 @@
 					type : "pie",
 					data : {
 						labels : [
-									<% // 태그별로 한번씩 -> listTag
-									for (int i = 0; i < listTag.size(); i++) {
-										out.print("\"" + listTag.get(i).getItem_tag() + "\",");
-									}%>
+									<%// 태그별로 한번씩 -> listTag
+for (int i = 0; i < listTag.size(); i++) {
+	out.print("\"" + listTag.get(i).getItem_tag() + "\",");
+}%>
 								],
 						datasets : [ {
 							backgroundColor : [ "rgba(235, 22, 22, .7)",
@@ -484,8 +491,8 @@
 									"rgba(235, 22, 22, .1)", ],
 							data : [
 								<%for (int i = 0; i < listTag.size(); i++) {
-									out.print(listTag.get(i).getAmount() + ",");
-								}%>
+										out.print(listTag.get(i).getAmount() + ",");
+									}%>
 									]
 						} ]
 					},
@@ -493,42 +500,42 @@
 						responsive : true
 					}
 				});
+		
+		
 
-		// Single Line Chart
-		var ctx3 = $("#line-chart1").get(0).getContext("2d");
+		// Single Line Chart all
+		var ctx3 = $("#line-chartAll").get(0).getContext("2d");
 		var myChart3 = new Chart(ctx3, {
 			type : "line",
 			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
+				labels : [ 
+					<% 
+					for (int i = 0; i < listDt.size(); i++) {
+						out.print("\"" +listDt.get(i).getItem_dt().substring(0, 10)  + "\","); }
+					%>
+					//50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 
+					], // 날짜 삽입
 				datasets : [ {
-					label : "Salse",
+					label : "전체 소비량",
 					fill : false,
 					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
+					data : [
+						<% 
+						for (int i = 0; i < listDt.size(); i++) {
+							out.print(listDt.get(i).getAmount() + ","); }
+						%>
+						//7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 
+						]  // 데이터 삽입
 				} ]
 			},
 			options : {
 				responsive : true
 			}
 		});
+		
+		
 
-		// Single Line Chart
-		var ctx3 = $("#line-chart2").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
+		
 	</script>
 </body>
 

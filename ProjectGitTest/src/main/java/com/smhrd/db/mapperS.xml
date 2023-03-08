@@ -11,5 +11,15 @@
 		'상환' )and (ITEM_TAG != '기타')GROUP by user_id,ITEM_TYPE, ITEM_TAG
 	</select>
 
+<select id="iegroupdtSelects" resultType="com.smhrd.model.income_expenseVO" parameterType="String">
+select  item_dt as item_dt ,sum(amount) as amount from tb_income_expense where user_id=#{user_id} and item_type = '지출' and (ITEM_TAG !=
+		'상환' )and (ITEM_TAG != '기타') group by item_dt
+
+</select>
+
+<select id="iegroupTagSelects" resultType="com.smhrd.model.income_expenseVO" parameterType="com.smhrd.model.income_expenseVO">
+   select  item_dt as item_dt ,sum(amount) as amount from tb_income_expense where user_id=#{user_id} and item_type = '지출' and (ITEM_TAG !=
+		'상환' )and (ITEM_TAG != '기타') and (ITEM_TAG =#{item_tag}  group by item_dt
+</select>
 
 </mapper>

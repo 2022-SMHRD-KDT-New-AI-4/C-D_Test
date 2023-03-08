@@ -21,6 +21,20 @@ public class DAO_S {
 		return (ArrayList<income_expenseVO>) list;
 	}
 	
+	public ArrayList<income_expenseVO> iegroupdtSelects(String user_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<income_expenseVO> list = session.selectList("iegroupdtSelects",user_id);
+		session.close();
+		return (ArrayList<income_expenseVO>) list;
+	}
+	
+	public ArrayList<income_expenseVO> iegroupTagSelects(income_expenseVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<income_expenseVO> list = session.selectList("iegroupTagSelects",vo);
+		session.close();
+		return (ArrayList<income_expenseVO>) list;
+	}
+	
 	
 	
 }
