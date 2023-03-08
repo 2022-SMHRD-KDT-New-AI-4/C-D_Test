@@ -95,31 +95,9 @@ response.sendRedirect("signin.jsp");
 	//연령대별 수입지출
 		ArrayList<AgeMonthVO> avg_20 = dao.avgselect20();
 	    System.out.print(avg_20.toString());
-	    int month01 =0;
-	    int month02 =0;
-	    int month03 =0;
-	    int month04 =0;
-	    int month05 =0;
-	    int month06 =0;
-	    int month07 =0;
-	   
-		for(int i=0;i<avg_20.size();i++){
-			if(avg_20.get(i).getMon().equals("01월")){
-				month01 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("02월")){
-				month02 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("03월")){
-				month03 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("04월")){
-				month04 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("05월")){
-				month05 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("06월")){
-				month06 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}else if(avg_20.get(i).getMon().equals("07월")){
-				month07 = Integer.parseInt(avg_20.get(i).getAge_month()) ;
-			}
-		}
+	    
+		ArrayList<AgeMonthVO> avg_30 = dao.avgselect30();
+		System.out.print(avg_30.toString());
     %>
 
 	<div class="container-fluid position-relative d-flex p-0">
@@ -274,7 +252,7 @@ response.sendRedirect("signin.jsp");
                 </div>
             </div>
             <!-- Footer End -->
-        </div>
+        </div>y
         <!-- Content End -->
 
 <!-- JavaScript Libraries -->
@@ -297,16 +275,15 @@ response.sendRedirect("signin.jsp");
 	    var myChart10 = new Chart(ctx10, {
 	        type: "pie",
 	        data: {
-	            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+	            labels: ["계좌", "카드", "대출"],
 	            datasets: [{
 	                backgroundColor: [
 	                    "rgba(235, 22, 22, .7)",
 	                    "rgba(235, 22, 22, .6)",
 	                    "rgba(235, 22, 22, .5)",
-	                    "rgba(235, 22, 22, .4)",
-	                    "rgba(235, 22, 22, .3)"
+	                    
 	                ],
-	                data: [55, 49, 44, 24, 15]
+	                data: [80,70,50]
 	            }]
 	        },
 	        options: {
@@ -370,7 +347,13 @@ response.sendRedirect("signin.jsp");
 	            labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월"],
 	            datasets: [{
 	                    label: "20대",
-	                    data: [<%=month01%>, <%=month02%>, <%=month03%>, <%=month04%>, <%=month05%>, <%=month06%>, <%=month07%>
+	                    data: [<%=avg_20.get(0).getAge_month()%>,
+	                    	<%=avg_20.get(1).getAge_month()%>,
+	                    	<%=avg_20.get(2).getAge_month()%>,
+	                    	<%=avg_20.get(3).getAge_month()%>,
+	                    	<%=avg_20.get(4).getAge_month()%>,
+	                    	<%=avg_20.get(5).getAge_month()%>,
+	                    	<%=avg_20.get(6).getAge_month()%>
 	                           ],
 	                    backgroundColor: "rgba(235, 22, 22, .7)"
 	                },

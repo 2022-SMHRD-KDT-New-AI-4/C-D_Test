@@ -33,6 +33,7 @@ public class loginservice extends HttpServlet {
         int succ=-1;
 		if (luser != null) {
 			HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(1800);
 			session.setAttribute("loginD", luser);
 			System.out.println("로그인성공!");
 		} else {

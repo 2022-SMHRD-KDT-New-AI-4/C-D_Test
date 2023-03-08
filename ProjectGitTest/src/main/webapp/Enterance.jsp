@@ -43,7 +43,7 @@
    border-bottom:0px;
    padding-bottom: 100%;
    line-height: 20px; 
-   color: #ffdc3c; 
+   color: #EB1616; 
    text-shadow: 3px 4px 3px #888888;  
 }
 
@@ -68,10 +68,10 @@
    text-shadow: 1px 2px 5px #888888;
    animation: typing 8s steps(60, end) forwards;
 }
-
+ 
 
 #message2 {
-   color: white;
+   color:#6C7293;
    font-family: 'GmarketSansMedium';    
    font-size: 18px;
    margin-top: 10px;
@@ -82,7 +82,7 @@
 }
 
 .first {
-   background-color: #4baf4b; 
+   background-color:  #000000; 
    display: flex;
    justify-content: center;
    align-items: center;

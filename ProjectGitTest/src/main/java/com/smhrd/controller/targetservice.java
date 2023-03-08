@@ -22,22 +22,23 @@ public class targetservice extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-
+		
+		DAO_L dao = new DAO_L();
+		
+		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
+		
 		HttpSession session = request.getSession();
 		String user_id = ((userVO)session.getAttribute("loginD")).getUser_id();
+		String target_name = dao.target_name_call(user_id).size()+1+"."+request.getParameter("target_name");
 		
-		String target_name = request.getParameter("target_name");
 		String target_start = request.getParameter("target_start");
 		String target_end = request.getParameter("target_end");
-		int target_amount = Integer.parseInt(request.getParameter("target_amount"));
 
-		targetVO vo = new targetVO(user_id,target_name,target_start,target_end,target_amount);
-
-		DAO_L dao = new DAO_L();	
+		targetVO vo = new targetVO(target_name,target_amount,user_id,target_start,target_end);
+			
 		
 		int cnt = dao.target_add(vo);
 		//
-		
 		if (cnt > 0) {
 			System.out.println("목표추가 성공");
 			RequestDispatcher rd = request.getRequestDispatcher("TargetList.jsp");
