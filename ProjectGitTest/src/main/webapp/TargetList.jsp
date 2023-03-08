@@ -10,6 +10,7 @@
 <%@page import="com.smhrd.model.userVO"%>
 <%@page import="com.smhrd.model.assetVO"%>
 <%@page import="com.smhrd.model.DAO_Z"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -271,7 +272,7 @@ response.sendRedirect("signin.jsp");
 								<ul>
 									<li>목표 : <%=list.get(i).getTarget_name()%></li>
 									<li>기간 : <%=startlist.get(i).getTarget_start() %>~<%=endlist.get(i).getTarget_end() %></li>
-									<li>상태 :<%try{%><%=addlist.get(i).getAmount() %><%}catch(Exception e){%>0<%}%>원</li>
+									<li>상태 :<%try{%><fmt:formatNumber value="<%=addlist.get(i).getAmount() %>" pattern="#,###" /><%}catch(Exception e){%>0<%}%>원</li>
 								</ul>
 							</ul>
 						</div>

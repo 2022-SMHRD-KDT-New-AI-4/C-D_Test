@@ -5,6 +5,7 @@
 <%@page import="com.smhrd.model.assetVO"%>
 <%@page import="com.smhrd.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -213,7 +214,7 @@
 									<h3><%=loginD.getUser_name() %> 님의 총 자산은</h3>
 									<br>
 									<h3></h3>
-									<h3><%=Sum[0]-Sum[1]-Sum[2] %>원입니다.</h3>
+									<h3><fmt:formatNumber value="<%=Sum[0]-Sum[1]-Sum[2] %>" pattern="#,###" /> 원입니다.</h3>
 								</blockquote>
 								<div style="text-align: center;">
 									<br>
@@ -246,7 +247,7 @@
 												<tr>
 												<th scope='row'><%=i+1%></th>
 												<td><%=asvo.get(i).getBank_name()%></td>
-												<td><%=asvo.get(i).getAccount_balance()%></td>
+												<td><fmt:formatNumber value="<%=asvo.get(i).getAccount_balance()%>" pattern="#,###" /></td>
 												</tr>
 												<%}
 											}%>
@@ -290,7 +291,7 @@
 													<tr>
 													<th scope='row'><%=i+1%></th>
 													<td><%=asvo.get(i).getDept_card_name()%></td>
-													<td><%=asvo.get(i).getDept_card_amount()%></td>
+													<td><fmt:formatNumber value="<%=asvo.get(i).getDept_card_amount()%>" pattern="#,###" /></td>
 													</tr>
 													<%}
 												}%>
@@ -335,7 +336,7 @@
 													<tr>
 													<th scope='row'><%=i+1%></th>
 													<td><%=asvo.get(i).getDept_loan_name()%></td>
-													<td><%=asvo.get(i).getDept_loan_amount()%></td>
+													<td><fmt:formatNumber value="<%=asvo.get(i).getDept_loan_amount()%>" pattern="#,###" /></td>
 													</tr>
 													<%}
 												}%>

@@ -318,8 +318,7 @@
 														<td><%=listAll.get(i).getItem_dt().substring(0, 10)%></td>
 														<td><%=listAll.get(i).getItem_content()%></td>
 														<td><%=listAll.get(i).getItem_tag()%></td>
-														<td><fmt:formatNumber
-																value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
+														<td><fmt:formatNumber value="<%=listAll.get(i).getAmount()%>" pattern="#,###" /></td>
 														<%
 														index++;
 														} // 소비태크에 상환, 기타 인지 확인하는 if
