@@ -66,7 +66,7 @@
 		<!-- Sidebar Start -->
 		<div class="sidebar pe-4 pb-3">
 			<nav class="navbar bg-secondary navbar-dark">
-				<a href="index.jsp" class="navbar-brand mx-4 mb-3">
+				<a href="signin.jsp" class="navbar-brand mx-4 mb-3">
 					<h3 class="text-primary">CASH&DASH</h3>
 				</a>
 				<div class="d-flex align-items-center ms-4 mb-4">
@@ -260,7 +260,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.</div>
+                        <div class="col-12 col-sm-6 text-center text-sm-start"> &copy; <a href="signin.jsp">CASH&DASH</a>, All Right Reserved.</div>
                         <div class="col-12 col-sm-6 text-center text-sm-end"> 
                             <a style="color:#EB1616;">Team:</a><a>Dash&Cash</a>
                             <br>

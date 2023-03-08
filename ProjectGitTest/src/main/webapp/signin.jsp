@@ -170,7 +170,7 @@ response.sendRedirect("Mypage.jsp");
                             	   }                               
                                },
                                error : function(err) {
-                                  alert("에러..ㅜ^ㅜ ");
+                                  alert("아이디를 입력해주세요.");
                                   location.href ="signin.jsp";
                                }
                             });
