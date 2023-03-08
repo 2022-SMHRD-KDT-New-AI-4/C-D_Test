@@ -48,9 +48,9 @@
 
 <body>
 <%userVO loginD = (userVO)session.getAttribute("loginD"); %>
-<% //if(loginD == null){
-//response.sendRedirect("signin.jsp");	
-//}	%>
+<% if(loginD != null){
+response.sendRedirect("Mypage.jsp");	
+}	%>
 
 	<div class="container-fluid position-relative d-flex p-0">
 		<!-- Spinner Start -->
@@ -163,7 +163,7 @@
                                success : function(data){ 
                             	   if(data!=-1){
                             	     alert("로그인 성공");
-                            	     location.href = "Menubar.jsp";
+                            	     location.href = "index.jsp";
                             	   }else{
                             		 alert("로그인 실패");
                             		 location.href ="signin.jsp";
