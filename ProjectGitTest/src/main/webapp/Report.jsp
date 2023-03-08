@@ -62,7 +62,19 @@ response.sendRedirect("signin.jsp");
 <%
 	//내자산
 	DAO_G dao = new DAO_G();
-	assetVO myasset = dao.select(loginD.getUser_id());
+	ArrayList<assetVO> myasset = dao.select(loginD.getUser_id());
+	System.out.println(myasset.toString());
+	int bank_amount=0;
+	int card_amount=0;
+	int loan_amount=0;
+	
+	for(int i=0;i<myasset.size();i++){
+		bank_amount+=myasset.get(i).getAccount_balance();
+		card_amount += myasset.get(i).getDept_card_amount();
+		loan_amount += myasset.get(i).getDept_loan_amount();
+			
+	}
+	System.out.println(bank_amount);
 	
 	//태그
 	ArrayList<income_expenseVO> tg_list = dao.tagselect(loginD.getUser_id());
@@ -94,10 +106,16 @@ response.sendRedirect("signin.jsp");
 	
 	//연령대별 수입지출
 		ArrayList<AgeMonthVO> avg_20 = dao.avgselect20();
-	    System.out.print(avg_20.toString());
+	    System.out.println(avg_20.toString());
 	    
 		ArrayList<AgeMonthVO> avg_30 = dao.avgselect30();
-		System.out.print(avg_30.toString());
+		System.out.println(avg_30.toString());
+		
+		ArrayList<AgeMonthVO> avg_40 =dao.avgselect40();
+		System.out.println(avg_40.toString());
+		
+		ArrayList<AgeMonthVO> avg_50 =dao.avgselect50();
+		System.out.println(avg_50.toString());
     %>
 
 	<div class="container-fluid position-relative d-flex p-0">
@@ -283,7 +301,9 @@ response.sendRedirect("signin.jsp");
 	                    "rgba(235, 22, 22, .5)",
 	                    
 	                ],
-	                data: [80,70,50]
+	                data: [<%=bank_amount%>,
+	                	   <%=card_amount%>,
+	                	   <%=loan_amount%>]
 	            }]
 	        },
 	        options: {
@@ -293,43 +313,17 @@ response.sendRedirect("signin.jsp");
 	    
 		</script>
 				<script>
-				 // Worldwide Sales Chart
+				 // 태그 차트
 			    var ctx1 = $("#sales").get(0).getContext("2d");
 			    var myChart1 = new Chart(ctx1, {
 			        type: "bar",
 			        data: {
-			            labels: ["2월", "3월", "4월", "5월", "6월", "7월", "8월"],
+			            labels: ["저축/보험", "식비", "공과금", "생필품", "품위유지비", "교통비", "기타"],
 			            datasets: [{
+			            	
 			                    label: "저축/보험",
-			                    data: [27, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(235, 22, 22, .9)"
-			                },
-			                {
-			                    label: "식비",
-			                    data: [8, 35, 40, 60, 70, 55, 75],
-			                    backgroundColor: "rgba(235, 22, 22, .8)"
-			                },
-			                {
-			                    label: "공과금",
-			                    data: [12, 25, 45, 55, 65, 70, 60],
-			                    backgroundColor: "rgba(235, 22, 22, .7)"
-			                },
-			                {
-			                    label: "생필품",
-			                    data: [15, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(235, 22, 22, .6)"
-			                },{
-			                    label: "품위유지비",
-			                    data: [15, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(235, 22, 22, .5)"
-			                },{
-			                    label: "교통비",
-			                    data: [15, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(235, 22, 22, .4)"
-			                },{
-			                    label: "기타",
-			                    data: [40, 30, 55, 65, 60, 80, 95],
-			                    backgroundColor: "rgba(235, 22, 22, .3)"
+			                    data: [<%=saving%>,<%=foodexpenses%>,<%=dues%>,<%=dailynecessity%>,<%=dmc%>,<%=trans%>,<%=etc%>],
+			                    backgroundColor: "rgba(235, 22, 22, .9)",
 			                }]
 			            },
 			        options: {
@@ -358,14 +352,37 @@ response.sendRedirect("signin.jsp");
 	                    backgroundColor: "rgba(235, 22, 22, .7)"
 	                },
 	                {
-	                    label: "40대",
-	                    data: [8, 35, 40, 60, 70, 55, 75],
+	                    label: "30대",
+	                    data: [<%=avg_30.get(0).getAge_month()%>,
+	                    	<%=avg_30.get(1).getAge_month()%>,
+	                    	<%=avg_30.get(2).getAge_month()%>,
+	                    	<%=avg_30.get(3).getAge_month()%>,
+	                    	<%=avg_30.get(4).getAge_month()%>,
+	                    	<%=avg_30.get(5).getAge_month()%>,
+	                    	<%=avg_30.get(6).getAge_month()%>],
 	                    backgroundColor: "rgba(235, 22, 22, .5)"
 	                },
 	                {
-	                    label: "60대",
-	                    data: [12, 25, 45, 55, 65, 70, 60],
+	                    label: "40대",
+	                    data: [<%=avg_40.get(0).getAge_month()%>,
+	                    	<%=avg_40.get(1).getAge_month()%>,
+	                    	<%=avg_40.get(2).getAge_month()%>,
+	                    	<%=avg_40.get(3).getAge_month()%>,
+	                    	<%=avg_40.get(4).getAge_month()%>,
+	                    	<%=avg_40.get(5).getAge_month()%>,
+	                    	<%=avg_40.get(6).getAge_month()%>],
 	                    backgroundColor: "rgba(235, 22, 22, .3)"
+	                },
+	                {
+	                    label: "50대",
+	                    data: [<%=avg_50.get(0).getAge_month()%>,
+	                    	<%=avg_50.get(1).getAge_month()%>,
+	                    	<%=avg_50.get(2).getAge_month()%>,
+	                    	<%=avg_50.get(3).getAge_month()%>,
+	                    	<%=avg_50.get(4).getAge_month()%>,
+	                    	<%=avg_50.get(5).getAge_month()%>,
+	                    	<%=avg_50.get(6).getAge_month()%>],
+	                    backgroundColor: "rgba(235, 22, 22, .2)"
 	                }
 	            ]
 	             },
