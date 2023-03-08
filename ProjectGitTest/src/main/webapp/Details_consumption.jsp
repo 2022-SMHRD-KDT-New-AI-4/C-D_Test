@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.DAO_G"%>
 <%@page import="java.util.Random"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.income_expenseVO"%>
@@ -8,6 +9,7 @@
 <%@page import="com.smhrd.virtualData.bankVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -239,8 +241,8 @@
 								</div>
 							</div>
 							<%
-							}
-							}
+							} // for
+							} // else
 							%>
 						</div>
 
@@ -251,227 +253,146 @@
 			<!-- 항목별 지출 순위 (월 누적 데이터) End -->
 
 			<!-- 항목별 상세  Start-->
-			<div class="col-sm-12 col-xl-12">
-				<div class="bg-secondary rounded h-100 p-4">
-					<h6 class="mb-4">항목별 상세</h6>
-					<%
-					if (list == null) {
-						out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
-					} else {
-					%>
-
-					<div class="accordion" id="accordionExample">
-						<!-- 항목별 상세  Start-->
-
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">전체 항목
-								</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart1"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-						<%
-						}
-						%>
-						<div class="accordion-item bg-transparent">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">
-									저축/보험</button>
-							</h2>
-
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-
-									<div class="col-sm-12 col-xl-12">
-										<div class="bg-secondary rounded h-100 p-4"
-											style="height: 50px;">
-
-											<canvas id="line-chart2"></canvas>
-										</div>
-									</div>
-
-									<div class="table-responsive">
-										<table
-											class="table text-start align-middle table-bordered table-hover mb-0">
-											<thead>
-												<tr class="text-white">
-													<th scope="col"><input class="form-check-input"
-														type="checkbox"></th>
-													<th scope="col">Date</th>
-													<th scope="col">Invoice</th>
-													<th scope="col">Customer</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Status</th>
-													<th scope="col">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-												<tr>
-													<td><input class="form-check-input" type="checkbox"></td>
-													<td>01 Jan 2045</td>
-													<td>INV-0123</td>
-													<td>Jhon Doe</td>
-													<td>$123</td>
-													<td>Paid</td>
-													<td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-						
-			<!-- 항목별 상세  End-->
-
-
-
-			<!-- Footer Start -->
 			<div class="container-fluid pt-4 px-4">
-				<div class="bg-secondary rounded-top p-4">
-					<div class="row">
-						<div class="col-12 col-sm-6 text-center text-sm-start">
-							&copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.
-						</div>
-						<div class="col-12 col-sm-6 text-center text-sm-end">
-							<a style="color: #EB1616;">Team:</a><a>Dash&Cash</a> <br> <a
-								style="color: #EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
-						</div>
+			
+				<div class="col-sm-12 col-xl-13 text-center p-4">
+					<div class="row g-4 bg-secondary rounded">
+						<h2
+							style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별
+							지출 순위</h2>
+						<%
+						if (list == null) {
+							out.print("<h3 class='tgadd'>소비내역을 추가해주세요</h3>");
+						} else {
+							DAO_G daog = new DAO_G();
+							ArrayList<income_expenseVO> ie_list = daog.selectlist(loginD.getUser_id());
+						%>
+
+						<div class="accordion" id="accordionExample">
+							
+							<div class="accordion-item bg-transparent">
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne">전체
+										항목 상세</button>
+								</h2>
+								<div id="collapseOne" class="accordion-collapse collapse show"
+									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+
+										<div class="col-sm-12 col-xl-12">
+											<div class="bg-secondary rounded h-100 p-4"
+												style="height: 50px;">
+
+												<canvas id="line-chart1"></canvas>
+											</div>
+										</div>
+
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th scope="col">no</th>
+														<th scope="col">일자</th>
+														<th scope="col">은행명</th>
+														<th scope="col">소비현황</th>
+														<th scope="col">지출액</th>
+
+													</tr>
+												</thead>
+												<tbody>
+
+													<%
+													int index = 1;
+													for (int i = 0; i < ie_list.size(); i++) {
+														if (ie_list.get(i).getItem_type().equals("지출")) {
+															if (!ie_list.get(i).getItem_content().substring(0, 2).equals("대출")) {
+														if (!ie_list.get(i).getItem_tag().equals("상환") && !ie_list.get(i).getItem_tag().equals("기타")) {
+													%>
+													<tr>
+														<th scope="row"><%=index%></th>
+														<td><%=ie_list.get(i).getItem_dt().substring(0, 10)%></td>
+														<td><%=ie_list.get(i).getItem_content()%></td>
+														<td><%=ie_list.get(i).getItem_tag()%></td>
+														<td><fmt:formatNumber
+																value="<%=ie_list.get(i).getAmount()%>" pattern="#,###" /></td>
+														<%
+														index++;
+														}
+														}
+														}
+														}
+														%>
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<%		
+								for (int i = 0; i < list.size(); i++ ){
+									index = 1;%>
+				
+							<div class="accordion-item bg-transparent">
+								<h2 class="accordion-header" id="headingTwo">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo">
+										<%=list.get(i).getItem_tag() + " 상세" %></button>
+								</h2>
+								<div id="collapseTwo" class="accordion-collapse collapse"
+									aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+									<div class="accordion-body">Voluptua sit dolores
+										consetetur ea et diam est et takimata. Et erat sadipscing
+										dolores et stet diam ut ut diam, sit aliquyam no magna et
+										dolore lorem dolor sit. Lorem lorem sed sed duo, eirmod sit
+										diam ipsum sit erat, lorem sit dolor diam amet ea aliquyam
+										tempor rebum invidunt,.</div>
+								</div>
+							</div>
+							
+								<%
+								index++;
+								}%>
+								
+							
+						
 					</div>
 				</div>
 			</div>
-			<!-- Footer End -->
 		</div>
-		<!-- Content End -->
+
+		<%
+		}
+		%>
+		<!-- 항목별 상세  End-->
 
 
-		<!-- Back to Top -->
-		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-			class="bi bi-arrow-up"></i></a>
+
+		<!-- Footer Start -->
+		<div class="container-fluid pt-4 px-4">
+			<div class="bg-secondary rounded-top p-4">
+				<div class="row">
+					<div class="col-12 col-sm-6 text-center text-sm-start">
+						&copy; <a href="index.jsp">CASH&DASH</a>, All Right Reserved.
+					</div>
+					<div class="col-12 col-sm-6 text-center text-sm-end">
+						<a style="color: #EB1616;">Team:</a><a>Dash&Cash</a> <br> <a
+							style="color: #EB1616;">Member:</a><a>CJH.GGW.LCM.JHM.JYJ.KSM</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer End -->
+	</div>
+	<!-- Content End -->
+
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+		class="bi bi-arrow-up"></i></a>
 
 	</div>
 
@@ -521,8 +442,8 @@
 									"rgba(235, 22, 22, .1)", ],
 							data : [
 	<%for (int i = 0; i < list.size(); i++) {
-										out.print(list.get(i).getAmount() + ",");
-									}%>
+	out.print(list.get(i).getAmount() + ",");
+}%>
 		]
 						} ]
 					},
@@ -566,134 +487,9 @@
 				responsive : true
 			}
 		});
-		// Single Line Chart
-		var ctx3 = $("#line-chart3").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart4").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart5").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart6").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart7").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart8").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
-
-		// Single Line Chart
-		var ctx3 = $("#line-chart9").get(0).getContext("2d");
-		var myChart3 = new Chart(ctx3, {
-			type : "line",
-			data : {
-				labels : [ 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 ],
-				datasets : [ {
-					label : "Salse",
-					fill : false,
-					backgroundColor : "rgba(235, 22, 22, .7)",
-					data : [ 7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15 ]
-				} ]
-			},
-			options : {
-				responsive : true
-			}
-		});
+		
+		
 	</script>
-
-
 </body>
 
 </html>
