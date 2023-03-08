@@ -168,7 +168,7 @@ response.sendRedirect("signin.jsp");
 				<div class="bg-secondary rounded h-100 p-4">
 					<h2 class="mb-4" style="text-align: center;">내 자산 추가</h2>
 					<div class="form-check">
-							<form action="assetAddservice" method="post">
+							<form name="frm" action="assetAddservice" method="post">
 							
 								<input class="form-check-input" type="radio"
 									name="flexRadioDefault" id="ckMoney" onclick="showHideDiv()">
@@ -296,8 +296,9 @@ response.sendRedirect("signin.jsp");
 				
 
 	<hr>
+	</div>
 	<div style="text-align: center;">
-		<button type="submit" class="btn btn-success m-2" onclick="Asset_Add()">자산 추가</button>
+		<button type="button" class="btn btn-success m-2" onclick="Asset_Add()">자산 추가</button>
 		<button type="button" class="btn btn-warning m-2" onclick="location.href='UserAsset.jsp'">뒤로가기</button>
 				</form>
 
@@ -306,10 +307,13 @@ response.sendRedirect("signin.jsp");
 				let returnValue = confirm('자산을 추가하시겠습니까?');
 				if (returnValue === true) { // 확인 버튼을 눌렀을 경우
 					returnValue = '자산이 추가되었습니다.';
+					alert(returnValue);
+					document.frm.submit();
 				} else { // 취소 버튼을 눌렀을 경우
 					returnValue = '취소되었습니다. ';
+				    return false;
 				}
-				alert(returnValue);
+				
 			}
 		
 		</script>

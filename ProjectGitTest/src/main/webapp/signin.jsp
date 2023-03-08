@@ -148,7 +148,7 @@ response.sendRedirect("Mypage.jsp");
                         </div>
                         <div class="form-floating mb-4">
                             <input name="user_pw" id="user_pw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">비밀번호</label>
+                            <label for="floatingPassword">패스워드</label>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="signin();">로그인</button>
                         </form>
@@ -170,7 +170,7 @@ response.sendRedirect("Mypage.jsp");
                             	   }                               
                                },
                                error : function(err) {
-                                  alert("아이디를 입력해주세요.");
+                                  alert("아이디와 패스워드를 확인하세요.");
                                   location.href ="signin.jsp";
                                }
                             });
