@@ -43,7 +43,7 @@
    border-bottom:0px;
    padding-bottom: 100%;
    line-height: 20px; 
-   color: #ffdc3c; 
+   color: #EB1616; 
    text-shadow: 3px 4px 3px #888888;  
 }
 
@@ -54,7 +54,7 @@
 
 #message {
    font-size: 90px;
-   color: white;
+   color: #6C7293;
    font-family: '나눔 손글씨 붓','Nanum Brush Script';
    line-height: 100%;
    margin-top: 18%;
@@ -82,7 +82,7 @@
 }
 
 .first {
-   background-color: #4baf4b; 
+   background-color:  #000000; 
    display: flex;
    justify-content: center;
    align-items: center;
