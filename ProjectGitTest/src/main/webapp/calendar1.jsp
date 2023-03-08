@@ -157,7 +157,7 @@
                     if (plusDate == 0) {
                         $("#calendar tbody:last").append("<tr></tr>");
                     }
-                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br><span><br></span> <span>수입</span> : <span id='dtIn"+i+"' style='color :red;'></span><br><span>지출</span> :<span id='dtOut"+i+"' style='color :blue;'></span></td>");
+                    $("#calendar tbody:last").append("<td id='dt"+i+"' class='date' onclick='go("+i+")'>" + i +"<br> <span>수입</span> : <span id='dtIn"+i+"' style='color :red;'></span><br><span>지출</span> :<span id='dtOut"+i+"' style='color :blue;'></span></td>");
                     
                     if(b=="수입"){ 
                      	 $("#dtIn"+i).text(a)
@@ -333,7 +333,7 @@ response.sendRedirect("signin.jsp");
         	<thead>
             	<tr>
                	 <th><input style="color: #EB1616" name="preMon" type="button" value="<"></th>
-                	<th  style="color: #EB1616" colspan="5" class="year_mon"></th>
+                	<th  style="color: #EB1616" colspan="5" class="year_mon" align="center"></th>
                 	<th><input style="color: #EB1616" name="nextMon" type="button" value=">"></th>
             	</tr>
            		 <tr style="color: #EB1616">
