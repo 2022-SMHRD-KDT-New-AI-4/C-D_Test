@@ -54,9 +54,9 @@
 <body>
 
 	<% userVO loginD = (userVO) session.getAttribute("loginD"); %>
-<% if(loginD == null){
-response.sendRedirect("signin.jsp");	
-}	%>
+<% //if(loginD == null){
+//response.sendRedirect("signin.jsp");	
+//}	%>
 	<%DAO_Z dao = new DAO_Z();
 	System.out.println(loginD.getUser_id());
 	List<assetVO> asvo =dao.myAsset(loginD.getUser_id());	

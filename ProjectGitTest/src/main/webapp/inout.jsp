@@ -53,19 +53,19 @@
 #income {
 	display: inline;
 	position: relative;
-	left: 20px;
+
 }
 
 #expense {
 	display: inline;
 	position: relative;
-	left: 600px;
+	left : 550px;
 }
 
 #all {
 	display: inline;
 	position: relative;
-	left: 1300px;
+	left : 1100px;
 }
 
 .col-sm-12 .col-xl-12 {
@@ -174,7 +174,7 @@ response.sendRedirect("signin.jsp");
 						<div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
 							<a href="Mypage.jsp" class="dropdown-item">마이페이지</a> 
 							<a href="Mypage_modify.jsp" class="dropdown-item">마이페이지 수정</a> 
-							<a href="Enterance.jsp" class="dropdown-item">로그아웃</a>
+							<a href="logoutservice" class="dropdown-item">로그아웃</a>
 						</div>
 
 
@@ -186,51 +186,40 @@ response.sendRedirect("signin.jsp");
 
 
 			<!--chart start  -->
-
+			<div class="container-fluid pt-4 px-4">
 			<div class="col-sm-12 col-xl-8" style="padding-left: 500px">
 				<div class="bg-secondary rounded h-100 p-4">
 					<h6 class="mb-4" style="text-align: center;">입/지출 상세내역</h6>
 					<canvas id="pie-chart"></canvas>
 				</div>
 			</div>
+			</div>
 			
-			<div id="income">
-				수입 :<%
-			     int income = 0;
-			     for (int i = 0; i < ie_list.size(); i++) {
-			    %>
-				<%
-				if (ie_list.get(i).getItem_type().equals("수입")) {
-				%>
-				<%
-				income += (int) ie_list.get(i).getAmount();
-				}
-				%>
-				<%
-				}
-				%>
-				<%=income%></div>
-
-			<div id="expense">지출 :<%
-			     int expense = 0;
-			     for (int i = 0; i < ie_list.size(); i++) {
-			    %>
-				<%
-				if (ie_list.get(i).getItem_type().equals("지출")) {
-				%>
-				<%
-				expense += (int) ie_list.get(i).getAmount();
-				}
-				%>
-				<%
-				}
-				%>
-				<%=expense%></div>
-				
-			<div id="all">전체 :<%=income-expense %></div>	
+			<div class="container-fluid pt-4 px-4">
+				<div class="bg-secondary rounded-top p-4">
+					<div class="row">
+						<div class="col-12 col-sm-6 text-center text-sm-start">
+							<h6 id="income">수입&nbsp;:&nbsp;<%
+							     		int income = 0;
+							     		for (int i = 0; i < ie_list.size(); i++) {
+											if (ie_list.get(i).getItem_type().equals("수입")) {
+												income += (int) ie_list.get(i).getAmount();
+												}
+											}%><a style="color: #6C7293"><%=income%>원</a></h6>
+							<h6 id="expense">지출&nbsp;:&nbsp;<%
+							     		int expense = 0;
+							     		for (int i = 0; i < ie_list.size(); i++) {
+											if (ie_list.get(i).getItem_type().equals("지출")) {
+												expense += (int) ie_list.get(i).getAmount();
+												}
+										}%><a style="color: #6C7293"><%=expense%>원</a></h6>	
+							<h6 id="all">전체&nbsp;:&nbsp;<a style="color: #6C7293"><%=income-expense %>원</a></h6>	
+							</div></div></div></div>
 			<!--  chart end  -->
 
 			<!-- Table Start -->
+			<div class="container-fluid pt-4 px-4">
+				<div class="bg-secondary rounded-top p-4">
 			<div class="col-sm-12 col-xl-12"
 				style="padding-left: 20px; padding-right: 20px;">
 				<div class="bg-secondary rounded h-100 p-4">
@@ -279,7 +268,7 @@ response.sendRedirect("signin.jsp");
 									if (ie_list.get(i).getItem_type().equals("수입")) {
 									%>
 									<td><%=ie_list.get(i).getAmount()%></td>
-									<td></td>
+									<td></td></tr>
 									<%
 									}
 									%>
@@ -291,9 +280,7 @@ response.sendRedirect("signin.jsp");
 						</table>
 						<div class="col-sm-12 col-xl-5">
 							<div class="bg-secondary rounded h-100 p-4">
-
-								<div class="btn-toolbar" role="toolbar"
-									style="margin-left: 600px;">
+								<div class="btn-toolbar" role="toolbar" style="margin-left: 600px;">
 									<div class="btn-group me-2" role="group"
 										aria-label="First group">
 										<button type="button" class="btn btn-primary">1</button>
@@ -311,8 +298,8 @@ response.sendRedirect("signin.jsp");
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+			</div>
+			</div>
 	<!-- Table End -->
 
 
