@@ -68,7 +68,7 @@
    text-shadow: 1px 2px 5px #888888;
    animation: typing 8s steps(60, end) forwards;
 }
-
+ 
 
 #message2 {
    color:#6C7293;
