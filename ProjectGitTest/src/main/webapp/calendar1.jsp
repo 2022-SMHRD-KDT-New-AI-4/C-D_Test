@@ -226,7 +226,11 @@ response.sendRedirect("signin.jsp");
 }	
 
 %>
-<%for(int i =0; i < ie_list.size();i++) {%>
+<%for(int i =0; i < ie_list.size();i++) {
+	// 2023-03-09
+
+String[] dt  = {ie_list.get(i).getItem_dt().substring(0, 4), ie_list.get(i).getItem_dt().substring(5, 7),ie_list.get(i).getItem_dt().substring(8)};
+%>
 <input style="display: none" id="inOut<%=i %>" value="<%= ie_list.get(i).getAmount()%>">
 <input style="display: none" id="type<%=i %>" value="<%= ie_list.get(i).getItem_type()%>">
 <%} %>
