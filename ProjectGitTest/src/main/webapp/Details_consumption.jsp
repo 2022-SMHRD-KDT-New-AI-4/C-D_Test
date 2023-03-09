@@ -189,7 +189,7 @@
 
 						<h2
 							style="text-align: left; margin-top: 20px; margin-bottom: 0px; display: inline;">항목별
-							지출 순위</h2>
+							상세 내용</h2>
 
 						<!-- Chart Start -->
 						<div class="col-sm-12 col-xl-5" style="margin-left: 200px;">
