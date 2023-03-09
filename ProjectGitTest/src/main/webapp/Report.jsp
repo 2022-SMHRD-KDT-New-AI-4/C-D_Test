@@ -321,7 +321,7 @@ response.sendRedirect("signin.jsp");
 			            labels: [ "식비", "공과금", "생필품", "품위유지비", "교통비", "기타"],
 			            datasets: [{
 			            	
-			                    label: "저축/보험",
+			                   label: "항목별소비액",
 			                    data: [<%=foodexpenses%>,<%=dues%>,<%=dailynecessity%>,<%=dmc%>,<%=trans%>,<%=etc%>],
 			                    backgroundColor: "rgba(235, 22, 22, .9)",
 			                }]
